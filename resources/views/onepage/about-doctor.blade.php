@@ -16,7 +16,7 @@
                                 <?php 
                                     $new_departments = json_decode($doctor->departments);
                                     foreach($new_departments as $name) {
-                                        echo '<span>'.$name.'</span></br>';
+                                        echo '<span>'.$name.'</span></br>'
                                     }
                                 ?>
                             </a>
