@@ -1,22 +1,39 @@
 @extends('base')
 
 @section('content')
+@if (!$mainSlider->isEmpty())
+<section id="featured">
+    <!-- Slider -->
+    <div id="main-slider" class="flexslider">
+        <ul class="slides">
+            @foreach($mainSlider as $item)
+            <li>
+                <img
+                    src="{{ URL::route('resizes', array('size' => 'bannerOnePage', 'imagePath' => 'BVTH/bannerMain/'.$item->image_file_name)) }}" />
+            </li>
+            @endforeach
+        </ul>
+    </div>
+    <!-- end slider -->
+</section>
+@endif
 <section id="content">
     <div class="container">
         <div class="row about-doctor">
+            <h1 class="content-title">ĐỘI NGŨ BÁC SĨ</h1>
             @foreach($doctors as $doctor)
             <div class="col-md-3 col-12 item">
                 <div class="relative-item">
                     <img
                         src="{{ URL::route('resizes', array('size' => 'doctor', 'imagePath' => 'BVTH/DoctorBvth/'.$doctor->image_file_name)) }}" />
                     <div class="wrap-item">
-                        <div class="content">
-                            <a href="#" data-toggle="modal" data-target="#doctor_{{ $doctor->id }}">
+                        <div class="content" data-toggle="modal" data-target="#doctor_{{ $doctor->id }}">
+                            <a href="#">
                                 <p>{{ $doctor->name }}</p>
                                 <?php 
                                     $new_departments = json_decode($doctor->departments);
                                     foreach($new_departments as $name) {
-                                        echo '<span>'.$name.'</span></br>'
+                                        echo '<span>'.$name.'</span></br>';
                                     }
                                 ?>
                             </a>

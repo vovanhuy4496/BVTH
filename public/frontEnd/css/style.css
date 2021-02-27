@@ -16,6 +16,11 @@ body {
 	color: #656565;
 }
 
+.contactInfo .row {
+	margin: 0;
+	padding: 10px 0;
+}
+
 /*  */
 .about-doctor .modaltitle {
     background: #005296 none repeat scroll 0 0;
@@ -70,7 +75,7 @@ body {
 .about-doctor .item {
 	/* display: inline-block;
     vertical-align: top; */
-    margin: 0 7px;
+    /* margin: 0 7px; */
     /* margin-bottom: 20px; */
     cursor: pointer;
 }
@@ -148,6 +153,7 @@ body {
     padding-bottom: 15px;
     margin-bottom: 25px;
     text-align: center;
+	padding-top: 50px;
 }
 
 .content-title::before {
@@ -358,7 +364,7 @@ h6 {
 }
 
 .container {
-	padding: 0 20px 0 20px;
+	/* padding: 0 20px 0 20px; */
 	position: relative;
 }
 
@@ -460,8 +466,8 @@ header .navbar-default .navbar-nav>.open>a:focus {
 }
 
 header .navbar {
-	min-height: 70px;
-	padding: 18px 0;
+	/* min-height: 70px; */
+	padding: 10px 0;
 }
 
 header .navbar-nav>li {
@@ -829,7 +835,7 @@ section.callaction {
 #content {
 	position: relative;
 	background: #FFFFFF;
-	padding: 50px 0 0px 0;
+	/* padding: 50px 0 0px 0; */
 }
 
 #content img {
@@ -1527,29 +1533,42 @@ li .active {
 	background: #269b9e;
 }
 
-.contact-area {
-	/* float: right; */
+/* .contact-area {
+	float: right;
 	padding: 15px 0 5px;
-}
+} */
 
 .contact-area-left {
 	float: left;
 }
 
+/* .contact-area-left ul {
+	margin: 0;
+} */
+
 .contact-area-right {
 	float: right;
-	height: 115px;
+	/* height: 115px; */
 }
 
 .contact-area-right ul {
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
+    /* position: relative; */
+    /* top: 62%; */
+    /* transform: translateY(150%); */
+    margin: 0;
 }
 
-.contact-area ul li {
-	display: inline-block;
-	margin-left: 40px;
+.contact-area-transform {
+	transform: translateY(50%);
+}
+
+/* .contact-area ul li:first {
+	margin: 0;
+} */
+
+.contact-area-right ul li {
+	/* display: inline-block; */
+	/* margin-left: 40px; */
 	color: #3C3D42;
 	font-size: 17px;
 	font-family: 'Raleway', sans-serif;
@@ -1557,13 +1576,17 @@ li .active {
 	color: #fff;
 }
 
-.contact-area ul li.info-logo {
+.contact-area-right ul li i {
+	margin-right: 10px;
+}
+
+/* .contact-area ul li.info-logo {
 	margin-left: 0px;
 }
 
 .contact-area ul li i {
 	margin-right: 10px;
-}
+} */
 
 
 /* --- Map --- */
@@ -2145,6 +2168,13 @@ span.post-meta-bottom a {
 ============================= */
 
 @media (min-width: 768px) and (max-width: 979px) {
+	.contact-area-right {
+		display: none;
+	}
+	.contact-area-center {
+		display: flex;
+		justify-content: center;
+	}
 	a.detail {
 		background: none;
 		width: 100%;
@@ -2173,7 +2203,14 @@ span.post-meta-bottom a {
 }
 
 @media (max-width: 767px) {
-	.contact-area-left {
+	.contact-area-right {
+		display: none;
+	}
+	.contact-area-center {
+		display: flex;
+		justify-content: center;
+	}
+	/* .contact-area-left {
 		padding: 0;
 		padding-top: 10px;
 	}
@@ -2188,7 +2225,7 @@ span.post-meta-bottom a {
 		position: unset;
 		top: unset;
 		transform: unset;
-	}
+	} */
 	.logoDesktop {
 		display: none;
 	}

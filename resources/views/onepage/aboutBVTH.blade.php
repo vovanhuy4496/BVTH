@@ -1,12 +1,28 @@
 @extends('base')
 
 @section('content')
+@if (!$mainSlider->isEmpty())
+<section id="featured">
+    <!-- Slider -->
+    <div id="main-slider" class="flexslider">
+        <ul class="slides">
+            @foreach($mainSlider as $item)
+            <li>
+                <img
+                    src="{{ URL::route('resizes', array('size' => 'bannerOnePage', 'imagePath' => 'BVTH/bannerMain/'.$item->image_file_name)) }}" />
+            </li>
+            @endforeach
+        </ul>
+    </div>
+    <!-- end slider -->
+</section>
+@endif
 <section id="content">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 @if(!empty($aboutBVTH->title))
-                    <h1 class="content-title">{{ $aboutBVTH->title }}</h1>                
+                    <h1 class="content-title">{{ $aboutBVTH->title }}</h1>
                 @endif
 
                 @if(!empty($aboutBVTH->content))

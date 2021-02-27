@@ -10,6 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('resizes/{size}/{imagePath}', array(
+    'as'   => 'resizes',
+    'uses' => 'ImageController@flyResize'
+))->where('imagePath', '(.*)');
+
 Route::get('/', 'HomepageController@index');
 Route::get('/index', 'HomepageController@index');
 Route::get('/ve-chung-toi', 'OnePageController@about');
@@ -156,10 +162,6 @@ Route::group(['middleware' => ['get.menu']], function () {
         });
         // huy comment
 
-        Route::get('resizes/{size}/{imagePath}', array(
-            'as'   => 'resizes',
-            'uses' => 'ImageController@flyResize'
-        ))->where('imagePath', '(.*)');
         Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload-ckeditor');
     });
 });

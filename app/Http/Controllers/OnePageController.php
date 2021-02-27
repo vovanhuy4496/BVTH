@@ -7,20 +7,27 @@ use App\Models\AboutBVTH;
 use App\Models\AdBannerFooter;
 use App\Models\DoctorBvth;
 use App\Models\Department;
+use App\Models\AdBannerMain;
 
 class OnePageController extends Controller
 {
     public function about()
     {
         $footerSlider = AdBannerFooter::where('status', 1)->orderBy('sort')->get();
+        $mainSlider = AdBannerMain::where('status', 1)->orderBy('sort')->get();
 
         $aboutBVTH = AboutBVTH::where('status', 1)->orderBy('sort')->take(1)->first();
-        return view('onepage.aboutBVTH', ['aboutBVTH' => $aboutBVTH, 'footerSlider' => $footerSlider]);
+        return view('onepage.aboutBVTH', [
+            'aboutBVTH' => $aboutBVTH, 
+            'footerSlider' => $footerSlider, 
+            'mainSlider' => $mainSlider,
+            ]);
     }
 
     public function about_doctor()
     {
         $footerSlider = AdBannerFooter::where('status', 1)->orderBy('sort')->get();
+        $mainSlider = AdBannerMain::where('status', 1)->orderBy('sort')->get();
 
         $doctors = DoctorBvth::where('status', 1)->orderBy('sort', 'DESC')->get();
         foreach($doctors as $item) {
@@ -39,7 +46,8 @@ class OnePageController extends Controller
         return view('onepage.about-doctor', [
             'doctors' => $doctors,
             'departments' => $departments,
-            'footerSlider' => $footerSlider
+            'footerSlider' => $footerSlider,
+            'mainSlider' => $mainSlider,
             ]);
     }
 
