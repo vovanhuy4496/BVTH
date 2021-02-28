@@ -15,7 +15,7 @@
                             @method('PUT')
                             <div class="form-group row">
                                 <label>Tên Album</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Tên Album') }}" name="name" value="{{ $album->name }}" autofocus required>
+                                <input class="form-control" type="text" placeholder="{{ __('Tên Album') }}" name="name" value="{{ $album->name }}" required>
                             </div>
 
                             <div class="form-group row">
@@ -66,7 +66,7 @@
 
                             <div class="form-group row">
                                 <label>Vị trí hiển thị</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}" name="sort" autofocus required value="{{ $album->sort }}">
+                                <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}" name="sort" required value="{{ $album->sort }}">
                             </div>
  
                             <button class="btn btn-block btn-success" type="submit">{{ __('Lưu') }}</button>

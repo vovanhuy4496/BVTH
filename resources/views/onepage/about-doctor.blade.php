@@ -30,8 +30,8 @@
                 </select>
             </div>
             @foreach($doctors as $doctor)
-            <div id="item-action" class="col-md-3 col-12 item 
-                <?php 
+            <div class="col-md-3 col-sm-6 item item-action 
+                <?php
                     $ids = json_decode($doctor->departments);
                     foreach($ids as $id) {
                         echo 'department_'.$id.' ';
@@ -117,8 +117,12 @@
 @section('javascript')
 <script>
 $('.department').change(function() {
-    $('#item-action').hide();
-    $('#item-action.department_' + $(this).val()).show();
+    if ($(this).val()) {
+        $('.item-action').hide();
+        $('.item-action.department_' + $(this).val()).show();
+    } else {
+        $('.item-action').show();
+    }
 });
 </script>
 @endsection

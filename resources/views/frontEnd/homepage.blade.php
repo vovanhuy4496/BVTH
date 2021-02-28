@@ -79,22 +79,22 @@
                 <div id="medical-appointment">
                     <div class="form-group">
                         <input class="form-control cus_name required" type="text" placeholder="Họ tên (*)"
-                            name="cus_name" autofocus required>
+                            name="cus_name" required>
                     </div>
 
                     <div class="form-group">
                         <input class="form-control cus_phone required" type="text" placeholder="Số điện thoại (*)"
-                            name="cus_phone" autofocus required>
+                            name="cus_phone" required>
                     </div>
 
                     <div class="form-group">
                         <input class="form-control cus_email" type="text" placeholder="Email"
-                            name="cus_email" autofocus>
+                            name="cus_email">
                     </div>
 
                     <div class="form-group birth-gender">
                         <input class="date form-control cus_birth required" type="text" placeholder="Ngày sinh (*)"
-                            name="cus_birth" autofocus required>
+                            name="cus_birth" required>
                         <select class="form-control cus_gender" data-live-search="true" name="gender" required>
                             <option value="Nam">Nam</option>
                             <option value="Nữ">Nữ</option>
@@ -103,7 +103,7 @@
 
                     <div class="form-group">
                         <input class="form-control describe_symptoms" type="text" placeholder="Triệu chứng"
-                            name="describe_symptoms" autofocus>
+                            name="describe_symptoms">
                     </div>
 
                     <div class="form-group">

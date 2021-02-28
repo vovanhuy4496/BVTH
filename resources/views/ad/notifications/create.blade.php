@@ -14,7 +14,7 @@
                             @csrf
                             <div class="form-group row">
                                 <label>Tiêu đề</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Tiêu đề') }}" name="title" autofocus required>
+                                <input class="form-control" type="text" placeholder="{{ __('Tiêu đề') }}" name="title" required>
                             </div>
 
                             <div class="form-group row summary-ckeditor">
@@ -30,7 +30,7 @@
 
                             <div class="form-group row">
                                 <label>Vị trí hiển thị</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}" name="sort" autofocus required value="{{ $sort }}">
+                                <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}" name="sort" required value="{{ $sort }}">
                             </div>
 
                             <button class="btn btn-block btn-success" type="submit">{{ __('Thêm mới') }}</button>

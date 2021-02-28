@@ -18,31 +18,31 @@
                             <div class="form-group row">
                                 <label>Họ tên</label>
                                 <input class="form-control" type="text" placeholder="{{ __('Họ tên') }}" name="name"
-                                    value="{{ $item->name }}" autofocus>
+                                    value="{{ $item->name }}">
                             </div>
 
                             <div class="form-group row">
                                 <label>SĐT</label>
                                 <input class="form-control" type="text" placeholder="{{ __('SĐT') }}" name="phone"
-                                    value="{{ $item->phone }}" autofocus>
+                                    value="{{ $item->phone }}">
                             </div>
 
                             <div class="form-group row">
                                 <label>Email</label>
                                 <input class="form-control" type="text" placeholder="{{ __('SĐT') }}" name="email"
-                                    value="{{ $item->email }}" autofocus>
+                                    value="{{ $item->email }}">
                             </div>
 
                             <div class="form-group row">
                                 <label>Triệu chứng</label>
                                 <textarea class="form-control" type="text" placeholder="{{ __('Triệu chứng') }}"
-                                    name="describe_symptoms" autofocus>{{ $item->describe_symptoms }}</textarea>
+                                    name="describe_symptoms">{{ $item->describe_symptoms }}</textarea>
                             </div>
 
                             <div class="form-group row">
                                 <label>Ngày sinh</label>
                                 <input class="form-control" type="text" placeholder="{{ __('Ngày sinh') }}" name="birth"
-                                    value="{{ $item->birth }}" autofocus>
+                                    value="{{ $item->birth }}">
                             </div>
 
                             <div class="form-group row">
@@ -64,7 +64,7 @@
                             <div class="form-group row">
                                 <label>Ngày giờ đặt lịch</label>
                                 <input class="form-control" type="text" placeholder="{{ __('Ngày giờ đặt lịch') }}"
-                                    name="appointment_date" value="{{ $item->appointment_date }}" autofocus>
+                                    name="appointment_date" value="{{ $item->appointment_date }}">
                             </div>
 
                             <div class="form-group row">
@@ -117,7 +117,7 @@
                             <div class="form-group row">
                                 <label>Vị trí hiển thị</label>
                                 <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}"
-                                    name="sort" autofocus required value="{{ $item->sort }}">
+                                    name="sort" required value="{{ $item->sort }}">
                             </div>
 
                             <button class="btn btn-block btn-success" type="submit">{{ __('Lưu') }}</button>

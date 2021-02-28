@@ -15,11 +15,11 @@
                             @method('PUT')
                             <div class="form-group row">
                                 <label>Tên</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Tên') }}" name="name" value="{{ $banner->name }}" autofocus>
+                                <input class="form-control" type="text" placeholder="{{ __('Tên') }}" name="name" value="{{ $banner->name }}">
                             </div>
                             <div class="form-group row">
                                 <label>Mô tả</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Mô tả') }}" name="describe" value="{{ $banner->describe }}" autofocus>
+                                <input class="form-control" type="text" placeholder="{{ __('Mô tả') }}" name="describe" value="{{ $banner->describe }}">
                             </div>
 
                             <div class="form-group row">
@@ -45,7 +45,7 @@
 
                             <div class="form-group row">
                                 <label>Vị trí hiển thị</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}" name="sort" autofocus required value="{{ $banner->sort }}">
+                                <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}" name="sort" required value="{{ $banner->sort }}">
                             </div>
  
                             <button class="btn btn-block btn-success" type="submit">{{ __('Lưu') }}</button>

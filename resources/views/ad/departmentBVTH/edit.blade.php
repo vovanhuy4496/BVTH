@@ -15,7 +15,7 @@
                             @method('PUT')
                             <div class="form-group row">
                                 <label>Tên phòng ban</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Tên phòng ban') }}" name="name" value="{{ $department->name }}" autofocus>
+                                <input class="form-control" type="text" placeholder="{{ __('Tên phòng ban') }}" name="name" value="{{ $department->name }}">
                             </div>
                             
                             <div class="form-group row bvth-status">
@@ -30,7 +30,7 @@
 
                             <div class="form-group row">
                                 <label>Vị trí hiển thị</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}" name="sort" autofocus required value="{{ $department->sort }}">
+                                <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}" name="sort" required value="{{ $department->sort }}">
                             </div>
  
                             <button class="btn btn-block btn-success" type="submit">{{ __('Lưu') }}</button>

@@ -15,7 +15,7 @@
                             @method('PUT')
                             <div class="form-group row">
                                 <label>Họ tên Bác sĩ</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Họ tên Bác sĩ') }}" name="name" value="{{ $doctor->name }}" autofocus>
+                                <input class="form-control" type="text" placeholder="{{ __('Họ tên Bác sĩ') }}" name="name" value="{{ $doctor->name }}">
                             </div>
 
                             <div class="form-group row">
@@ -36,22 +36,22 @@
 
                             <div class="form-group row">
                                 <label>Chức vụ</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Chức vụ') }}" name="position" value="{{ $doctor->position }}" autofocus required>
+                                <input class="form-control" type="text" placeholder="{{ __('Chức vụ') }}" name="position" value="{{ $doctor->position }}" required>
                             </div>
 
                             <div class="form-group row">
                                 <label>Chuyên ngành</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Chuyên ngành') }}" name="specialized" value="{{ $doctor->specialized }}" autofocus required>
+                                <input class="form-control" type="text" placeholder="{{ __('Chuyên ngành') }}" name="specialized" value="{{ $doctor->specialized }}" required>
                             </div>
 
                             <div class="form-group row">
                                 <label>Kinh nghiệm</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Kinh nghiệm') }}" name="experience" value="{{ $doctor->experience }}" autofocus required>
+                                <input class="form-control" type="text" placeholder="{{ __('Kinh nghiệm') }}" name="experience" value="{{ $doctor->experience }}" required>
                             </div>
 
                             <div class="form-group row">
                                 <label>Ngoại ngữ</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Ngoại ngữ') }}" name="language" value="{{ $doctor->language }}" autofocus required>
+                                <input class="form-control" type="text" placeholder="{{ __('Ngoại ngữ') }}" name="language" value="{{ $doctor->language }}" required>
                             </div>
 
                             <div class="form-group row summary-ckeditor">
@@ -82,7 +82,7 @@
 
                             <div class="form-group row">
                                 <label>Vị trí hiển thị</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}" name="sort" autofocus required value="{{ $doctor->sort }}">
+                                <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}" name="sort" required value="{{ $doctor->sort }}">
                             </div>
  
                             <button class="btn btn-block btn-success" type="submit">{{ __('Lưu') }}</button>

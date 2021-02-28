@@ -76,7 +76,7 @@ body {
 	/* display: inline-block;
     vertical-align: top; */
     /* margin: 0 7px; */
-    /* margin-bottom: 20px; */
+    margin-bottom: 20px;
     cursor: pointer;
 }
 
@@ -241,7 +241,7 @@ section#service {
 
 .lich-left .content {
 	position: absolute;
-	top: 80px;
+	top: 180px;
 	left: 30%;
 	width: 250px;
 }
@@ -1397,6 +1397,10 @@ ul.link-list li {
 
 footer {
 	background: #363839;
+}
+
+footer .widget i {
+	padding-right: 10px;
 }
 
 footer ul.link-list li a {

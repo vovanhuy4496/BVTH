@@ -27,6 +27,7 @@ return [
         'bannerOnePage' => [1260, 230],
         'bannerFooter' => [132, 90],
         'doctor' => [212, 277],
+        'doctorMobile' => [150, 195],
         'doctorPopup' => [180, 235],
         'logoMobile' => [300, 53],
         'logoDesktop' => [474, 85],

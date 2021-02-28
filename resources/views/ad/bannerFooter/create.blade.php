@@ -14,11 +14,11 @@
                             @csrf
                             <div class="form-group row">
                                 <label>Tên</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Tên') }}" name="name" autofocus>
+                                <input class="form-control" type="text" placeholder="{{ __('Tên') }}" name="name">
                             </div>
                             <div class="form-group row">
                                 <label>Mô tả</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Mô tả') }}" name="describe" autofocus>
+                                <input class="form-control" type="text" placeholder="{{ __('Mô tả') }}" name="describe">
                             </div>
 
                             <div class="form-group row">
@@ -36,7 +36,7 @@
 
                             <div class="form-group row">
                                 <label>Vị trí hiển thị</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}" name="sort" autofocus required value="{{ $sort }}">
+                                <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}" name="sort" required value="{{ $sort }}">
                             </div>
 
                             <button class="btn btn-block btn-success" type="submit">{{ __('Thêm mới') }}</button>

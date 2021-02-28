@@ -15,22 +15,22 @@
                             @method('PUT')
                             <div class="form-group row">
                                 <label>Keyword</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Keyword') }}" name="keyword" value="{{ $aboutBVTH->keyword }}" autofocus required>
+                                <input class="form-control" type="text" placeholder="{{ __('Keyword') }}" name="keyword" value="{{ $aboutBVTH->keyword }}" required>
                             </div>
 
                             <div class="form-group row">
                                 <label>Meta Title</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Meta Title') }}" name="meta_title" value="{{ $aboutBVTH->meta_title }}" autofocus required>
+                                <input class="form-control" type="text" placeholder="{{ __('Meta Title') }}" name="meta_title" value="{{ $aboutBVTH->meta_title }}" required>
                             </div>
 
                             <div class="form-group row">
                                 <label>Meta Description</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Meta Description') }}" name="meta_description" value="{{ $aboutBVTH->meta_description }}" autofocus required>
+                                <input class="form-control" type="text" placeholder="{{ __('Meta Description') }}" name="meta_description" value="{{ $aboutBVTH->meta_description }}" required>
                             </div>
 
                             <div class="form-group row">
                                 <label>Tiêu đề</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Tiêu đề') }}" name="title" value="{{ $aboutBVTH->title }}" autofocus>
+                                <input class="form-control" type="text" placeholder="{{ __('Tiêu đề') }}" name="title" value="{{ $aboutBVTH->title }}">
                             </div>
 
                             <div class="form-group row">
@@ -55,7 +55,7 @@
 
                             <div class="form-group row">
                                 <label>Vị trí hiển thị</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}" name="sort" autofocus required value="{{ $aboutBVTH->sort }}">
+                                <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}" name="sort" required value="{{ $aboutBVTH->sort }}">
                             </div>
  
                             <button class="btn btn-block btn-success" type="submit">{{ __('Lưu') }}</button>

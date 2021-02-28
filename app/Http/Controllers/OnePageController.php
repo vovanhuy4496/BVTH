@@ -34,7 +34,7 @@ class OnePageController extends Controller
             $departments = json_decode($item->departments);
             $new_departments = array();
             foreach ($departments as $id) {
-                $department = Department::find($id);
+                $department = Department::where('status', 1)->where('id', $id)->first();
                 if (!empty($department->name)) {
                     array_push($new_departments, $department->name);
                 }

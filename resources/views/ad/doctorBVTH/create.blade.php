@@ -14,7 +14,7 @@
                             @csrf
                             <div class="form-group row">
                                 <label>Họ tên Bác sĩ</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Họ tên') }}" name="name" autofocus required>
+                                <input class="form-control" type="text" placeholder="{{ __('Họ tên') }}" name="name" required>
                             </div>
 
                             <div class="form-group row">
@@ -28,22 +28,22 @@
 
                             <div class="form-group row">
                                 <label>Chức vụ</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Chức vụ') }}" name="position" autofocus required>
+                                <input class="form-control" type="text" placeholder="{{ __('Chức vụ') }}" name="position" required>
                             </div>
 
                             <div class="form-group row">
                                 <label>Chuyên ngành</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Chuyên ngành') }}" name="specialized" autofocus required>
+                                <input class="form-control" type="text" placeholder="{{ __('Chuyên ngành') }}" name="specialized" required>
                             </div>
 
                             <div class="form-group row">
                                 <label>Kinh nghiệm</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Kinh nghiệm') }}" name="experience" autofocus required>
+                                <input class="form-control" type="text" placeholder="{{ __('Kinh nghiệm') }}" name="experience" required>
                             </div>
 
                             <div class="form-group row">
                                 <label>Ngoại ngữ</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Ngoại ngữ') }}" name="language" autofocus required>
+                                <input class="form-control" type="text" placeholder="{{ __('Ngoại ngữ') }}" name="language" required>
                             </div>
 
                             <div class="form-group row summary-ckeditor">
@@ -66,7 +66,7 @@
 
                             <div class="form-group row">
                                 <label>Vị trí hiển thị</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}" name="sort" autofocus required value="{{ $sort }}">
+                                <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}" name="sort" required value="{{ $sort }}">
                             </div>
 
                             <button class="btn btn-block btn-success" type="submit">{{ __('Thêm mới') }}</button>

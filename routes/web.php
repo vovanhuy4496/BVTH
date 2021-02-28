@@ -29,7 +29,7 @@ Route::post('/write-comments-fe', 'WriteCommentController@storeFE');
 
 Route::group(['middleware' => ['get.menu']], function () {
     // huy comment
-    // Route::get('/', function () { return view('dashboard.homepage'); });
+    Route::get('/ad', function () { return view('dashboard.homepage'); });
 
     // Route::group(['middleware' => ['role:user']], function () {
     //     Route::get('/colors', function () {     return view('dashboard.colors'); });

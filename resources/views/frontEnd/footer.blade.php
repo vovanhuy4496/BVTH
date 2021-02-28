@@ -5,11 +5,11 @@
                 <div class="widget">
                     <h5 class="widgetheading">BỆNH VIỆN ĐA KHOA TÂN HƯNG</h5>
                     <address>
-                        Địa chỉ: 871 Trần Xuân Soạn, P. Tân Hưng, Quận 7, Tp.HCM
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>871 Trần Xuân Soạn, P. Tân Hưng, Quận 7, Tp.HCM
                     </address>
                     <p>
-                        <i class="icon-phone"></i> Điện thoại: (+84) 28 3776 0648 <br>
-                        <i class="icon-envelope-alt"></i> info@benhvientanhung.com
+                        <i class="fa fa-phone-square"></i>(+84) 28 3776 0648 <br>
+                        <i class="fa fa-envelope-o"></i>info@benhvientanhung.com
                     </p>
                 </div>
             </div>
@@ -24,10 +24,6 @@
                                 src="{{ URL::route('resizes', array('size' => 'bannerFooter', 'imagePath' => 'BVTH/bannerFooter/'.$item->image_file_name)) }}" />
                         </div>
                         @endforeach
-                        <!-- <div class="item">
-                            <img src="http://www.benhvientanhung.com/res/partner/benh-vien-cho-ray-2.png"
-                                alt="benh-vien-cho-ray-2.png">
-                        </div> -->
                     </div>
                 </div>
             </div>

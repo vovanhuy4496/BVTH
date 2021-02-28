@@ -18,12 +18,12 @@
                             <div class="form-group row">
                                 <label>Họ tên</label>
                                 <input class="form-control" type="text" placeholder="{{ __('Họ tên') }}" name="name"
-                                    value="{{ $comment->name }}" autofocus>
+                                    value="{{ $comment->name }}">
                             </div>
                             <div class="form-group row">
                                 <label>Nội dung</label>
                                 <textarea class="form-control" type="text" placeholder="{{ __('Nội dung') }}"
-                                    name="content" autofocus>{{ $comment->content }}</textarea>
+                                    name="content">{{ $comment->content }}</textarea>
                             </div>
 
                             <div class="form-group row bvth-status">
@@ -39,7 +39,7 @@
                             <div class="form-group row">
                                 <label>Vị trí hiển thị</label>
                                 <input class="form-control" type="text" placeholder="{{ __('Vị trí hiển thị') }}"
-                                    name="sort" autofocus required value="{{ $comment->sort }}">
+                                    name="sort" required value="{{ $comment->sort }}">
                             </div>
 
                             <button class="btn btn-block btn-success" type="submit">{{ __('Lưu') }}</button>
