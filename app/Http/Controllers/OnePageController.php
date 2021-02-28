@@ -39,7 +39,7 @@ class OnePageController extends Controller
                     array_push($new_departments, $department->name);
                 }
             }
-            $item->departments = json_encode($new_departments);
+            $item->departments_name = json_encode($new_departments);
         }
         $departments = Department::where('status', 1)->orderBy('sort', 'DESC')->get();
 

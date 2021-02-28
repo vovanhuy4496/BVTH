@@ -21,8 +21,22 @@
     <div class="container">
         <div class="row about-doctor">
             <h1 class="content-title">ĐỘI NGŨ BÁC SĨ</h1>
+            <div class="form-group">
+                <select class="form-control department" data-live-search="true" name="department">
+                    <option value="">-- Chọn khoa --</option>
+                    @foreach($departments as $department)
+                    <option value="{{ $department->id }}">{{ $department->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             @foreach($doctors as $doctor)
-            <div class="col-md-3 col-12 item">
+            <div id="item-action" class="col-md-3 col-12 item 
+                <?php 
+                    $ids = json_decode($doctor->departments);
+                    foreach($ids as $id) {
+                        echo 'department_'.$id.' ';
+                    }
+                ?>">
                 <div class="relative-item">
                     <img
                         src="{{ URL::route('resizes', array('size' => 'doctor', 'imagePath' => 'BVTH/DoctorBvth/'.$doctor->image_file_name)) }}" />
@@ -31,7 +45,7 @@
                             <a href="#">
                                 <p>{{ $doctor->name }}</p>
                                 <?php 
-                                    $new_departments = json_decode($doctor->departments);
+                                    $new_departments = json_decode($doctor->departments_name);
                                     foreach($new_departments as $name) {
                                         echo '<span>'.$name.'</span></br>';
                                     }
@@ -101,4 +115,10 @@
 @endsection
 
 @section('javascript')
+<script>
+$('.department').change(function() {
+    $('#item-action').hide();
+    $('#item-action.department_' + $(this).val()).show();
+});
+</script>
 @endsection
