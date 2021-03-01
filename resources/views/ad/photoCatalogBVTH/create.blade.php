@@ -8,13 +8,13 @@
               <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
                 <div class="card">
                     <div class="card-header">
-                      <i class="fa fa-align-justify"></i> {{ __('Thêm mới phòng ban') }}</div>
+                      <i class="fa fa-align-justify"></i> {{ __('Thêm mới album') }}</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('photoCatalogBVTH.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group row">
-                                <label>Tên phòng ban</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Tên phòng ban') }}" name="name" required>
+                                <label>Tên album</label>
+                                <input class="form-control" type="text" placeholder="{{ __('Tên album') }}" name="name" required>
                             </div>
 
                             <div class="form-group row bvth-status">

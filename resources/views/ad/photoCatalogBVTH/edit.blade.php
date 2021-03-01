@@ -14,8 +14,8 @@
                             @csrf
                             @method('PUT')
                             <div class="form-group row">
-                                <label>Tên phòng ban</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Tên phòng ban') }}" name="name" value="{{ $catalog->name }}">
+                                <label>Tên album</label>
+                                <input class="form-control" type="text" placeholder="{{ __('Tên album') }}" name="name" value="{{ $catalog->name }}">
                             </div>
                             
                             <div class="form-group row bvth-status">

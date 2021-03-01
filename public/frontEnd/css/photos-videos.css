@@ -95,7 +95,7 @@
 #photosVideos .video {
 	display: inline-block;
 	/* font-size: 0; */
-	width: 33%;
+	width: 100%;
 	/* border: 20px solid transparent; */
 	/* border-bottom: none; */
 	background: #fff;
@@ -123,4 +123,11 @@
 .lcl_fade_oc.lcl_is_closing #lcl_overlay {
 	-webkit-transition-delay: .15s !important;
 	transition-delay: .15s !important;
+}
+
+@media (min-width: 768px) {
+	.modal-dialog {
+		width: 800px;
+		margin: 30px auto;
+	}
 }
