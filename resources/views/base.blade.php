@@ -16,6 +16,7 @@
     <link href="frontEnd/css/style.css" rel="stylesheet" />
     <link href="frontEnd/css/bootstrap-datepicker.css" rel="stylesheet" />
     <link href="frontEnd/css/datetimepicker.css" rel="stylesheet" />
+    @yield('style')
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>

@@ -31,5 +31,6 @@ return [
         'doctorPopup' => [180, 235],
         'logoMobile' => [300, 53],
         'logoDesktop' => [474, 85],
+        'photos-videos' => [260, 173]
     ],
 ];

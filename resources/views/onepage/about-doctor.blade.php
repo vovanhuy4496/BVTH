@@ -21,6 +21,7 @@
     <div class="container">
         <div class="row about-doctor">
             <h1 class="content-title">ĐỘI NGŨ BÁC SĨ</h1>
+            @if (!$departments->isEmpty())
             <div class="form-group">
                 <select class="form-control department" data-live-search="true" name="department">
                     <option value="">-- Chọn khoa --</option>
@@ -29,6 +30,7 @@
                     @endforeach
                 </select>
             </div>
+            @endif
             @foreach($doctors as $doctor)
             <div class="col-md-3 col-sm-6 item item-action 
                 <?php
@@ -38,7 +40,7 @@
                     }
                 ?>">
                 <div class="relative-item">
-                    <img
+                    <img class="img-responsive"
                         src="{{ URL::route('resizes', array('size' => 'doctor', 'imagePath' => 'BVTH/DoctorBvth/'.$doctor->image_file_name)) }}" />
                     <div class="wrap-item">
                         <div class="content" data-toggle="modal" data-target="#doctor_{{ $doctor->id }}">

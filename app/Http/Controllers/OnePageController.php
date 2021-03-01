@@ -8,6 +8,9 @@ use App\Models\AdBannerFooter;
 use App\Models\DoctorBvth;
 use App\Models\Department;
 use App\Models\AdBannerMain;
+use App\Models\VideoBvth;
+use App\Models\AlbumsBVTH;
+use App\Models\PhotoCatalogBvth;
 
 class OnePageController extends Controller
 {
@@ -49,6 +52,41 @@ class OnePageController extends Controller
             'footerSlider' => $footerSlider,
             'mainSlider' => $mainSlider,
             ]);
+    }
+
+    public function photos_videos()
+    {
+        $footerSlider = AdBannerFooter::where('status', 1)->orderBy('sort')->get();
+        $mainSlider = AdBannerMain::where('status', 1)->orderBy('sort')->get();
+
+        $category = PhotoCatalogBvth::where('status', 1)->orderBy('sort')->get();
+        $photos = AlbumsBVTH::where('status', 1)->orderBy('sort')->get();
+        $videos = VideoBvth::where('status', 1)->orderBy('sort')->get();
+
+        return view('onepage.photos_videos', [
+            'category' => $category, 
+            'photos' => $photos, 
+            'videos' => $videos, 
+            'footerSlider' => $footerSlider, 
+            'mainSlider' => $mainSlider,
+            ]);
+    }
+
+    public function get_photos_videos(Request $request)
+    {
+        $id = $request->get('dataId');
+        $type = $request->get('dataType');
+        if ($type == 'videos') {
+            $data = VideoBvth::find($id);
+            $data->elems = json_decode($data->videos);
+            $data->type = 'videos';
+        } else {
+            $data = AlbumsBVTH::find($id);
+            $data->elems = json_decode($data->images);
+            $data->type = 'photos';
+        }
+
+        return response()->json($data);
     }
 
     /**

@@ -1,0 +1,126 @@
+#photosVideos .container {
+	width: 80%;
+	max-width: 1260px;
+	min-width: 335px;
+	margin: 0 auto
+}
+
+/* #photosVideos .content {
+	padding: 10px 0;
+	width: 100%;
+	float: right;
+}
+
+#photosVideos .content ol,
+#photosVideos .content ul {
+	padding: 0 15px 15px 40px
+} */
+
+#photosVideos ul.nav {
+	list-style: none;
+	border-top: 1px solid #666;
+	margin-bottom: 15px
+}
+
+#photosVideos ul.nav li {
+	border-bottom: 1px solid #666
+}
+
+#photosVideos ul.nav a,
+#photosVideos ul.nav a:visited {
+	padding: 5px 5px 5px 15px;
+	display: block;
+	text-decoration: none;
+	background-color: #8090AB;
+	color: #000
+}
+
+#photosVideos ul.nav a:active,
+#photosVideos ul.nav a:focus,
+#photosVideos ul.nav a:hover {
+	background-color: #6F7D94;
+	color: #FFF
+}
+
+#photosVideos .fltrt {
+	float: right;
+	margin-left: 8px
+}
+
+#photosVideos .fltlft {
+	float: left;
+	margin-right: 8px
+}
+
+#photosVideos .clearfloat {
+	clear: both;
+	height: 0;
+	font-size: 1px;
+	line-height: 0
+}
+
+/* #photosVideos .content,
+#photosVideos .sidebar1 {
+	min-height: 500px
+} */
+
+/* #photosVideos .content>div {
+	margin: 20px 15px
+} */
+
+/* @media screen and (max-width:900px) {
+	#photosVideos .content>div {
+		width: 100% !important
+	}
+} */
+
+#photosVideos .elem,
+#photosVideos .elem * {
+	box-sizing: border-box;
+	margin: 0 !important;
+}
+
+#photosVideos .elem {
+	display: inline-block;
+	/* font-size: 0; */
+	width: 33%;
+	/* border: 20px solid transparent; */
+	/* border-bottom: none; */
+	background: #fff;
+	padding: 10px;
+	height: auto;
+	background-clip: padding-box;
+}
+
+#photosVideos .video {
+	display: inline-block;
+	/* font-size: 0; */
+	width: 33%;
+	/* border: 20px solid transparent; */
+	/* border-bottom: none; */
+	background: #fff;
+	padding: 10px;
+	height: auto;
+	background-clip: padding-box;
+}
+
+#photosVideos .elem>span {
+	display: block;
+	cursor: pointer;
+	height: 0;
+	padding-bottom: 70%;
+	background-size: cover;
+	background-position: center center;
+}
+
+.lcl_fade_oc.lcl_pre_show #lcl_overlay,
+.lcl_fade_oc.lcl_pre_show #lcl_window,
+.lcl_fade_oc.lcl_is_closing #lcl_overlay,
+.lcl_fade_oc.lcl_is_closing #lcl_window {
+	opacity: 0 !important;
+}
+
+.lcl_fade_oc.lcl_is_closing #lcl_overlay {
+	-webkit-transition-delay: .15s !important;
+	transition-delay: .15s !important;
+}

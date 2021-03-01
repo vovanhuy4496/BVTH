@@ -319,7 +319,7 @@ $(document).ready(function() {
                     'content': $('.comments-message').val(),
                 },
                 success: function(data, status) {
-                    console.log(data);
+                    // console.log(data);
                     console.log(status);
                     $('.notifySubmit').click();
                     $('#notifySubmit .modal-body').html('<p>' +

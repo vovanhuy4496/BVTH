@@ -20,12 +20,16 @@ Route::get('/', 'HomepageController@index');
 Route::get('/index', 'HomepageController@index');
 Route::get('/ve-chung-toi', 'OnePageController@about');
 Route::get('/doi-ngu-bac-si', 'OnePageController@about_doctor');
+Route::get('/thu-vien-anh-video', 'OnePageController@photos_videos');
 
 Route::get('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
 Route::post('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
 
 Route::get('/write-comments-fe', 'WriteCommentController@storeFE');
 Route::post('/write-comments-fe', 'WriteCommentController@storeFE');
+
+Route::get('/photos-videos', 'OnePageController@get_photos_videos');
+Route::post('/photos-videos', 'OnePageController@get_photos_videos');
 
 Route::group(['middleware' => ['get.menu']], function () {
     // huy comment
