@@ -11,6 +11,7 @@ use App\Models\AdBannerMain;
 use App\Models\VideoBvth;
 use App\Models\AlbumsBVTH;
 use App\Models\PhotoCatalogBvth;
+use App\Models\InfrastructureBvth;
 
 class OnePageController extends Controller
 {
@@ -87,6 +88,39 @@ class OnePageController extends Controller
         }
 
         return response()->json($data);
+    }
+
+    public function infrastructure()
+    {
+        $footerSlider = AdBannerFooter::where('status', 1)->orderBy('sort')->get();
+        $mainSlider = AdBannerMain::where('status', 1)->orderBy('sort')->get();
+
+        $infrastructures = InfrastructureBvth::where('status', 1)->orderBy('sort')->paginate(12);
+        return view('onepage.infrastructure', [
+            'infrastructures' => $infrastructures, 
+            'footerSlider' => $footerSlider, 
+            'mainSlider' => $mainSlider,
+            ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function infrastructure_detail($id, $title)
+    {
+        $infrastructure = InfrastructureBvth::find($id);
+
+        $footerSlider = AdBannerFooter::where('status', 1)->orderBy('sort')->get();
+        $mainSlider = AdBannerMain::where('status', 1)->orderBy('sort')->get();
+
+        return view('onepage.infrastructure_detail', [
+            'infrastructure' => $infrastructure, 
+            'footerSlider' => $footerSlider, 
+            'mainSlider' => $mainSlider,
+            ]);
     }
 
     /**

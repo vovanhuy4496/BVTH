@@ -29,7 +29,7 @@
                 </div>
                 <p class="bvth-line line-4">{{ $aboutBVTH->describe }}
                 </p>
-                <span class="post-meta-bottom"><a href="ve-chung-toi">Xem thêm...</a></span>
+                <span class="post-meta-bottom"><a href="{{ url('ve-chung-toi') }}">Xem thêm...</a></span>
             </div>
             @endif
             @if(!empty($newspaper))
@@ -44,7 +44,7 @@
                             src="{{ URL::route('resizes', array('size' => 'thumbnail', 'imagePath' => 'BVTH/Newspaper/'.$newspaper->image_file_name)) }}" />
 
                         <div class="post-content1 pull-left col-md-9 col-sm-9 col-xs-8">
-                            <div class="post-title pull-left"><a href="#">{{ $newspaper->title }}</a>
+                            <div class="post-title pull-left"><a>{{ $newspaper->title }}</a>
                             </div>
                             <div class="post-meta-top pull-left">
                                 <ul>
@@ -146,7 +146,7 @@
                     @foreach($comments as $key => $comment)
                     <li data-target="#carousel-example-generic" data-slide-to="{{ $key }}"
                         class="{{ $key == 0 ? 'active' : '' }}">
-                        <a href="#"></a>
+                        <a></a>
                     </li>
                     @endforeach
                 </ol>

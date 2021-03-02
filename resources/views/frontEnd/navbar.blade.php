@@ -9,30 +9,30 @@
         </div>
         <div class="navbar-collapse collapse ">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="index">Trang chủ</a></li>
+                <li class="active"><a href="{{ url('') }}">Trang chủ</a></li>
                 <li class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle waves-effect waves-dark">Giới thiệu <b
+                    <a data-toggle="dropdown" class="dropdown-toggle waves-effect waves-dark">Giới thiệu <b
                             class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a class="waves-effect waves-dark" href="ve-chung-toi">Về chúng tôi</a></li>
-                        <li><a class="waves-effect waves-dark" href="doi-ngu-bac-si">Đội ngũ bác sĩ</a></li>
-                        <li><a class="waves-effect waves-dark" href="thu-vien-anh-video">Thư viện ảnh - Video</a></li>
-                        <li><a class="waves-effect waves-dark" href="co-so-vat-chat-bvth">Cơ sở vật chất</a></li>
+                        <li><a class="waves-effect waves-dark" href="{{ url('ve-chung-toi') }}">Về chúng tôi</a></li>
+                        <li><a class="waves-effect waves-dark" href="{{ url('doi-ngu-bac-si') }}">Đội ngũ bác sĩ</a></li>
+                        <li><a class="waves-effect waves-dark" href="{{ url('thu-vien-anh-video') }}">Thư viện ảnh - Video</a></li>
+                        <li><a class="waves-effect waves-dark" href="{{ url('co-so-vat-chat') }}">Cơ sở vật chất</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Các khoa phòng</a></li>
+                <li><a>Các khoa phòng</a></li>
                 <li class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle waves-effect waves-dark">Dịch vụ <b
+                    <a data-toggle="dropdown" class="dropdown-toggle waves-effect waves-dark">Dịch vụ <b
                             class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a class="waves-effect waves-dark" href="kham-chua-benh">Khám chữa bệnh</a></li>
-                        <li><a class="waves-effect waves-dark" href="goi-kham-suc-khoe">Gói khám sức khoẻ</a></li>
+                        <li><a class="waves-effect waves-dark" href="{{ url('kham-chua-benh') }}">Khám chữa bệnh</a></li>
+                        <li><a class="waves-effect waves-dark" href="{{ url('goi-kham-suc-khoe') }}">Gói khám sức khoẻ</a></li>
                     </ul>
                 </li>
-                <li><a href="bang-gia-dich-vu-ky-thuat">Bảng giá dịch vụ kỹ thuật</a></li>
-                <li><a href="tin-tuc">Tin tức</a></li>
-                <li><a href="tuyen-dung">Tuyển dụng</a></li>
-                <li><a href="lien-he">Liên hệ</a></li>
+                <li><a href="{{ url('bang-gia-dich-vu-ky-thuat') }}">Bảng giá dịch vụ kỹ thuật</a></li>
+                <li><a href="{{ url('tin-tuc') }}">Tin tức</a></li>
+                <li><a href="{{ url('tuyen-dung') }}">Tuyển dụng</a></li>
+                <li><a href="{{ url('lien-he') }}">Liên hệ</a></li>
             </ul>
         </div>
     </div>

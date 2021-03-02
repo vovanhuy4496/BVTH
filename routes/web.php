@@ -21,6 +21,8 @@ Route::get('/index', 'HomepageController@index');
 Route::get('/ve-chung-toi', 'OnePageController@about');
 Route::get('/doi-ngu-bac-si', 'OnePageController@about_doctor');
 Route::get('/thu-vien-anh-video', 'OnePageController@photos_videos');
+Route::get('/co-so-vat-chat', 'OnePageController@infrastructure');
+Route::get('/co-so-vat-chat-detail/{id}/{title?}', 'OnePageController@infrastructure_detail');
 
 Route::get('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
 Route::post('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');

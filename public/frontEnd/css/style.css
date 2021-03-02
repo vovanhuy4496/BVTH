@@ -16,6 +16,81 @@ body {
 	color: #656565;
 }
 
+a {
+	text-decoration: none !important;
+}
+
+.pagination {
+	width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.post-item {
+    position: relative;
+	float: left;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* .post-item-image {
+    width: 100%;
+	float: left;
+} */
+
+.post-item .post-item-image a img {
+    border-radius: 4px;
+}
+
+.card-img-top.border-small-image {
+    display: block;
+    border-radius: 10px;
+}
+
+.post-item .post-item-data {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: #fff;
+    opacity: 0.8;
+}
+
+.post-item .post-item-data .post-item-name a:hover {
+    color: #ff6000;
+}
+
+/* .post-item .post-item-data {
+    float: left;
+    padding: 5px 10px 0px 10px;
+} */
+
+.post-item .post-item-data .post-item-name {
+    /* padding: 10px; */
+    font-weight: bold;
+	text-align: center
+    /* height: 60px;
+    line-height: 20px; */
+}
+
+/* .post-item .post-item-data .post-item-name {
+    float: left;
+    width: 100%;
+    font-size: 14px;
+    height: 38px;
+    line-height: 19px;
+} */
+
+.post-item .post-item-data .post-item-name a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    color: #3e3e3e;
+	padding: 5px;
+	text-decoration: none;
+}
+
 .contactInfo .row {
 	margin: 0;
 	padding: 10px 0;
@@ -542,6 +617,7 @@ header .navigation {
 header ul.nav li {
 	border: none;
 	margin: 0;
+	cursor: pointer
 }
 
 header ul.nav li a {
@@ -1205,6 +1281,7 @@ ul.portfolio-categ li {
 	font-weight: 600;
 	border: 1px solid #D5D5D5;
 	margin-right: 15px;
+	cursor: pointer;
 }
 
 ul.portfolio-categ li a {

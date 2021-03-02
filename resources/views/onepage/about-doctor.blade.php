@@ -44,7 +44,7 @@
                         src="{{ URL::route('resizes', array('size' => 'doctor', 'imagePath' => 'BVTH/DoctorBvth/'.$doctor->image_file_name)) }}" />
                     <div class="wrap-item">
                         <div class="content" data-toggle="modal" data-target="#doctor_{{ $doctor->id }}">
-                            <a href="#">
+                            <a>
                                 <p>{{ $doctor->name }}</p>
                                 <?php 
                                     $new_departments = json_decode($doctor->departments_name);
@@ -111,6 +111,9 @@
                 </div>
             </div>
             @endforeach
+            @if(empty($doctors->content))
+            <p>Hiện tại chúng tôi chưa cập nhập nội dung cho mục này.</p>
+            @endif
         </div>
     </div>
 </section>

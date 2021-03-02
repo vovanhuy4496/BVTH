@@ -1,9 +1,9 @@
 @extends('base')
 
 @section('style')
-<link rel="stylesheet" href="frontEnd/css/lc_lightbox.css" />
-<link rel="stylesheet" href="frontEnd/css/skins/minimal.css" />
-<link rel="stylesheet" href="frontEnd/css/photos-videos.css" />
+<link href="{{ asset('frontEnd/css/lc_lightbox.css') }}" rel="stylesheet">
+<link href="{{ asset('frontEnd/css/skins/minimal.css') }}" rel="stylesheet">
+<link href="{{ asset('frontEnd/css/photos-videos.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -29,9 +29,9 @@
             <h1 class="content-title">THƯ VIỆN ẢNH - VIDEO</h1>
             <div class="col-lg-12">
                 <ul class="portfolio-categ filter">
-                    <li class="all active"><a href="">Tất cả</a></li>
-                    <li class="photos"><a href="">Ảnh</a></li>
-                    <li class="videos"><a href="">Video</a></li>
+                    <li data="all" class="active"><a>Tất cả</a></li>
+                    <li data="photos" class=""><a>Ảnh</a></li>
+                    <li data="videos" class=""><a>Video</a></li>
                 </ul>
                 <div class="clearfix">
                 </div>
@@ -39,17 +39,17 @@
                     <section id="projects">
                         <ul id="thumbs">
                             @foreach($photos as $photo)
-                            <li class="item-thumbs col-md-3 design" data-type="photos" data-id="{{ $photo->id }}"
+                            <li class="item-thumbs col-sm-3 design photos" data-type="photos" data-id="{{ $photo->id }}"
                                 data-toggle="modal" data-target="#photosVideos">
                                 <img src="{{ URL::route('resizes', array(
                                   'size' => 'photos-videos',
                                   'imagePath' => 'BVTH/AlbumsBVTH/'.$photo->folder.'/avatar/'.$photo->image_file_name
                                   )) }}" />
-                                <p value="{{ $photo->name }}">{{ $photo->name }}</p>
+                                <p>{{ $photo->name }}</p>
                             </li>
                             @endforeach
                             @foreach($videos as $video)
-                            <li class="item-thumbs col-md-3 design show-videos" data-type="videos"
+                            <li class="item-thumbs col-sm-3 design show-videos videos" data-type="videos"
                                 data-id="{{ $video->id }}" data-toggle="modal" data-target="#photosVideos">
                                 <img src="{{ URL::route('resizes', array(
                                   'size' => 'photos-videos',
@@ -57,7 +57,7 @@
                                   )) }}" />
                                 <!-- a: icon play -->
                                 <a></a>
-                                <p value="{{ $video->name }}">{{ $video->name }}</p>
+                                <p>{{ $video->name }}</p>
                             </li>
                             @endforeach
                         </ul>
@@ -90,8 +90,8 @@
 @endsection
 
 @section('javascript')
-<script src="frontEnd/js/lc_lightbox.lite.js" type="text/javascript"></script>
-<script src="frontEnd/js/alloy_finger.min.js" type="text/javascript"></script>
+<script src="{{ asset('frontEnd/js/lc_lightbox.lite.js') }}"></script>>
+<script src="{{ asset('frontEnd/js/alloy_finger.min.js') }}"></script>>
 <script>
 $('.item-thumbs').click(function() {
     $.ajaxSetup({
@@ -108,7 +108,7 @@ $('.item-thumbs').click(function() {
             'dataId': $(this).attr('data-id'),
         },
         success: function(data, status) {
-            console.log(data);
+            // console.log(data);
             console.log(status);
             var html = '';
             $('#photosVideosLabel').html(data.name);
@@ -124,7 +124,8 @@ $('.item-thumbs').click(function() {
                         ');"></span>';
                     html = html + '</a>';
                 } else {
-                    html = html + '<video class="video" src="' + href + '" type="video/mp4" controls></video>';
+                    html = html + '<video class="video" src="' + href +
+                        '" type="video/mp4" controls></video>';
                 }
 
             });
@@ -151,13 +152,20 @@ $(document).ready(function(e) {
     });
 
 });
-// $('.department').change(function() {
-//     if ($(this).val()) {
-//         $('.item-action').hide();
-//         $('.item-action.department_' + $(this).val()).show();
-//     } else {
-//         $('.item-action').show();
-//     }
-// });
+$('ul.filter li').click(function() {
+    $('li.videos').show();
+    $('li.photos').show();
+    if ($(this).attr('data') == 'videos') {
+        $('li.photos').hide();
+    }
+    if ($(this).attr('data') == 'photos') {
+        $('li.videos').hide();
+    }
+    console.log($(this).attr('data'));
+    // if ($(this).val() == 'all') {
+    //     $('li.videos').show();
+    //     $('li.videos').show();
+    // }
+});
 </script>
 @endsection

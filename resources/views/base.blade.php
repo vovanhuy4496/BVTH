@@ -8,29 +8,29 @@
     <meta name="description" content="" />
     <meta name="author" content="http://daihuynhquang.com.vn/gioi-thieu.html" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" type="image/ico" href="frontEnd/img/favicon.ico" />
+    <link rel="shortcut icon" type="image/ico" href="{{ asset('frontEnd/img/favicon.ico') }}" />
     <!-- css -->
-    <link href="frontEnd/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="frontEnd/css/fancybox/fancybox.css" rel="stylesheet">
-    <link href="frontEnd/css/flexslider.css" rel="stylesheet" />
-    <link href="frontEnd/css/style.css" rel="stylesheet" />
-    <link href="frontEnd/css/bootstrap-datepicker.css" rel="stylesheet" />
-    <link href="frontEnd/css/datetimepicker.css" rel="stylesheet" />
+    <link href="{{ asset('frontEnd/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontEnd/css/fancybox/fancybox.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontEnd/css/flexslider.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontEnd/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontEnd/css/bootstrap-datepicker.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontEnd/css/datetimepicker.css') }}" rel="stylesheet">
     @yield('style')
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js') }}"></script>
     <![endif]-->
 
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet"> -->
 
     <!-- slider: https://www.jqueryscript.net/demo/Powerful-Customizable-jQuery-Carousel-Slider-OWL-Carousel/ -->
     <!-- Basic stylesheet -->
-    <link rel="stylesheet" href="frontEnd/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="{{ asset('frontEnd/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
 
     <!-- Default Theme -->
-    <link rel="stylesheet" href="frontEnd/owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="{{ asset('frontEnd/owl-carousel/owl.theme.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -46,24 +46,24 @@
         @yield('content')
         @include('frontEnd.footer')
     </div>
-    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+    <a class="scrollup"><i class="fa fa-angle-up active"></i></a>
     <!-- javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="frontEnd/js/jquery.js"></script>
-    <script src="frontEnd/js/jquery.easing.1.3.js"></script>
-    <script src="frontEnd/js/bootstrap.min.js"></script>
-    <script src="frontEnd/js/jquery.fancybox.pack.js"></script>
-    <script src="frontEnd/js/jquery.fancybox-media.js"></script>
-    <script src="frontEnd/js/portfolio/jquery.quicksand.js"></script>
-    <script src="frontEnd/js/portfolio/setting.js"></script>
-    <script src="frontEnd/js/jquery.flexslider.js"></script>
-    <script src="frontEnd/js/animate.js"></script>
-    <script src="frontEnd/js/custom.js"></script>
-    <script src="frontEnd/js/bootstrap-datepicker.js"></script>
-    <script src="frontEnd/js/jquery.datetimepicker.full.js"></script>
-    <script src="frontEnd/owl-carousel/owl.carousel.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script> -->
+    <script src="{{ asset('frontEnd/js/jquery.js') }}"></script>
+    <script src="{{ asset('frontEnd/js/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ asset('frontEnd/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('frontEnd/js/jquery.fancybox.pack.js') }}"></script>
+    <script src="{{ asset('frontEnd/js/jquery.fancybox-media.js') }}"></script>
+    <script src="{{ asset('frontEnd/js/portfolio/jquery.quicksand.js') }}"></script>
+    <script src="{{ asset('frontEnd/js/portfolio/setting.js') }}"></script>
+    <script src="{{ asset('frontEnd/js/jquery.flexslider.js') }}"></script>
+    <script src="{{ asset('frontEnd/js/animate.js') }}"></script>
+    <script src="{{ asset('frontEnd/js/custom.js') }}"></script>
+    <script src="{{ asset('frontEnd/js/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('frontEnd/js/jquery.datetimepicker.full.js') }}"></script>
+    <script src="{{ asset('frontEnd/owl-carousel/owl.carousel.js') }}"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"> </script> -->
     <!-- https://www.jqueryscript.net/time-clock/Clean-jQuery-Date-Time-Picker-Plugin-datetimepicker.html -->
 </body>
 <script type="text/javascript">

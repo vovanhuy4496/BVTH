@@ -3,7 +3,7 @@
         <div class="col-md-6 col-sm-12 contact-area-center">
             <div class="contact-area-left">
                 <div class="info-logo">
-                    <a href="index">
+                    <a href="{{ url('') }}">
                         <img class="logoDesktop"
                             src="{{ URL::route('resizes', array('size' => 'logoDesktop', 'imagePath' => 'frontEnd/img/logo.png')) }}" />
                         <img class="logoMobile"
