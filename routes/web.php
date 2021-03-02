@@ -22,7 +22,8 @@ Route::get('/ve-chung-toi', 'OnePageController@about');
 Route::get('/doi-ngu-bac-si', 'OnePageController@about_doctor');
 Route::get('/thu-vien-anh-video', 'OnePageController@photos_videos');
 Route::get('/co-so-vat-chat', 'OnePageController@infrastructure');
-Route::get('/co-so-vat-chat-detail/{id}/{title?}', 'OnePageController@infrastructure_detail');
+Route::get('/co-so-vat-chat/{id}/{title?}', 'OnePageController@infrastructure_detail');
+Route::get('/khoa-phong/{id}/{title?}', 'OnePageController@department');
 
 Route::get('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
 Route::post('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
@@ -166,8 +167,6 @@ Route::group(['middleware' => ['get.menu']], function () {
             Route::post('/file/cropp',      'MediaController@cropp');
             Route::get('/file/copy',        'MediaController@fileCopy')->name('media.file.copy');
         });
-        // huy comment
-
         Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload-ckeditor');
     });
 });

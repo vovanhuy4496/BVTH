@@ -12,6 +12,7 @@ use App\Models\VideoBvth;
 use App\Models\AlbumsBVTH;
 use App\Models\PhotoCatalogBvth;
 use App\Models\InfrastructureBvth;
+use App\Models\CatalogDepartments;
 
 class OnePageController extends Controller
 {
@@ -118,6 +119,20 @@ class OnePageController extends Controller
 
         return view('onepage.infrastructure_detail', [
             'infrastructure' => $infrastructure, 
+            'footerSlider' => $footerSlider, 
+            'mainSlider' => $mainSlider,
+            ]);
+    }
+
+    public function department($id, $title)
+    {
+        $department = CatalogDepartments::find($id);
+
+        $footerSlider = AdBannerFooter::where('status', 1)->orderBy('sort')->get();
+        $mainSlider = AdBannerMain::where('status', 1)->orderBy('sort')->get();
+
+        return view('onepage.department', [
+            'department' => $department, 
             'footerSlider' => $footerSlider, 
             'mainSlider' => $mainSlider,
             ]);

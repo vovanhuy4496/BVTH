@@ -28,7 +28,7 @@
                     <div class="post-item-image">
                         <?php $url = stripVN($item->title);
                               $url = preg_replace("/\s+/", '-', $url);
-                              $url = URL::to("/co-so-vat-chat-detail").'/'.$item->id.'/'.$url;
+                              $url = URL::to("/co-so-vat-chat").'/'.$item->id.'/'.$url;
                         ?>
                         <a href="{{ $url }}" class="thumb-zoom" title="{{ $item->title}}">
                             <!-- <img class="card-img-top border-small-image img-responsive"

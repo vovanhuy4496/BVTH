@@ -509,6 +509,11 @@ header .navbar-default {
 	border-bottom: 2px solid #2FADDE;
 }
 
+header .nav li.active a.none-active {
+    background: unset !important;
+    border-radius: unset !important;
+}
+
 header .nav li a:hover,
 header .nav li a:focus,
 header .nav li.active a,
@@ -637,7 +642,7 @@ header ul.nav li ul li a {
 .navbar .nav>li>a {
 	color: #111;
 	text-shadow: none;
-	border: 1px solid rgba(255, 255, 255, 0) !important;
+	/* border: 1px solid rgba(255, 255, 255, 0) !important; */
 	text-align: center;
 }
 

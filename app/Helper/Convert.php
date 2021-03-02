@@ -18,4 +18,31 @@
         
         return $str;
     }
+    function activeMenu($url = '') {
+        $path = Request::path();
+        switch ($url) {
+            case "introduce":
+                if ($path == 've-chung-toi') {
+                    return 'active';
+                }
+                if ($path == 'doi-ngu-bac-si') {
+                    return 'active';
+                }
+                if ($path == 'thu-vien-anh-video') {
+                    return 'active';
+                }
+                if ($path == 'co-so-vat-chat') {
+                    return 'active';
+                }
+            break;
+            case "service":
+                if ($path == 'kham-chua-benh') {
+                    return 'active';
+                }
+                if ($path == 'goi-kham-suc-khoe') {
+                    return 'active';
+                }
+            break;
+        }
+    }
 ?>

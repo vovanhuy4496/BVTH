@@ -13,6 +13,10 @@
                     </p>
                 </div>
             </div>
+            <?php
+                use App\Models\AdBannerFooter;
+                $footerSlider = AdBannerFooter::where('status', 1)->orderBy('sort')->get();
+            ?>
             @if (!$footerSlider->isEmpty())
             <div class="col-md-6">
                 <div class="widget">
