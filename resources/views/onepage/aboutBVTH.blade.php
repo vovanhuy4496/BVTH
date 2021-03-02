@@ -1,22 +1,7 @@
 @extends('base')
 
 @section('content')
-@if (!$mainSlider->isEmpty())
-<section id="featured">
-    <!-- Slider -->
-    <div id="main-slider" class="flexslider">
-        <ul class="slides">
-            @foreach($mainSlider as $item)
-            <li>
-                <img
-                    src="{{ URL::route('resizes', array('size' => 'bannerOnePage', 'imagePath' => 'BVTH/bannerMain/'.$item->image_file_name)) }}" />
-            </li>
-            @endforeach
-        </ul>
-    </div>
-    <!-- end slider -->
-</section>
-@endif
+@include('frontEnd.banner')
 <section id="content">
     <div class="container">
         <div class="row">

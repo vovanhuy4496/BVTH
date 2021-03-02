@@ -13,6 +13,8 @@ use App\Models\AlbumsBVTH;
 use App\Models\PhotoCatalogBvth;
 use App\Models\InfrastructureBvth;
 use App\Models\CatalogDepartments;
+use App\Models\PackageHealthcare;
+use App\Models\Healthcare;
 
 class OnePageController extends Controller
 {
@@ -135,6 +137,22 @@ class OnePageController extends Controller
             'department' => $department, 
             'footerSlider' => $footerSlider, 
             'mainSlider' => $mainSlider,
+            ]);
+    }
+
+    public function healthcare()
+    {
+        $healthcare = Healthcare::where('status', 1)->orderBy('sort')->take(1)->first();
+        return view('onepage.healthcare', [
+            'healthcare' => $healthcare, 
+            ]);
+    }
+
+    public function health_package()
+    {
+        $healthcare = PackageHealthcare::where('status', 1)->orderBy('sort')->take(1)->first();
+        return view('onepage.health_package', [
+            'healthcare' => $healthcare, 
             ]);
     }
 

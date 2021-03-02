@@ -24,6 +24,8 @@ Route::get('/thu-vien-anh-video', 'OnePageController@photos_videos');
 Route::get('/co-so-vat-chat', 'OnePageController@infrastructure');
 Route::get('/co-so-vat-chat/{id}/{title?}', 'OnePageController@infrastructure_detail');
 Route::get('/khoa-phong/{id}/{title?}', 'OnePageController@department');
+Route::get('/kham-chua-benh', 'OnePageController@healthcare');
+Route::get('/goi-kham-suc-khoe', 'OnePageController@health_package');
 
 Route::get('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
 Route::post('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');

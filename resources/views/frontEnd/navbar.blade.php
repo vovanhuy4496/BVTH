@@ -36,6 +36,7 @@
                         @foreach($departments as $item)
                         <?php $url = stripVN($item->title);
                               $url = preg_replace("/\s+/", '-', $url);
+                              $url = preg_replace("/\/+/", '-', $url);
                               $url = URL::to("/khoa-phong").'/'.$item->id.'/'.$url;
                         ?>
                         <li><a class="waves-effect waves-dark none-active"

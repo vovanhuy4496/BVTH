@@ -6,16 +6,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                @if(!empty($infrastructure->title))
-                <h1 class="content-title">{{ $infrastructure->title }}</h1>
+                @if(!empty($healthcare->title))
+                <h1 class="content-title">{{ $healthcare->title }}</h1>
                 @else
                 <h1 class="content-title">GIỚI THIỆU VỀ CHÚNG TÔI</h1>
                 @endif
 
-                @if(!empty($infrastructure->content))
-                {!! html_entity_decode($infrastructure->content) !!}
+                @if(!empty($healthcare->content))
+                {!! html_entity_decode($healthcare->content) !!}
                 @else
-                <p>Hiện tại chúng tôi chưa cập nhập nội dung cho mục này.</p>
+                <p>DỊCH VỤ KHÁM CHỮA BỆNH NGOẠI TRÚ</p>
                 @endif
             </div>
         </div>
