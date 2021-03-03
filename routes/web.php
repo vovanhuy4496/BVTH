@@ -26,6 +26,7 @@ Route::get('/co-so-vat-chat/{id}/{title?}', 'OnePageController@infrastructure_de
 Route::get('/khoa-phong/{id}/{title?}', 'OnePageController@department');
 Route::get('/kham-chua-benh', 'OnePageController@healthcare');
 Route::get('/goi-kham-suc-khoe', 'OnePageController@health_package');
+Route::get('/bang-gia-dich-vu-ky-thuat', 'OnePageController@service_price');
 
 Route::get('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
 Route::post('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
@@ -121,7 +122,7 @@ Route::group(['middleware' => ['get.menu']], function () {
             'aboutBVTH' => 'AboutBVTHController',
             'ad-banner-main' => 'AdBannerMainController',
             'ad-banner-footer' => 'AdBannerFooterController',
-            // 'ad-banner-about' => 'AdBannerAboutController'
+            'price-list-of-technical-services' => 'PriceTechnicalServiceController'
         ]);
 
         // huy comment

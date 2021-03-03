@@ -16,6 +16,26 @@ body {
 	color: #656565;
 }
 
+.input-group.search-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-group.search-group .form-control {
+	border-radius: 4px;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: rgba(0, 0, 21, 0.05);
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    padding: 12px;
+    line-height: 1.428571429;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
 a {
 	text-decoration: none !important;
 }

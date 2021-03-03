@@ -236,6 +236,8 @@ class MenusTableSeeder extends Seeder
         $this->insertLink('admin', 'Đặt lịch khám', '/medical-appointment', 'cil-medical-cross');
         $this->insertLink('admin', 'Cảm nhận bệnh nhân', '/write-comments', 'cil-comment-bubble');
 
+        $this->insertLink('admin', 'Bảng giá dịch vụ kỹ thuật', '/price-list-of-technical-services', 'cil-money');
+
         /* Create top menu */
         DB::table('menulist')->insert([
             'name' => 'top menu'
@@ -246,13 +248,13 @@ class MenusTableSeeder extends Seeder
         // $id = $this->insertLink('admin', 'Notes',              '/notes');
         // $id = $this->insertLink('admin', 'Users',                   '/users');
         // $this->endDropdown();
-        $id = $this->beginDropdown('admin', 'Settings');
-        $id = $this->insertLink('admin', 'Edit menu',               '/menu/menu');
-        $id = $this->insertLink('admin', 'Edit menu elements',      '/menu/element');
-        $id = $this->insertLink('admin', 'Edit roles',              '/roles');
-        $id = $this->insertLink('admin', 'Media',                   '/media');
-        $id = $this->insertLink('admin', 'BREAD',                   '/bread');
-        $this->endDropdown();
+        // $id = $this->beginDropdown('admin', 'Settings');
+        // $id = $this->insertLink('admin', 'Edit menu',               '/menu/menu');
+        // $id = $this->insertLink('admin', 'Edit menu elements',      '/menu/element');
+        // $id = $this->insertLink('admin', 'Edit roles',              '/roles');
+        // $id = $this->insertLink('admin', 'Media',                   '/media');
+        // $id = $this->insertLink('admin', 'BREAD',                   '/bread');
+        // $this->endDropdown();
 
         $this->joinAllByTransaction(); ///   <===== Must by use on end of this seeder
     }

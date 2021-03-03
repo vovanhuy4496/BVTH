@@ -15,6 +15,7 @@ use App\Models\InfrastructureBvth;
 use App\Models\CatalogDepartments;
 use App\Models\PackageHealthcare;
 use App\Models\Healthcare;
+use App\Models\PriceTechnicalService;
 
 class OnePageController extends Controller
 {
@@ -28,7 +29,7 @@ class OnePageController extends Controller
             'aboutBVTH' => $aboutBVTH, 
             'footerSlider' => $footerSlider, 
             'mainSlider' => $mainSlider,
-            ]);
+        ]);
     }
 
     public function about_doctor()
@@ -55,7 +56,7 @@ class OnePageController extends Controller
             'departments' => $departments,
             'footerSlider' => $footerSlider,
             'mainSlider' => $mainSlider,
-            ]);
+        ]);
     }
 
     public function photos_videos()
@@ -73,7 +74,7 @@ class OnePageController extends Controller
             'videos' => $videos, 
             'footerSlider' => $footerSlider, 
             'mainSlider' => $mainSlider,
-            ]);
+        ]);
     }
 
     public function get_photos_videos(Request $request)
@@ -103,7 +104,7 @@ class OnePageController extends Controller
             'infrastructures' => $infrastructures, 
             'footerSlider' => $footerSlider, 
             'mainSlider' => $mainSlider,
-            ]);
+        ]);
     }
 
     /**
@@ -123,7 +124,7 @@ class OnePageController extends Controller
             'infrastructure' => $infrastructure, 
             'footerSlider' => $footerSlider, 
             'mainSlider' => $mainSlider,
-            ]);
+        ]);
     }
 
     public function department($id, $title)
@@ -137,7 +138,7 @@ class OnePageController extends Controller
             'department' => $department, 
             'footerSlider' => $footerSlider, 
             'mainSlider' => $mainSlider,
-            ]);
+        ]);
     }
 
     public function healthcare()
@@ -145,7 +146,7 @@ class OnePageController extends Controller
         $healthcare = Healthcare::where('status', 1)->orderBy('sort')->take(1)->first();
         return view('onepage.healthcare', [
             'healthcare' => $healthcare, 
-            ]);
+        ]);
     }
 
     public function health_package()
@@ -153,7 +154,15 @@ class OnePageController extends Controller
         $healthcare = PackageHealthcare::where('status', 1)->orderBy('sort')->take(1)->first();
         return view('onepage.health_package', [
             'healthcare' => $healthcare, 
-            ]);
+        ]);
+    }
+
+    public function service_price()
+    {
+        $lists = PriceTechnicalService::where('status', 1)->orderBy('group', 'ASC')->get();
+        return view('onepage.service_price', [
+            'lists' => $lists, 
+        ]);
     }
 
     /**
