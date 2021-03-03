@@ -16,6 +16,8 @@ use App\Models\CatalogDepartments;
 use App\Models\PackageHealthcare;
 use App\Models\Healthcare;
 use App\Models\PriceTechnicalService;
+use App\Models\Newspaper;
+use App\Models\CatalogNewspaper;
 
 class OnePageController extends Controller
 {
@@ -162,6 +164,17 @@ class OnePageController extends Controller
         $lists = PriceTechnicalService::where('status', 1)->orderBy('group', 'ASC')->get();
         return view('onepage.service_price', [
             'lists' => $lists, 
+        ]);
+    }
+
+    public function news()
+    {
+        // 4 bai dang moi nhat
+        $news = Newspaper::where('status', 1)->orderBy('created_at')->take(4)->get();
+        $categories = CatalogNewspaper::where('status', 1)->orderBy('sort')->get();
+        return view('onepage.news', [
+            'news' => $news,
+            'categories' => $categories,
         ]);
     }
 

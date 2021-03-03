@@ -27,6 +27,7 @@ Route::get('/khoa-phong/{id}/{title?}', 'OnePageController@department');
 Route::get('/kham-chua-benh', 'OnePageController@healthcare');
 Route::get('/goi-kham-suc-khoe', 'OnePageController@health_package');
 Route::get('/bang-gia-dich-vu-ky-thuat', 'OnePageController@service_price');
+Route::get('/tin-tuc', 'OnePageController@news');
 
 Route::get('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
 Route::post('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');

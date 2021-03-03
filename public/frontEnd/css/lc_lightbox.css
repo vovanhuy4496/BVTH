@@ -1446,13 +1446,13 @@
 	-webkit-transition: opacity .6s ease;
 	transition: 		opacity .6s ease;		
 }
-.lcl_loading_videojs #lcl_progressbar,
+/* .lcl_loading_videojs #lcl_progressbar,
 .lcl_loading_iframe #lcl_progressbar {
 	opacity: 0; !important;	
 	
 	-webkit-transition-duration: 0s;
 	transition-duration: 0s;
-}
+} */
 
 
 
