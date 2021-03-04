@@ -7,68 +7,131 @@
 @section('content')
 @include('frontEnd.banner')
 <section id="content">
-    <div class="container">
+    <div class="container" id="content-news">
         @if(!$news->isEmpty())
         <h1 class="content-title">TIN TỨC</h1>
-        <div class="row aos-init aos-animate" data-aos="fade-up">
-            <div class="col-xl-8 stretch-card grid-margin">
+        <div class="row aos-init aos-animate flex-content" data-aos="fade-up">
+            <div class="col-lg-{{ count($news) == 1 ? '12' : '8' }} stretch-card grid-margin">
                 <div class="position-relative">
-                    <img src="assets/images/dashboard/banner.jpg" alt="banner" class="img-fluid">
+                    <img class="img-responsive img-fluid"
+                        src="{{ asset('BVTH/Newspaper/'.$news->first()->image_file_name) }}" />
                     <div class="banner-content">
-                        <div class="badge badge-danger fs-12 font-weight-bold mb-3">
-                            global news
-                        </div>
-                        <h1 class="mb-0">GLOBAL PANDEMIC</h1>
-                        <h1 class="mb-2">
-                            Coronavirus Outbreak LIVE Updates: ICSE, CBSE Exams
-                            Postponed, 168 Trains
-                        </h1>
-                        <div class="fs-12">
-                            <span class="mr-2">Photo </span>10 Minutes ago
+                        <!-- <div class="badge badge-danger fs-12 text-white-bold mb-3">
+                            tin tức mới nhất
+                        </div> -->
+                        <?php
+                            $first = $news->first()->id;
+                        ?>
+                        <h2 class="mb-0">{{ $news->first()->title }}</h2>
+                        <h3 class="mb-2">
+                            {{ $news->first()->describe }}
+                        </h3>
+                        <div class="fs-12 catalogues-news">
+                            <?php 
+                                $catalogues_name = json_decode($news->first()->catalogues_name);
+                                foreach($catalogues_name as $name) {
+                                    echo '<span class="mr-2">'.$name.'</span>';
+                                }
+                            ?>
+                            <span class="time-news">{{ $news->first()->created_at }}</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 stretch-card grid-margin">
-                <div class="card bg-dark text-white">
+            @if(count($news) > 1)
+            <div class="col-lg-4 stretch-card grid-margin">
+                <div class="card text-white">
                     <div class="card-body">
-                        <h2>Latest news</h2>
-
-                        <div class="d-flex border-bottom-blue pt-3 pb-4 align-items-center justify-content-between">
-                            <div class="pr-3">
-                                <h5>Virus Kills Member Of Advising Iran’s Supreme</h5>
-                                <div class="fs-12">
-                                    <span class="mr-2">Photo </span>10 Minutes ago
+                        <h3 class="text-white">Tin mới nhất</h2>
+                            @foreach($news as $item)
+                            @if($item->id != $first)
+                            <div class="row flex-content content-right">
+                                <div class="pr-3 col-sm-7">
+                                    <h5 class="text-white">{{ $item->title }}</h5>
+                                    <div class="fs-12 catalogues-news">
+                                        <?php 
+                                        $catalogues_name = json_decode($item->catalogues_name);
+                                        foreach($catalogues_name as $name) {
+                                            echo '<span class="mr-2">'.$name.'</span>';
+                                        }
+                                    ?>
+                                        <span class="time-news">{{ $item->created_at }}</span>
+                                    </div>
+                                </div>
+                                <div class="rotate-img col-sm-5">
+                                    <img class="img-responsive img-fluid img-lg"
+                                        src="{{ asset('BVTH/Newspaper/'.$item->image_file_name) }}" />
                                 </div>
                             </div>
-                            <div class="rotate-img">
-                                <img src="assets/images/dashboard/home_1.jpg" alt="thumb" class="img-fluid img-lg">
-                            </div>
+                            @endif
+                            @endforeach
+                    </div>
+                </div>
+            </div>
+            @endif
+        </div>
+        <div class="row aos-init aos-animate" data-aos="fade-up">
+            <div class="col-lg-3 stretch-card grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Danh Mục</h3>
+                        <ul class="vertical-menu">
+                            @foreach($categories as $key => $item)
+                            <?php $url = stripVN($item->name);
+                                $url = preg_replace("/\s+/", '-', $url);
+                                $url = URL::to("/tin-tuc").'/danh-muc'.'/'.$item->id.'/'.$url;
+                            ?>
+                            <!-- <li catelogy="row-{{ $item->id }}" class="{{ $key == 0 ? 'active' : '' }}"><a
+                                    href="{{ $url }}">{{ $item->name }}</a></li> -->
+                            <li catelogy="row-{{ $item->id }}" class="{{ $key == 0 ? 'active' : '' }}">
+                                <a>{{ $item->name }}</a>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 stretch-card grid-margin" id="new-follow-catelogy">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="catelogy">
+                            <select name="" id="">
+                                @foreach($categories as $key => $item)
+                                <option value="row-{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
-
-                        <div class="d-flex border-bottom-blue pb-4 pt-4 align-items-center justify-content-between">
-                            <div class="pr-3">
-                                <h5>Virus Kills Member Of Advising Iran’s Supreme</h5>
-                                <div class="fs-12">
-                                    <span class="mr-2">Photo </span>10 Minutes ago
+                        @foreach($categories as $key => $item)
+                        <?php 
+                            $news = json_decode($item->new);
+                        ?>
+                        @foreach($news as $new)
+                        <div class="row {{ $key == 0 ? 'active' : 'no-active' }} row-active row-{{ $item->id }}">
+                            <div class="col-sm-4 grid-margin">
+                                <div class="position-relative">
+                                    <div class="rotate-img">
+                                        <img class="img-responsive img-fluid"
+                                            src="{{ asset('BVTH/Newspaper/'.$new->new_image_file_name) }}" />
+                                    </div>
+                                    <!-- <div class="badge-positioned">
+                                        <span class="badge badge-danger font-weight-bold">Flash news</span>
+                                    </div> -->
                                 </div>
                             </div>
-                            <div class="rotate-img">
-                                <img src="assets/images/dashboard/home_2.jpg" alt="thumb" class="img-fluid img-lg">
-                            </div>
-                        </div>
-
-                        <div class="d-flex pt-4 align-items-center justify-content-between">
-                            <div class="pr-3">
-                                <h5>Virus Kills Member Of Advising Iran’s Supreme</h5>
-                                <div class="fs-12">
-                                    <span class="mr-2">Photo </span>10 Minutes ago
+                            <div class="col-sm-8 grid-margin">
+                                <h3 class="mb-2">
+                                    {{ $new->new_title }}
+                                </h3>
+                                <div class="fs-13 mb-2">
+                                    {{ $new->new_created_at }}
                                 </div>
-                            </div>
-                            <div class="rotate-img">
-                                <img src="assets/images/dashboard/home_3.jpg" alt="thumb" class="img-fluid img-lg">
+                                <p class="mb-2 fs-15">
+                                    {{ $new->new_describe }}
+                                </p>
                             </div>
                         </div>
+                        @endforeach
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -82,6 +145,10 @@
 
 @section('javascript')
 <script>
-
+$('.vertical-menu li').click(function() {
+    var id = $(this).attr('catelogy');
+    $('#new-follow-catelogy .row-active').hide();
+    $('#new-follow-catelogy .' + id).show();
+});
 </script>
 @endsection

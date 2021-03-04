@@ -18,6 +18,7 @@ use App\Models\Healthcare;
 use App\Models\PriceTechnicalService;
 use App\Models\Newspaper;
 use App\Models\CatalogNewspaper;
+use Illuminate\Support\Facades\Log;
 
 class OnePageController extends Controller
 {
@@ -170,8 +171,32 @@ class OnePageController extends Controller
     public function news()
     {
         // 4 bai dang moi nhat
-        $news = Newspaper::where('status', 1)->orderBy('created_at')->take(4)->get();
+        $news = Newspaper::where('status', 1)->orderBy('created_at', 'DESC')->take(4)->get();
+        foreach($news as $item) {
+            $catalogues = json_decode($item->catalogues);
+            $new_catalogues = array();
+            foreach ($catalogues as $id) {
+                $catalog = CatalogNewspaper::where('status', 1)->where('id', $id)->first();
+                if (!empty($catalog->name)) {
+                    array_push($new_catalogues, $catalog->name);
+                }
+            }
+            $item->catalogues_name = json_encode($new_catalogues);
+        }
         $categories = CatalogNewspaper::where('status', 1)->orderBy('sort')->get();
+        foreach($categories as $category) {
+            $new = Newspaper::whereRaw('json_contains(catalogues, \'["' . $category->id . '"]\')')->where('status', 1)->orderBy('created_at', 'DESC')->take(3)->get();
+            // Log::info(Newspaper::whereRaw('json_contains(catalogues, \'["' . $category->id . '"]\')')->where('status', 1)->orderBy('created_at', 'DESC')->take(3)->toSql());
+            $_new = array();
+            foreach($new as $item) {
+                $_new[$item->id]['new_id'] = $item->id;
+                $_new[$item->id]['new_title'] = $item->title;
+                $_new[$item->id]['new_describe'] = $item->describe;
+                $_new[$item->id]['new_image_file_name'] = $item->image_file_name;
+                $_new[$item->id]['new_created_at'] = $item->created_at;
+            }
+            $category->new = json_encode($_new);
+        }
         return view('onepage.news', [
             'news' => $news,
             'categories' => $categories,

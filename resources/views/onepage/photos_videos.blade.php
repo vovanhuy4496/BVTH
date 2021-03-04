@@ -146,7 +146,7 @@ $('ul.filter li').click(function() {
     if ($(this).attr('data') == 'photos') {
         $('li.videos').hide();
     }
-    console.log($(this).attr('data'));
+    // console.log($(this).attr('data'));
     // if ($(this).val() == 'all') {
     //     $('li.videos').show();
     //     $('li.videos').show();
