@@ -11,7 +11,7 @@
         @if(!$news->isEmpty())
         <h1 class="content-title">TIN TỨC</h1>
         <div class="row aos-init aos-animate flex-content" data-aos="fade-up">
-            <div class="col-lg-{{ count($news) == 1 ? '12' : '8' }} stretch-card grid-margin">
+            <div class="col-sm-{{ count($news) == 1 ? '12' : '8' }} stretch-card grid-margin">
                 <div class="position-relative">
                     <img class="img-responsive img-fluid"
                         src="{{ asset('BVTH/Newspaper/'.$news->first()->image_file_name) }}" />
@@ -39,15 +39,17 @@
                 </div>
             </div>
             @if(count($news) > 1)
-            <div class="col-lg-4 stretch-card grid-margin">
+            <div class="col-sm-4 stretch-card grid-margin">
                 <div class="card text-white">
                     <div class="card-body">
                         <h3 class="text-white">Tin mới nhất</h2>
                             @foreach($news as $item)
                             @if($item->id != $first)
                             <div class="row flex-content content-right">
-                                <div class="pr-3 col-sm-7">
+                                <div class="col-sm-12">
                                     <h5 class="text-white">{{ $item->title }}</h5>
+                                </div>
+                                <div class="pr-3 col-sm-6">
                                     <div class="fs-12 catalogues-news">
                                         <?php 
                                         $catalogues_name = json_decode($item->catalogues_name);
@@ -58,7 +60,7 @@
                                         <span class="time-news">{{ $item->created_at }}</span>
                                     </div>
                                 </div>
-                                <div class="rotate-img col-sm-5">
+                                <div class="rotate-img col-sm-6">
                                     <img class="img-responsive img-fluid img-lg"
                                         src="{{ asset('BVTH/Newspaper/'.$item->image_file_name) }}" />
                                 </div>
@@ -70,8 +72,8 @@
             </div>
             @endif
         </div>
-        <div class="row aos-init aos-animate" data-aos="fade-up">
-            <div class="col-lg-3 stretch-card grid-margin">
+        <div class="row aos-init aos-animate flex-content" data-aos="fade-up">
+            <div class="col-lg-3 stretch-card grid-margin menu-catelogy">
                 <div class="card">
                     <div class="card-body">
                         <h3>Danh Mục</h3>
@@ -94,20 +96,20 @@
             <div class="col-lg-9 stretch-card grid-margin" id="new-follow-catelogy">
                 <div class="card">
                     <div class="card-body">
-                        <div class="catelogy">
+                        <!-- <div class="catelogy">
                             <select name="" id="">
                                 @foreach($categories as $key => $item)
                                 <option value="row-{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
                             </select>
-                        </div>
+                        </div> -->
                         @foreach($categories as $key => $item)
                         <?php 
                             $news = json_decode($item->new);
                         ?>
                         @foreach($news as $new)
                         <div class="row {{ $key == 0 ? 'active' : 'no-active' }} row-active row-{{ $item->id }}">
-                            <div class="col-sm-4 grid-margin">
+                            <div class="col-sm-4 img-grid grid-margin">
                                 <div class="position-relative">
                                     <div class="rotate-img">
                                         <img class="img-responsive img-fluid"

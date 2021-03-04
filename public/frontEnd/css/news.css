@@ -25,6 +25,7 @@
 
 .position-relative {
 	position: relative;
+	display: flex;
 }
 
 .mb-2 {
@@ -36,6 +37,7 @@
 	text-decoration: none;
 	color: #fff;
 	line-height: 32px;
+	margin: 10px 0;
 }
 
 #new-follow-catelogy .mb-2 {
@@ -62,10 +64,14 @@
 	text-transform: uppercase;
 	line-height: 40px;
 	font-size: 28px;
+	margin: 0;
+}
+
+.catalogues-news {
+	display: grid;
 }
 
 .catalogues-news .mr-2 {
-	padding-right: 10px;
 	font-size: 13px;
 }
 
@@ -112,7 +118,7 @@
 	display: flex;
 }
 
-.pr-3.col-sm-7 {
+.content-right .pr-3 {
 	padding-right: 0;
 }
 
@@ -122,16 +128,20 @@
 }
 
 .card-body {
-	padding: 0 20px;
+	padding: 20px;
+}
+
+.card-body h3 {
+	margin: 0 0 10px 0;
 }
 
 .stretch-card.grid-margin {
 	margin-bottom: 20px;
 }
 
-#content-news .row {
+/* #content-news .row {
 	margin-bottom: 0;
-}
+} */
 
 
 /* content thu 2 */
@@ -144,7 +154,7 @@
 	word-wrap: break-word;
 	background-color: #fff;
 	background-clip: border-box;
-	border: 1px solid #e7eaed;
+	/* border: 1px solid #e7eaed; */
 	border-radius: 6px;
 	width: 100%;
 }
@@ -194,11 +204,11 @@
 		margin: 10px 0;
 		font-size: 20px
 	}
-	.pr-3.col-sm-7 {
-		width: 60%;
+	.content-right .pr-3 {
+		width: 50%;
 	}
-	.rotate-img.col-sm-5 {
-		width: 40%;
+	.content-right .rotate-img {
+		width: 50%;
 	}
 	.grid-margin {
 		margin-bottom: 20px;
@@ -209,13 +219,16 @@
 	.grid-margin {
 		margin-bottom: 0;
 	}
+	.menu-catelogy {
+		width: 100%;
+	}
 	#new-follow-catelogy .fs-13.mb-2 {
 		margin: 10px 0;
 	}
 	#new-follow-catelogy .mb-2.fs-15 {
 		margin-bottom: 0;
 	}
-	#new-follow-catelogy .col-sm-4.grid-margin {
+	#new-follow-catelogy .img-grid.grid-margin {
 		margin-bottom: 10px;
 	}
 }
@@ -223,13 +236,16 @@
     .bg-dark {
         background-color: unset !important;
     }
-    .card {
+    /* .card {
         padding: 30px;
-    }
+    } */
     .grid-margin {
         margin-bottom: 20px;
         line-height: 25px;
     }
+	.menu-catelogy {
+		width: 100%;
+	}
     .content-right h5 {
         font-size: 20px;
     }
@@ -240,12 +256,20 @@
         padding: 30px 30px 0 30px;
     }
 }
+@media (max-width: 1199px) {
+	.menu-catelogy {
+		width: 100%;
+	}
+}
 #content-news .active {
     display: block;
+}
+#content-news .row-active {
+	margin-bottom: 0;
 }
 #content-news .no-active {
     display: none;
 }
 .row-active {
-    padding: 20px 0;
+    padding: 10px 0;
 }
