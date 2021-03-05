@@ -28,7 +28,7 @@ Route::get('/kham-chua-benh', 'OnePageController@healthcare');
 Route::get('/goi-kham-suc-khoe', 'OnePageController@health_package');
 Route::get('/bang-gia-dich-vu-ky-thuat', 'OnePageController@service_price');
 Route::get('/tin-tuc', 'OnePageController@news');
-Route::get('/tin-tuc/danh-muc/{id}/{title?}', 'OnePageController@news_detail');
+Route::get('/tin-tuc/danh-muc/{id}/{title?}', 'OnePageController@news_catology');
 
 Route::get('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
 Route::post('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');

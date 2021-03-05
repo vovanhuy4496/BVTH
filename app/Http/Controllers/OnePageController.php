@@ -203,7 +203,7 @@ class OnePageController extends Controller
         ]);
     }
 
-    public function news_detail($id, $title)
+    public function news_catology($id, $title)
     {
         $categories = CatalogNewspaper::where('status', 1)->orderBy('sort')->get();
         $news = Newspaper::whereRaw('json_contains(catalogues, \'["' . $id . '"]\')')->where('status', 1)->orderBy('created_at', 'DESC')->paginate(10);
@@ -220,7 +220,7 @@ class OnePageController extends Controller
         }
         $catalog = CatalogNewspaper::where('status', 1)->where('id', $id)->first();
 
-        return view('onepage.news_detail', [
+        return view('onepage.news_catology', [
             'news' => $news,
             'categories' => $categories,
             'catalog' => $catalog

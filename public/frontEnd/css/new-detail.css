@@ -1,4 +1,4 @@
-#content-news-detail .line-4 {
+#content-news-catology .line-4 {
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 4;
@@ -7,7 +7,7 @@
   text-decoration: none;
 }
 
-#content-news-detail .line-2 {
+#content-news-catology .line-2 {
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
@@ -16,74 +16,74 @@
   text-decoration: none;
 }
 
-#content-news-detail .title_post h2 {
+#content-news-catology .title_post h2 {
   margin: 0 0 15px 0;
 }
 
-#content-news-detail .item .row {
+#content-news-catology .item .row {
   margin-bottom: 0;
 }
 
-#content-news-detail .boxbs_dungten {
+#content-news-catology .boxbs_dungten {
   display: none !important;
 }
 
-#content-news-detail .row.div_flex {
+#content-news-catology .row.div_flex {
   margin-bottom: 0;
 }
 
-#content-news-detail .margin-none {
+#content-news-catology .margin-none {
   margin: 0 !important;
 }
 
-#content-news-detail .bg-white {
+#content-news-catology .bg-white {
   background-color: #fff;
 }
 
-#content-news-detail .mb_30 {
+#content-news-catology .mb_30 {
   margin-bottom: 30px;
 }
 
-#content-news-detail .pl_15 {
+#content-news-catology .pl_15 {
   padding-left: 15px;
 }
 
-#content-news-detail .pr_15 {
+#content-news-catology .pr_15 {
   padding-right: 15px;
 }
 
-#content-news-detail .mb_15 {
+#content-news-catology .mb_15 {
   margin-bottom: 15px;
 }
 
-#content-news-detail .mt_10 {
+#content-news-catology .mt_10 {
   margin-top: 10px;
 }
 
-#content-news-detail .cl_33,
-#content-news-detail .cl_33 * {
+#content-news-catology .cl_33,
+#content-news-catology .cl_33 * {
   color: #333;
 }
 
-#content-news-detail .sz_18 {
+#content-news-catology .sz_18 {
   font-size: 18px !important;
 }
 
-#content-news-detail .sz_16 {
+#content-news-catology .sz_16 {
   font-size: 16px !important;
 }
 
-#content-news-detail .div_tag {
+#content-news-catology .div_tag {
   padding: 0;
   display: inline-block;
 }
 
-#content-news-detail .div_tag li {
+#content-news-catology .div_tag li {
   list-style: none;
   display: inline-block;
 }
 
-#content-news-detail .div_tag li a {
+#content-news-catology .div_tag li a {
   font-size: 10px;
   background: #f6f6f7;
   border: 1px solid #ccc;
@@ -95,55 +95,55 @@
   margin-top: 3px;
 }
 
-#content-news-detail .text-justify {
+#content-news-catology .text-justify {
   text-align: justify;
 }
 
-#content-news-detail .boxbs_dungten {
+#content-news-catology .boxbs_dungten {
   opacity: .7;
   font-size: 10px;
 }
 
-#content-news-detail .boxbs_dungten img {
+#content-news-catology .boxbs_dungten img {
   border: 1px solid #ccc;
   width: 40px;
   margin-right: 7px;
 }
 
-#content-news-detail .img-circle {
+#content-news-catology .img-circle {
   border-radius: 50%;
 }
 
-#content-news-detail .cl_brand {
+#content-news-catology .cl_brand {
   color: #102e9e;
 }
 
-#content-news-detail .text-uppercase {
+#content-news-catology .text-uppercase {
   text-transform: uppercase;
 }
 
-#content-news-detail .mtr_5 {
+#content-news-catology .mtr_5 {
   margin-top: -5px;
 }
 
 @media (min-width: 768px) {
-  #content-news-detail .div_flex.top .item,
-  #content-news-detail .div_flex_n.top .item {
+  #content-news-catology .div_flex.top .item,
+  #content-news-catology .div_flex_n.top .item {
     -ms-flex-pack: start;
         justify-content: flex-start;
   }
 
-  #content-news-detail .div_flex,
-  #content-news-detail .dvkhac .owl-stage {
+  #content-news-catology .div_flex,
+  #content-news-catology .dvkhac .owl-stage {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: row;
         flex-direction: row;
   }
 
-  #content-news-detail .div_flex .item,
-  #content-news-detail .div_flex_n .item,
-  #content-news-detail .dvkhac .owl-stage .owl-item {
+  #content-news-catology .div_flex .item,
+  #content-news-catology .div_flex_n .item,
+  #content-news-catology .dvkhac .owl-stage .owl-item {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -154,11 +154,11 @@
         justify-content: center;
   }
 
-  #content-news-detail .noright {
+  #content-news-catology .noright {
     padding-right: 0;
   }
 
-  #content-news-detail .noleft {
+  #content-news-catology .noleft {
     padding-left: 0;
   }
 }
