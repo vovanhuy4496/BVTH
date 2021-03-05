@@ -17,10 +17,12 @@
 
 .banner-content {
 	position: absolute;
-	padding: 30px;
+	padding: 20px;
 	left: 0px;
 	bottom: 0px;
-	color: #ffffff;
+    color: #3e3e3e;
+    background: #fff;
+    opacity: 0.8;
 }
 
 .position-relative {
@@ -35,9 +37,9 @@
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	text-decoration: none;
-	color: #fff;
-	line-height: 32px;
-	margin: 10px 0;
+	color: #3e3e3e;
+	line-height: 24px;
+	margin: 5px 0;
 }
 
 #new-follow-catelogy .mb-2 {
@@ -60,10 +62,10 @@
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	text-decoration: none;
-	color: #fff;
+	color: #3e3e3e;
 	text-transform: uppercase;
-	line-height: 40px;
-	font-size: 28px;
+	line-height: 32px;
+	/* font-size: 28px; */
 	margin: 0;
 }
 
@@ -272,4 +274,26 @@
 }
 .row-active {
     padding: 10px 0;
+}
+.vertical-menu li a:hover {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 600;
+}
+.rotate-img {
+    overflow: hidden;
+}
+.rotate-img img {
+    -webkit-transform: rotate(0) scale(1);
+    transform: rotate(0) scale(1);
+    -webkit-transition: 0.6s ease-in-out;
+    transition: 0.6s ease-in-out;
+}
+.rotate-img:hover img {
+    -webkit-transform: rotate(
+    15deg
+    ) scale(1.4);
+        transform: rotate(
+    15deg
+    ) scale(1.4);
 }

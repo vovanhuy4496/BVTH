@@ -193,13 +193,37 @@ class OnePageController extends Controller
                 $_new[$item->id]['new_title'] = $item->title;
                 $_new[$item->id]['new_describe'] = $item->describe;
                 $_new[$item->id]['new_image_file_name'] = $item->image_file_name;
-                $_new[$item->id]['new_created_at'] = $item->created_at;
+                $_new[$item->id]['new_created_at'] = $item->created_at->format('d/m/Y');
             }
             $category->new = json_encode($_new);
         }
         return view('onepage.news', [
             'news' => $news,
             'categories' => $categories,
+        ]);
+    }
+
+    public function news_detail($id, $title)
+    {
+        $categories = CatalogNewspaper::where('status', 1)->orderBy('sort')->get();
+        $news = Newspaper::whereRaw('json_contains(catalogues, \'["' . $id . '"]\')')->where('status', 1)->orderBy('created_at', 'DESC')->paginate(10);
+        foreach($news as $item) {
+            $catalogues = json_decode($item->catalogues);
+            $new_catalogues = array();
+            foreach ($catalogues as $id) {
+                $catalog = CatalogNewspaper::where('status', 1)->where('id', $id)->first();
+                if (!empty($catalog->name)) {
+                    array_push($new_catalogues, $catalog->name);
+                }
+            }
+            $item->catalogues_name = json_encode($new_catalogues);
+        }
+        $catalog = CatalogNewspaper::where('status', 1)->where('id', $id)->first();
+
+        return view('onepage.news_detail', [
+            'news' => $news,
+            'categories' => $categories,
+            'catalog' => $catalog
         ]);
     }
 

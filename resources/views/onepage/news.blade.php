@@ -8,8 +8,8 @@
 @include('frontEnd.banner')
 <section id="content">
     <div class="container" id="content-news">
-        @if(!$news->isEmpty())
         <h1 class="content-title">TIN TỨC</h1>
+        @if(!$news->isEmpty())
         <div class="row aos-init aos-animate flex-content" data-aos="fade-up">
             <div class="col-sm-{{ count($news) == 1 ? '12' : '8' }} stretch-card grid-margin">
                 <div class="position-relative">
@@ -22,10 +22,10 @@
                         <?php
                             $first = $news->first()->id;
                         ?>
-                        <h2 class="mb-0">{{ $news->first()->title }}</h2>
-                        <h3 class="mb-2">
+                        <h3 class="mb-0">{{ $news->first()->title }}</h3>
+                        <h4 class="mb-2">
                             {{ $news->first()->describe }}
-                        </h3>
+                        </h4>
                         <div class="fs-12 catalogues-news">
                             <?php 
                                 $catalogues_name = json_decode($news->first()->catalogues_name);
@@ -33,7 +33,7 @@
                                     echo '<span class="mr-2">'.$name.'</span>';
                                 }
                             ?>
-                            <span class="time-news">{{ $news->first()->created_at }}</span>
+                            <span class="time-news">{{ $news->first()->created_at->format('d/m/Y') }}</span>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                                             echo '<span class="mr-2">'.$name.'</span>';
                                         }
                                     ?>
-                                        <span class="time-news">{{ $item->created_at }}</span>
+                                        <span class="time-news">{{ $item->created_at->format('d/m/Y') }}</span>
                                     </div>
                                 </div>
                                 <div class="rotate-img col-sm-6">
@@ -79,12 +79,6 @@
                         <h3>Danh Mục</h3>
                         <ul class="vertical-menu">
                             @foreach($categories as $key => $item)
-                            <?php $url = stripVN($item->name);
-                                $url = preg_replace("/\s+/", '-', $url);
-                                $url = URL::to("/tin-tuc").'/danh-muc'.'/'.$item->id.'/'.$url;
-                            ?>
-                            <!-- <li catelogy="row-{{ $item->id }}" class="{{ $key == 0 ? 'active' : '' }}"><a
-                                    href="{{ $url }}">{{ $item->name }}</a></li> -->
                             <li catelogy="row-{{ $item->id }}" class="{{ $key == 0 ? 'active' : '' }}">
                                 <a>{{ $item->name }}</a>
                             </li>
@@ -121,9 +115,9 @@
                                 </div>
                             </div>
                             <div class="col-sm-8 grid-margin">
-                                <h3 class="mb-2">
+                                <h4 class="mb-2">
                                     {{ $new->new_title }}
-                                </h3>
+                                </h4>
                                 <div class="fs-13 mb-2">
                                     {{ $new->new_created_at }}
                                 </div>
@@ -133,6 +127,15 @@
                             </div>
                         </div>
                         @endforeach
+                        <div class="row {{ $key == 0 ? 'active' : 'no-active' }} row-active row-{{ $item->id }}">
+                            <div class="col-sm-12 read-more">
+                                <?php $url = stripVN($item->name);
+                                    $url = preg_replace("/\s+/", '-', $url);
+                                    $url = URL::to("/tin-tuc").'/danh-muc'.'/'.$item->id.'/'.$url;
+                                ?>
+                                <a href="{{ $url }}">Xem thêm {{ $item->name }} >></a>
+                            </div>
+                        </div>
                         @endforeach
                     </div>
                 </div>

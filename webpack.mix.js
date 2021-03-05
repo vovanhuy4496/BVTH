@@ -21,6 +21,7 @@ mix.copy('node_modules/@coreui/chartjs/dist/css/coreui-chartjs.css', 'public/css
 mix.copy('node_modules/cropperjs/dist/cropper.css', 'public/css');
 //main css
 mix.sass('resources/sass/style.scss', 'public/css');
+mix.sass('resources/sass/new-detail.scss', 'public/frontEnd/css');
 
 //************** SCRIPTS ****************** 
 // general scripts

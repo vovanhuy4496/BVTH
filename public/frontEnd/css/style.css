@@ -16,6 +16,18 @@ body {
 	color: #656565;
 }
 
+.read-more {
+	text-align: end;
+}
+
+.read-more a {
+	border: 1px solid;
+    padding: 10px;
+    border-radius: 6px;
+    color: #fff;
+    background-color: #428bca;
+}
+
 .input-group.search-group {
     margin-bottom: 20px;
     width: 100%;
