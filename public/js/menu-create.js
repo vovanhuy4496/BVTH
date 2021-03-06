@@ -157,6 +157,17 @@ document.getElementById("type").onchange = function () {
 
 /***/ }),
 
+/***/ "./resources/sass/news.scss":
+/*!**********************************!*\
+  !*** ./resources/sass/news.scss ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/style.scss":
 /*!***********************************!*\
   !*** ./resources/sass/style.scss ***!
@@ -169,15 +180,16 @@ document.getElementById("type").onchange = function () {
 /***/ }),
 
 /***/ 0:
-/*!***************************************************************************************************************!*\
-  !*** multi ./resources/js/coreui/menu-create.js ./resources/sass/style.scss ./resources/sass/new-detail.scss ***!
-  \***************************************************************************************************************/
+/*!******************************************************************************************************************************************!*\
+  !*** multi ./resources/js/coreui/menu-create.js ./resources/sass/style.scss ./resources/sass/new-detail.scss ./resources/sass/news.scss ***!
+  \******************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\xampp\htdocs\BVTH\resources\js\coreui\menu-create.js */"./resources/js/coreui/menu-create.js");
 __webpack_require__(/*! C:\xampp\htdocs\BVTH\resources\sass\style.scss */"./resources/sass/style.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\BVTH\resources\sass\new-detail.scss */"./resources/sass/new-detail.scss");
+__webpack_require__(/*! C:\xampp\htdocs\BVTH\resources\sass\new-detail.scss */"./resources/sass/new-detail.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\BVTH\resources\sass\news.scss */"./resources/sass/news.scss");
 
 
 /***/ })

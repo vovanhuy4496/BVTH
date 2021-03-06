@@ -25,14 +25,18 @@
                             $url = preg_replace("/\s+/", '-', $url);
                             $url = URL::to("/tin-tuc").'/chi-tiet'.'/'.$news->first()->id.'/'.$url;
                         ?>
-                        <div class="col-sm-6 col-xs-12 item noright noleft"> <a class="thumb_post" href="{{ $url }}">
-                                <img class="img-responsive"
-                                    src="{{ asset('BVTH/Newspaper/'.$news->first()->image_file_name) }}" />
-                            </a></div>
-                        <div class="col-sm-6 col-xs-12 item noleft noright bg-white">
-                            <div class="pl_15 pr_15"> <a class="title_post" title="{{ $news->first()->title }}"
-                                    href="{{ $url }}">
-                                    <h2 class="mt_10 mb_15 sz_18 cl_33 line-2">{{ $news->first()->title }}</h2>
+                        <div class="col-sm-6 col-xs-12 item noright noleft">
+                            <a class="thumb_post w_100" href="{{ $url }}">
+                                <img class="img-responsive w_100"
+                                    src="{{ URL::route('resizes', array('size' => 'larageNewsCatalogy', 'imagePath' => 'BVTH/Newspaper/'.$news->first()->image_file_name)) }}" />
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 item noleft noright">
+                            <div class="pl_15 pr_15 bg-white p_15 h_100">
+                                <a class="title_post" title="{{ $news->first()->title }}" href="{{ $url }}">
+                                    <h2 class="mt_10 mb_15 sz_18 cl_33 line-2">
+                                        {{ $news->first()->title }}
+                                    </h2>
                                 </a>
                                 <ul class="div_tag">
                                     <?php 
@@ -70,12 +74,14 @@
                 $count++;
             ?>
             <div class="col-xs-12 col-sm-4 mb_15 item ">
-                <div class="row div_flex_mobile"> <a class="thumb_post col-sm-12 col-xs-6 item" href="{{ $url }}">
-                        <img class="img-responsive mb_15" src="{{ asset('BVTH/Newspaper/'.$new->image_file_name) }}" />
+                <div class="row div_flex_mobile p_0_15">
+                    <a class="thumb_post col-sm-12 col-xs-6 item p_r_0" href="{{ $url }}">
+                        <img class="img-responsive mb_15"
+                            src="{{ URL::route('resizes', array('size' => 'mediumNewsCatalogy', 'imagePath' => 'BVTH/Newspaper/'.$new->image_file_name)) }}" />
                     </a>
-                    <div class="col-sm-12 col-xs-6 item noleft_mb text-justify"> <a class="title_post"
-                            title="{{ $new->title }}" href="{{ $url }}">
-                            <h2 class="mtr_5 mb_15 mb_5mb sz_16 cl_33">{{ $new->title }}</h2>
+                    <div class="col-sm-12 col-xs-6 item noleft_mb text-justify">
+                        <a class="title_post" title="{{ $new->title }}" href="{{ $url }}">
+                            <h2 class="mtr_5 mb_15 mb_5mb sz_16 cl_33 line-2">{{ $new->title }}</h2>
                         </a>
                         <ul class="div_tag">
                             <?php 
@@ -97,7 +103,7 @@
             </div>
             <?php
                 if($count == 3 || $count == 6 || $count == 9 || ($news->count() - 1) == $count) {
-                    $count = 0;
+                    // $count = 0;
                     echo '</div>';
                 }
             ?>

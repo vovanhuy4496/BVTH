@@ -32,6 +32,11 @@ return [
         'logoMobile' => [300, 53],
         'logoDesktop' => [474, 85],
         'photos-videos' => [260, 173],
-        'infrastructure' => [360, 225]
+        'infrastructure' => [360, 225],
+        'larageNews' => [750, 514],
+        'thumbnailNews' => [145, 76],
+        'mediumNews' => [249, 130],
+        'larageNewsCatalogy' => [585, 306],
+        'mediumNewsCatalogy' => [370, 194],
     ],
 ];

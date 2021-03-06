@@ -16,6 +16,55 @@ body {
 	color: #656565;
 }
 
+/* 1 */
+#home_service {
+	text-align: center;
+}
+#home_service .cl_brand3 {
+    color: #269b9e;
+}
+#home_service .bvta_name h3 {
+	font-weight: 400;
+}
+#home_service .home_service {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-items: stretch;
+    gap: 1px;
+}
+#home_service .cl_white, #home_service .cl_white *, #home_service .cl_white:hover, #home_service .cl_white:hover * {
+    color: #fff;
+}
+#home_service .service_item {
+    background: #3078ec;
+    height: 100%;
+    width: 100%;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    justify-self: center;
+    padding: 15%;
+}
+#home_service .service_item a {
+    display: block;
+    overflow: hidden;
+}
+#home_service .service_item:nth-child(5n+2) {
+    background: #0b52cb;
+    grid-column: 2/2;
+    grid-row: 1/2;
+}
+#home_service .service_item:nth-child(5n+3) {
+    background: #0342a7;
+    grid-column: 1/2;
+    grid-row: 2/2;
+}
+#home_service .service_item:nth-child(5n+4) {
+    background: #053480;
+    grid-column: 2/2;
+    grid-row: 2/2;
+}
+/* close 1 */
+
 .read-more {
 	text-align: end;
 }
@@ -26,6 +75,7 @@ body {
     border-radius: 6px;
     color: #fff;
     background-color: #428bca;
+	display: inline-block !important;
 }
 
 .input-group.search-group {
@@ -954,6 +1004,7 @@ section.callaction {
 #content img {
 	max-width: 100%;
 	height: auto;
+	width: 100%;
 }
 
 .cta-text {
@@ -1992,7 +2043,7 @@ footer .widget .flickr_badge img {
 .post-author-img {
 	margin: 5px 0 0 0;
 	float: left;
-	width: 64px;
+	width: 64px !important;
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;

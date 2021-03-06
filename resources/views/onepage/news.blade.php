@@ -13,8 +13,15 @@
         <div class="row aos-init aos-animate flex-content" data-aos="fade-up">
             <div class="col-sm-{{ count($news) == 1 ? '12' : '8' }} stretch-card grid-margin">
                 <div class="position-relative">
-                    <img class="img-responsive img-fluid"
-                        src="{{ asset('BVTH/Newspaper/'.$news->first()->image_file_name) }}" />
+                    <?php
+                        $url = stripVN($news->first()->title);
+                        $url = preg_replace("/\s+/", '-', $url);
+                        $url = URL::to("/tin-tuc").'/chi-tiet'.'/'.$news->first()->id.'/'.$url;
+                    ?>
+                    <a href="{{ $url }}">
+                        <img class="img-responsive img-fluid"
+                            src="{{ URL::route('resizes', array('size' => 'larageNews', 'imagePath' => 'BVTH/Newspaper/'.$news->first()->image_file_name)) }}" />
+                    </a>
                     <div class="banner-content">
                         <!-- <div class="badge badge-danger fs-12 text-white-bold mb-3">
                             tin tức mới nhất
@@ -22,7 +29,11 @@
                         <?php
                             $first = $news->first()->id;
                         ?>
-                        <h3 class="mb-0">{{ $news->first()->title }}</h3>
+                        <h3 class="mb-0">
+                            <a href="{{ $url }}">
+                                {{ $news->first()->title }}
+                            </a>
+                        </h3>
                         <h4 class="mb-2">
                             {{ $news->first()->describe }}
                         </h4>
@@ -45,9 +56,17 @@
                         <h3 class="text-white">Tin mới nhất</h2>
                             @foreach($news as $item)
                             @if($item->id != $first)
+                            <?php
+                                $url = stripVN($item->title);
+                                $url = preg_replace("/\s+/", '-', $url);
+                                $url = URL::to("/tin-tuc").'/chi-tiet'.'/'.$item->id.'/'.$url;
+                            ?>
                             <div class="row flex-content content-right">
                                 <div class="col-sm-12">
-                                    <h5 class="text-white">{{ $item->title }}</h5>
+                                    <h5 class="text-white">
+                                        <a href="{{ $url }}">
+                                            {{ $item->title }}</a>
+                                    </h5>
                                 </div>
                                 <div class="pr-3 col-sm-6">
                                     <div class="fs-12 catalogues-news">
@@ -61,8 +80,9 @@
                                     </div>
                                 </div>
                                 <div class="rotate-img col-sm-6">
-                                    <img class="img-responsive img-fluid img-lg"
-                                        src="{{ asset('BVTH/Newspaper/'.$item->image_file_name) }}" />
+                                    <a href="{{ $url }}">
+                                        <img class="img-responsive img-fluid img-lg"
+                                            src="{{ URL::route('resizes', array('size' => 'thumbnailNews', 'imagePath' => 'BVTH/Newspaper/'.$item->image_file_name)) }}" />
                                 </div>
                             </div>
                             @endif
@@ -103,11 +123,18 @@
                         ?>
                         @foreach($news as $new)
                         <div class="row {{ $key == 0 ? 'active' : 'no-active' }} row-active row-{{ $item->id }}">
+                            <?php
+                                $url = stripVN($new->new_title);
+                                $url = preg_replace("/\s+/", '-', $url);
+                                $url = URL::to("/tin-tuc").'/chi-tiet'.'/'.$new->new_id.'/'.$url;
+                            ?>
                             <div class="col-sm-4 img-grid grid-margin">
                                 <div class="position-relative">
-                                    <div class="rotate-img">
+                                    <div class="rotate-img w-100">
+                                        <a href="{{ $url }}">
                                         <img class="img-responsive img-fluid"
-                                            src="{{ asset('BVTH/Newspaper/'.$new->new_image_file_name) }}" />
+                                            src="{{ URL::route('resizes', array('size' => 'mediumNews', 'imagePath' => 'BVTH/Newspaper/'.$new->new_image_file_name)) }}" />
+                                        </a>
                                     </div>
                                     <!-- <div class="badge-positioned">
                                         <span class="badge badge-danger font-weight-bold">Flash news</span>
@@ -116,12 +143,14 @@
                             </div>
                             <div class="col-sm-8 grid-margin">
                                 <h4 class="mb-2">
-                                    {{ $new->new_title }}
+                                    <a href="{{ $url }}">
+                                        {{ $new->new_title }}
+                                    </a>
                                 </h4>
                                 <div class="fs-13 mb-2">
                                     {{ $new->new_created_at }}
                                 </div>
-                                <p class="mb-2 fs-15">
+                                <p class="mb-2 fs-13">
                                     {{ $new->new_describe }}
                                 </p>
                             </div>
@@ -129,7 +158,8 @@
                         @endforeach
                         <div class="row {{ $key == 0 ? 'active' : 'no-active' }} row-active row-{{ $item->id }}">
                             <div class="col-sm-12 read-more">
-                                <?php $url = stripVN($item->name);
+                                <?php
+                                    $url = stripVN($item->name);
                                     $url = preg_replace("/\s+/", '-', $url);
                                     $url = URL::to("/tin-tuc").'/danh-muc'.'/'.$item->id.'/'.$url;
                                 ?>

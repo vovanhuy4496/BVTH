@@ -4,13 +4,44 @@
 
 @include('frontEnd.banner')
 
-@if(!empty($aboutBVTH) || !empty($newspaper))
+<section id="home_service">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 mt_45 mt_10mb hbox_icon">
+                <div class="bvta_name">
+                    <h3 class=" mt_0 sz_24 font_hel cl_brand3 pt_15 lt_sp2 hidden-xs">BỆNH VIỆN ĐA KHOA TÂN HƯNG</h3>
+                    <div class="bvta_desc mt_0 font_hel cl_brand3 mb_45  lt_sp2 hidden-xs">Khám, tư vấn và điều trị
+                        <br>Toàn diện - Khoa học - Chuyên nghiệp - Tận tâm</div>
+                </div>
+                <div class="home_service text-center cl_white">
+                    <div class="service_item "><a href="https://tamanhhospital.vn/chu-de-tu-van/tu-van/"
+                            title="TƯ VẤN KHÁM BỆNH"><img class="mb_10" alt="TƯ VẤN KHÁM BỆNH"
+                                src="https://tamanhhospital.vn/wp-content/uploads/2020/11/i_tuvan.png"><br>TƯ VẤN KHÁM
+                            BỆNH</a></div>
+                    <div class="service_item "><a href="https://tamanhhospital.vn/danh-muc-chuyen-gia/chuyen-gia/"
+                            title="CHUYÊN GIA - BÁC SĨ"><img class="mb_10" alt="CHUYÊN GIA - BÁC SĨ"
+                                src="https://tamanhhospital.vn/wp-content/uploads/2020/11/i_bacsi.png"><br>CHUYÊN GIA -
+                            BÁC SĨ</a></div>
+                    <div class="service_item "><a href="https://tamanhhospital.vn/danh-cho-khach-hang/tra-cuu-ket-qua/"
+                            title="TRA CỨU KẾT QUẢ"><img class="mb_10" alt="TRA CỨU KẾT QUẢ"
+                                src="https://tamanhhospital.vn/wp-content/uploads/2020/11/i_tracuu.png"><br>TRA CỨU KẾT
+                            QUẢ</a></div>
+                    <div class="service_item "><a href="https://tamanhhospital.vn/danh-cho-khach-hang/bang-gia/"
+                            title="BẢNG GIÁ"><img class="mb_10" alt="BẢNG GIÁ"
+                                src="https://tamanhhospital.vn/wp-content/uploads/2020/11/i_banggia.png"><br>BẢNG
+                            GIÁ</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- @if(!empty($aboutBVTH) || !empty($newspaper))
 <section id="content">
     <div class="container">
         <div class="row">
             @if(!empty($aboutBVTH))
             <div class="col-md-7">
-                <!-- Heading and para -->
                 <div class="block-heading-two">
                     <h3><span>{{ $aboutBVTH->title }}</span></h3>
                 </div>
@@ -24,8 +55,6 @@
 
                 <div class="latest-post-wrap pull-left">
                     <h3><span>Tin tức mới nhất</span></h3>
-
-                    <!--Post item-->
                     <div class="post-item-wrap pull-left col-sm-6 col-md-12 col-xs-12">
                         <img class="img-responsive post-author-img"
                             src="{{ URL::route('resizes', array('size' => 'thumbnail', 'imagePath' => 'BVTH/Newspaper/'.$newspaper->image_file_name)) }}" />
@@ -50,7 +79,7 @@
         </div>
     </div>
 </section>
-@endif
+@endif -->
 
 <section id="service">
     <div class="container">
@@ -75,8 +104,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input class="form-control cus_email" type="text" placeholder="Email"
-                            name="cus_email">
+                        <input class="form-control cus_email" type="text" placeholder="Email" name="cus_email">
                     </div>
 
                     <div class="form-group birth-gender">

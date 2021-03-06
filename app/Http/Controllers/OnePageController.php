@@ -19,6 +19,7 @@ use App\Models\PriceTechnicalService;
 use App\Models\Newspaper;
 use App\Models\CatalogNewspaper;
 use Illuminate\Support\Facades\Log;
+use URL;
 
 class OnePageController extends Controller
 {
@@ -205,7 +206,7 @@ class OnePageController extends Controller
 
     public function news_catology($id, $title)
     {
-        $categories = CatalogNewspaper::where('status', 1)->orderBy('sort')->get();
+        // $categories = CatalogNewspaper::where('status', 1)->orderBy('sort')->get();
         $news = Newspaper::whereRaw('json_contains(catalogues, \'["' . $id . '"]\')')->where('status', 1)->orderBy('created_at', 'DESC')->paginate(10);
         foreach($news as $item) {
             $catalogues = json_decode($item->catalogues);
@@ -217,12 +218,16 @@ class OnePageController extends Controller
                 }
             }
             $item->catalogues_name = json_encode($new_catalogues);
+            $url = stripVN($item->title);
+            $url = preg_replace("/\s+/", '-', $url);
+            $url = URL::to("/tin-tuc").'/chi-tiet'.'/'.$item->id.'/'.$url;
+            $item->url = $url;
         }
         $catalog = CatalogNewspaper::where('status', 1)->where('id', $id)->first();
 
         return view('onepage.news_catology', [
             'news' => $news,
-            'categories' => $categories,
+            // 'categories' => $categories,
             'catalog' => $catalog
         ]);
     }
