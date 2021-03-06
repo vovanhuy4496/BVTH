@@ -7,10 +7,10 @@
 <section id="home_service">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12 mt_45 mt_10mb hbox_icon">
+            <div class="col-md-7 col-sm-12 col-xs-12 mt_45 mt_10mb hbox_icon">
                 <div class="bvta_name">
-                    <h3 class=" mt_0 sz_24 font_hel cl_brand3 pt_15 lt_sp2 hidden-xs">BỆNH VIỆN ĐA KHOA TÂN HƯNG</h3>
-                    <div class="bvta_desc mt_0 font_hel cl_brand3 mb_45  lt_sp2 hidden-xs">Khám, tư vấn và điều trị
+                    <h3 class=" mt_0 sz_24 font_hel cl_brand3 pt_15 lt_sp2">BỆNH VIỆN ĐA KHOA TÂN HƯNG</h3>
+                    <div class="bvta_desc mt_0 font_hel cl_brand3 mb_45  lt_sp2">Khám, tư vấn và điều trị
                         <br>Toàn diện - Khoa học - Chuyên nghiệp - Tận tâm</div>
                 </div>
                 <div class="home_service text-center cl_white">
@@ -84,14 +84,14 @@
 <section id="service">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 lich-left">
+            <div class="col-md-6 hidden-xs lich-left">
                 <img src="frontEnd/img/dat-lich-kham.png" alt="">
                 <div class="content">
                     <span>đặt lịch hẹn</span>
                     <h1>trực tuyến</h1>
                 </div>
             </div>
-            <div class="col-md-6 lich-right">
+            <div class="col-md-6 col-sm-12 col-12 lich-right">
                 <div id="medical-appointment">
                     <div class="form-group">
                         <input class="form-control cus_name required" type="text" placeholder="Họ tên (*)"

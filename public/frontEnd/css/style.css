@@ -16,6 +16,15 @@ body {
 	color: #656565;
 }
 
+/* menu */
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+		text-align: center;
+	}
+}
+
+/* close */
+
 /* 1 */
 #home_service {
 	text-align: center;
@@ -48,6 +57,9 @@ body {
     display: block;
     overflow: hidden;
 }
+#home_service .service_item a img {
+	margin-bottom: 10px;
+}
 #home_service .service_item:nth-child(5n+2) {
     background: #0b52cb;
     grid-column: 2/2;
@@ -62,6 +74,13 @@ body {
     background: #053480;
     grid-column: 2/2;
     grid-row: 2/2;
+}
+#home_service .row {
+	display: flex;
+    justify-content: center;
+}
+#home_service .bvta_desc {
+	margin-bottom: 20px;
 }
 /* close 1 */
 
