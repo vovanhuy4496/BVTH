@@ -26,6 +26,7 @@
   color: #3e3e3e;
   background: #fff;
   opacity: 1;
+  border-radius: 0 0 6px 6px;
 }
 
 #content-news .position-relative {
@@ -207,7 +208,7 @@
   }
 
   #content-news .mb-2 {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 22px;
     margin: 0 0 5px 0;
   }

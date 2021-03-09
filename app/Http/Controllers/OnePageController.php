@@ -233,6 +233,35 @@ class OnePageController extends Controller
         ]);
     }
 
+    public function news_detail($id, $title)
+    {
+        $categories = CatalogNewspaper::where('status', 1)->orderBy('sort')->get();
+
+        $new = Newspaper::find($id);
+        $catalogues = $new->catalogues;
+        $related = Newspaper::whereRaw('json_contains(catalogues, \'' . $catalogues . '\')')->where('status', 1)->orderBy('created_at', 'DESC')->get();
+
+        foreach($related as $item) {
+            $url = stripVN($item->title);
+            $url = preg_replace("/\s+/", '-', $url);
+            $url = URL::to("/tin-tuc").'/chi-tiet'.'/'.$item->id.'/'.$url;
+            $item->url = $url;
+        }
+
+        foreach($categories as $item) {
+            $url = stripVN($item->name);
+            $url = preg_replace("/\s+/", '-', $url);
+            $url = URL::to("/tin-tuc").'/danh-muc'.'/'.$item->id.'/'.$url;
+            $item->url = $url;
+        }
+
+        return view('onepage.news_detail', [
+            'new' => $new,
+            'related' => $related,
+            'categories' => $categories,
+        ]);
+    }
+
     public function consultation()
     {
         $consultations = Consultation::where('status', 1)->orderBy('sort')->paginate(12);

@@ -29,6 +29,7 @@ Route::get('/goi-kham-suc-khoe', 'OnePageController@health_package');
 Route::get('/bang-gia-dich-vu-ky-thuat', 'OnePageController@service_price');
 Route::get('/tin-tuc', 'OnePageController@news');
 Route::get('/tin-tuc/danh-muc/{id}/{title?}', 'OnePageController@news_catology');
+Route::get('/tin-tuc/chi-tiet/{id}/{title?}', 'OnePageController@news_detail');
 Route::get('/chu-de-tu-van', 'OnePageController@consultation');
 // Route::get('/thong-tin-nhan-su', 'OnePageController@personal_information');
 

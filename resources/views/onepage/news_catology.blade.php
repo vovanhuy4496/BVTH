@@ -15,7 +15,7 @@
         @endif
 
         @if(!$news->isEmpty())
-        <div class="row">
+        <div class="row mb_0">
             <div class="news_main mb_30">
                 <div class="box_border">
                     <div class="row div_flex margin-none">

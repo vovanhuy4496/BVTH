@@ -16,7 +16,7 @@
         $str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'Y', $str);
         $str = preg_replace("/(Đ)/", 'D', $str);
         
-        return $str;
+        return strtolower($str);
     }
     function activeMenu($url = '') {
         $path = Request::path();

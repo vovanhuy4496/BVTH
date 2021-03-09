@@ -10,7 +10,7 @@
     <div class="container" id="content-news">
         <h1 class="content-title">TIN TỨC</h1>
         @if(!$news->isEmpty())
-        <div class="row aos-init aos-animate flex-content" data-aos="fade-up">
+        <div class="row aos-init aos-animate flex-content mb_0" data-aos="fade-up">
             <div class="col-sm-{{ count($news) == 1 ? '12' : '8' }} stretch-card grid-margin">
                 <div class="position-relative">
                     <?php
@@ -92,7 +92,7 @@
             </div>
             @endif
         </div>
-        <div class="row aos-init aos-animate flex-content" data-aos="fade-up">
+        <div class="row aos-init aos-animate flex-content mb_0" data-aos="fade-up">
             <div class="col-lg-3 stretch-card grid-margin menu-catelogy">
                 <div class="card">
                     <div class="card-body">

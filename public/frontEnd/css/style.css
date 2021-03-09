@@ -21,6 +21,18 @@ body {
 	.navbar-default .navbar-nav .open .dropdown-menu>li>a {
 		text-align: center;
 	}
+	#new-follow-catelogy {
+		width: 100%;
+	}
+}
+
+#owl-related .post-item {
+	margin: 0;
+	padding: 0 10px;
+}
+
+#owl-related .post-item .post-item-data {
+	position: unset !important;
 }
 
 /* close */
@@ -597,6 +609,7 @@ a {
     bottom: 0;
     background: #fff;
     opacity: 0.8;
+	height: 54px;
 }
 
 .post-item .post-item-data .post-item-name a:hover {
