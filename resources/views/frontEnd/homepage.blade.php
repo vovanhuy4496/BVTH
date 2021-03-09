@@ -6,29 +6,30 @@
 
 <section id="home_service">
     <div class="container">
-        <div class="row">
+        <div class="row mb_0">
             <div class="col-md-7 col-sm-12 col-xs-12 mt_45 mt_10mb hbox_icon">
                 <div class="bvta_name">
-                    <h3 class=" mt_0 sz_24 font_hel cl_brand3 pt_15 lt_sp2">BỆNH VIỆN ĐA KHOA TÂN HƯNG</h3>
+                    <h3 class=" mt_0 sz_24 font_hel cl_brand3 lt_sp2">BỆNH VIỆN ĐA KHOA TÂN HƯNG</h3>
                     <div class="bvta_desc mt_0 font_hel cl_brand3 mb_45  lt_sp2">Khám, tư vấn và điều trị
-                        <br>Toàn diện - Khoa học - Chuyên nghiệp - Tận tâm</div>
+                        <br>Toàn diện - Khoa học - Chuyên nghiệp - Tận tâm
+                    </div>
                 </div>
                 <div class="home_service text-center cl_white">
-                    <div class="service_item "><a href="https://tamanhhospital.vn/chu-de-tu-van/tu-van/"
-                            title="TƯ VẤN KHÁM BỆNH"><img class="mb_10" alt="TƯ VẤN KHÁM BỆNH"
-                                src="https://tamanhhospital.vn/wp-content/uploads/2020/11/i_tuvan.png"><br>TƯ VẤN KHÁM
+                    <div class="service_item "><a href="{{ url('chu-de-tu-van') }}" title="TƯ VẤN KHÁM BỆNH"><img
+                                class="mb_10" alt="TƯ VẤN KHÁM BỆNH"
+                                src="{{ asset('frontEnd/img/i_tuvan.png') }}"><br>TƯ VẤN KHÁM
                             BỆNH</a></div>
-                    <div class="service_item "><a href="https://tamanhhospital.vn/danh-muc-chuyen-gia/chuyen-gia/"
-                            title="CHUYÊN GIA - BÁC SĨ"><img class="mb_10" alt="CHUYÊN GIA - BÁC SĨ"
-                                src="https://tamanhhospital.vn/wp-content/uploads/2020/11/i_bacsi.png"><br>CHUYÊN GIA -
+                    <div class="service_item "><a href="{{ url('doi-ngu-bac-si') }}" title="CHUYÊN GIA - BÁC SĨ"><img
+                                class="mb_10" alt="CHUYÊN GIA - BÁC SĨ"
+                                src="{{ asset('frontEnd/img/i_bacsi.png') }}"><br>CHUYÊN GIA -
                             BÁC SĨ</a></div>
-                    <div class="service_item "><a href="https://tamanhhospital.vn/danh-cho-khach-hang/tra-cuu-ket-qua/"
+                    <div class="service_item "><a href="http://his.benhvientanhung.com:84/KetQua/Login"
                             title="TRA CỨU KẾT QUẢ"><img class="mb_10" alt="TRA CỨU KẾT QUẢ"
-                                src="https://tamanhhospital.vn/wp-content/uploads/2020/11/i_tracuu.png"><br>TRA CỨU KẾT
+                                src="{{ asset('frontEnd/img/i_tracuu.png') }}"><br>TRA CỨU KẾT
                             QUẢ</a></div>
-                    <div class="service_item "><a href="https://tamanhhospital.vn/danh-cho-khach-hang/bang-gia/"
-                            title="BẢNG GIÁ"><img class="mb_10" alt="BẢNG GIÁ"
-                                src="https://tamanhhospital.vn/wp-content/uploads/2020/11/i_banggia.png"><br>BẢNG
+                    <div class="service_item "><a href="{{ url('bang-gia-dich-vu-ky-thuat') }}" title="BẢNG GIÁ"><img
+                                class="mb_10" alt="BẢNG GIÁ"
+                                src="{{ asset('frontEnd/img/i_banggia.png') }}"><br>BẢNG
                             GIÁ</a></div>
                 </div>
             </div>
@@ -151,6 +152,174 @@
         </div>
     </div><!-- .container close -->
 </section>
+
+@if(!$infrastructures->isEmpty())
+<section id="t_thietbi">
+    <div class="container">
+        <div class="row home_thietbi mb_0">
+            <div class="col-sm-12 col-xs-12">
+                <h3 class="cl_head sz_24 font_hel sz_mb_18 text-uppercase_ mt_0">
+                    <div class="div_head div_head_mobile pb_15">Trang thiết bị hiện đại bậc nhất</div>
+                </h3>
+                <div class="mb_15 div_head_mobile">Sở hữu hệ thống trang thiết bị cao cấp, hàng đầu thế giới trong chẩn
+                    đoán và điều
+                    trị.
+                </div>
+                <div class="div_full bg_head cl_white">
+                    <div class="div_grid_4">
+                        <div class="div_thietbi ">
+                            <div class="list_thietbi_home">
+                                <div id="owl-thietbi" class="owl-carousel owl-theme chuyenkhoa-carousel">
+                                    @foreach($infrastructures as $key => $item)
+                                    @if($key % 2 == 0)
+                                    <div class="item item-even">
+                                        <div class="img">
+                                            <a href="{{ $item->url }}">
+                                                <img class="img-responsive"
+                                                    src="{{ URL::route('resizes', array('size' => 'infrastructureHome', 'imagePath' => 'BVTH/InfrastructureBvth/'.$item->image_file_name)) }}"
+                                                    title="{{ $item->title }}" alt="{{ $item->title }}">
+                                            </a>
+                                        </div>
+                                        <div class="content">
+                                            <a href="{{ $item->url }}">
+                                                <div class="wrap-content">
+                                                    <p>{{ $item->title }}</p>
+                                                    <span>{{ $item->describe }}</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    @else
+                                    <div class="item item-odd">
+                                        <div class="content">
+                                            <a href="{{ $item->url }}">
+                                                <div class="wrap-content">
+                                                    <p>{{ $item->title }}</p>
+                                                    <span>{{ $item->describe }}</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="img">
+                                            <a href="{{ $item->url }}">
+                                                <img class="img-responsive"
+                                                    src="{{ URL::route('resizes', array('size' => 'infrastructureHome', 'imagePath' => 'BVTH/InfrastructureBvth/'.$item->image_file_name)) }}"
+                                                    title="{{ $item->title }}" alt="{{ $item->title }}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    @endif
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more_thietbi text-center text-uppercase sz_18 div_more mt_20"><a
+                            href="{{ url('co-so-vat-chat') }}" rel="nofollow">XEM CÁC TRANG THIẾT BỊ</a></div>
+                </div>
+            </div>
+        </div>
+</section>
+@endif
+
+@if(!$personalInformation->isEmpty())
+<section id="t_chuyengia">
+    <div class="container">
+        <div class="row home_chuyengia pt_20 mb_0">
+            <div class="col-sm-12 col-xs-12">
+                <h3 class="cl_head sz_24 font_hel text-uppercase_ sz_mb_18">
+                    <div class="div_head div_head_mobile pb_15">Chuyên gia đầu ngành - bác sĩ giỏi - <br
+                            class="hidden-sm hidden-md hidden-lg"> chuyên viên giàu kinh nghiệm</div>
+                </h3>
+                <div class="div_head_mobile">Quy tụ đội ngũ chuyên gia đầu ngành, bác sĩ chuyên môn cao, giàu kinh
+                    nghiệm.</div>
+                <div class="div_chuyengia div_flex text-center mt_30">
+                    @foreach($personalInformation as $item)
+                    <div class="chuyengia_item item div_flex_column_mb">
+                        <div class="cl_head sz_40 text-uppercase item-chuyengia">{{ $item->number }}</div><span
+                            class="cl_black xsmall_ipad xxsmall_mb text-uppercase">{{ $item->title }}</span>
+                    </div>
+                    @endforeach
+
+                </div>
+                <div class="more_chuyengia text-center text-uppercase sz_18 div_more mt_20 "><a
+                        href="{{ url('doi-ngu-bac-si') }}">Xem các chuyên gia</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+@endif
+
+@if(!$catalogDepartments->isEmpty())
+<section id="t_chuyenkhoa">
+    <div class="container">
+        <div class="row home_chuyenkhoa mb_0">
+            <div class="col-sm-12 col-xs-12">
+                <h3 class="cl_head sz_24 font_hel sz_mb_18 text-uppercase_ mt_0">
+                    <div class="div_head div_head_mobile pb_15">Danh sách chuyên khoa</div>
+                </h3>
+                <!-- <div class="mb_15 div_head_mobile">Sở hữu hệ thống trang thiết bị cao cấp, hàng đầu thế giới trong chẩn
+                    đoán và điều
+                    trị.
+                </div> -->
+                <div class="div_full bg_head cl_white">
+                    <div class="div_grid_4">
+                        <div class="div_chuyenkhoa ">
+                            <div class="list_chuyenkhoa_home">
+                                <div id="owl-chuyenkhoa" class="owl-carousel owl-theme chuyenkhoa-carousel">
+                                    @foreach($catalogDepartments as $key => $item)
+                                    @if($key % 2 == 0)
+                                    <div class="item item-even">
+                                        <div class="img">
+                                            <a href="{{ $item->url }}">
+                                                <img class="img-responsive"
+                                                    src="{{ URL::route('resizes', array('size' => 'infrastructureHome', 'imagePath' => 'BVTH/CatalogDepartments/'.$item->image_file_name)) }}"
+                                                    title="{{ $item->title }}" alt="{{ $item->title }}">
+                                            </a>
+                                        </div>
+                                        <div class="content">
+                                            <a href="{{ $item->url }}">
+                                                <div class="wrap-content">
+                                                    <img class="img-responsive"
+                                                        src="{{ URL::route('resizes', array('size' => 'thumbnailIcon', 'imagePath' => 'BVTH/CatalogDepartments/'.$item->icon)) }}"
+                                                        title="{{ $item->title }}" alt="{{ $item->title }}">
+                                                    <p>{{ $item->title }}</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    @else
+                                    <div class="item item-odd">
+                                        <div class="content">
+                                            <a href="{{ $item->url }}">
+                                                <div class="wrap-content">
+                                                    <img class="img-responsive"
+                                                        src="{{ URL::route('resizes', array('size' => 'thumbnailIcon', 'imagePath' => 'BVTH/CatalogDepartments/'.$item->icon)) }}"
+                                                        title="{{ $item->title }}" alt="{{ $item->title }}">
+                                                    <p>{{ $item->title }}</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="img">
+                                            <a href="{{ $item->url }}">
+                                                <img class="img-responsive"
+                                                    src="{{ URL::route('resizes', array('size' => 'infrastructureHome', 'imagePath' => 'BVTH/CatalogDepartments/'.$item->image_file_name)) }}"
+                                                    title="{{ $item->title }}" alt="{{ $item->title }}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    @endif
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more_chuyenkhoa text-center text-uppercase sz_18 div_more mt_20"><a
+                            href="{{ url('danh-sach-chuyen-khoa') }}" rel="nofollow">XEM CÁC CHUYÊN KHOA</a></div>
+                </div>
+            </div>
+        </div>
+</section>
+@endif
 
 <div class="testimonial-area">
     <div class="testimonial-solid">

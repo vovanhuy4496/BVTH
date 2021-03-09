@@ -29,12 +29,18 @@ Route::get('/goi-kham-suc-khoe', 'OnePageController@health_package');
 Route::get('/bang-gia-dich-vu-ky-thuat', 'OnePageController@service_price');
 Route::get('/tin-tuc', 'OnePageController@news');
 Route::get('/tin-tuc/danh-muc/{id}/{title?}', 'OnePageController@news_catology');
+Route::get('/chu-de-tu-van', 'OnePageController@consultation');
+// Route::get('/thong-tin-nhan-su', 'OnePageController@personal_information');
 
 Route::get('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
 Route::post('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
 
 Route::get('/write-comments-fe', 'WriteCommentController@storeFE');
 Route::post('/write-comments-fe', 'WriteCommentController@storeFE');
+
+Route::post('/consultation-fe', 'ConsultationController@storeFE');
+Route::post('/consultation-fe', 'ConsultationController@storeFE');
+
 
 Route::get('/photos-videos', 'OnePageController@get_photos_videos');
 Route::post('/photos-videos', 'OnePageController@get_photos_videos');
@@ -107,8 +113,10 @@ Route::group(['middleware' => ['get.menu']], function () {
 
     Route::group(['middleware' => ['role:admin']], function () {
         Route::resources([
+            'personal-information' => 'PersonalInformationController',
             'medical-appointment' => 'MedicalAppointmentController',
             'write-comments' => 'WriteCommentController',
+            'consultation' => 'ConsultationController',
             'catalog-newspaper' => 'CatalogNewspaperController',
             'newspaper' => 'NewspaperController',
             'catalog-departments' => 'CatalogDepartmentsController',
@@ -128,12 +136,12 @@ Route::group(['middleware' => ['get.menu']], function () {
         ]);
 
         // huy comment
-        Route::resource('bread',  'BreadController');   //create BREAD (resource)
+        // Route::resource('bread',  'BreadController');   //create BREAD (resource)
         Route::resource('users',        'UsersController')->except( ['create', 'store'] );
         Route::resource('roles',        'RolesController');
-        Route::resource('mail',        'MailController');
-        // Route::get('prepareSend/{id}',        'MailController@prepareSend')->name('prepareSend');
-        Route::post('mailSend/{id}',        'MailController@send')->name('mailSend');
+        // Route::resource('mail',        'MailController');
+        // // Route::get('prepareSend/{id}',        'MailController@prepareSend')->name('prepareSend');
+        // Route::post('mailSend/{id}',        'MailController@send')->name('mailSend');
         Route::get('/roles/move/move-up',      'RolesController@moveUp')->name('roles.up');
         Route::get('/roles/move/move-down',    'RolesController@moveDown')->name('roles.down');
         Route::prefix('menu/element')->group(function () { 

@@ -19,6 +19,7 @@ use App\Models\PriceTechnicalService;
 use App\Models\Newspaper;
 use App\Models\CatalogNewspaper;
 use Illuminate\Support\Facades\Log;
+use App\Models\Consultation;
 use URL;
 
 class OnePageController extends Controller
@@ -229,6 +230,32 @@ class OnePageController extends Controller
             'news' => $news,
             // 'categories' => $categories,
             'catalog' => $catalog
+        ]);
+    }
+
+    public function consultation()
+    {
+        $consultations = Consultation::where('status', 1)->orderBy('sort')->paginate(12);
+        $departments = Department::where('status', 1)->orderBy('sort', 'DESC')->get();
+
+        foreach($consultations as $item) {
+            $department = Department::find($item->department);
+            if (!empty($department->name)) {
+                $item->department = $department->name;
+            }
+
+            $doctor = DoctorBvth::find($item->doctor);
+            if (!empty($doctor->name)) {
+                $item->doctor = $doctor->name;
+                $item->position = $doctor->position;
+                $item->specialized = $doctor->specialized;
+                $item->image_file_name = $doctor->image_file_name;
+            }
+        }
+
+        return view('onepage.consultation', [
+            'consultations' => $consultations,
+            'departments' => $departments
         ]);
     }
 

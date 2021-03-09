@@ -55,7 +55,9 @@ class CatalogDepartmentsController extends Controller
     public function store(Request $request)
     {
         $image = $request->file('image');
+        $icon = $request->file('icon');
         Storage::disk('public')->put('CatalogDepartments'.'/'.$image->getClientOriginalName(), File::get($image));
+        Storage::disk('public')->put('CatalogDepartments'.'/'.$icon->getClientOriginalName(), File::get($icon));
 
         $departments = json_encode($request->departments);
 
@@ -69,6 +71,7 @@ class CatalogDepartmentsController extends Controller
         $catalogDepartment->sort = $request->sort;
         $catalogDepartment->status = isset($request->status) ? 1 : 0;
         $catalogDepartment->image_file_name = $image->getClientOriginalName();
+        $catalogDepartment->icon = $icon->getClientOriginalName();
         $catalogDepartment->departments = $departments;
         $catalogDepartment->save();
 
@@ -120,8 +123,12 @@ class CatalogDepartmentsController extends Controller
         $departments = json_encode($request->departments);
 
         $image = $request->file('image');
+        $icon = $request->file('icon');
         if (!empty($image) && !empty($image->getClientOriginalName())) {
             Storage::disk('public')->put('CatalogDepartments'.'/'.$image->getClientOriginalName(), File::get($image));
+        }
+        if (!empty($icon) && !empty($icon->getClientOriginalName())) {
+            Storage::disk('public')->put('CatalogDepartments'.'/'.$icon->getClientOriginalName(), File::get($icon));
         }
 
         $catalogDepartment = CatalogDepartments::find($id);
@@ -135,6 +142,9 @@ class CatalogDepartmentsController extends Controller
         $catalogDepartment->status = isset($request->status) ? 1 : 0;
         if (!empty($image) && !empty($image->getClientOriginalName())) {
             $catalogDepartment->image_file_name = $image->getClientOriginalName();
+        }
+        if (!empty($icon) && !empty($icon->getClientOriginalName())) {
+            $catalogDepartment->icon = $icon->getClientOriginalName();
         }
         $catalogDepartment->departments = $departments;
         $catalogDepartment->save();

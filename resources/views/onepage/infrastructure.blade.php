@@ -6,14 +6,15 @@
     <div class="container">
         <h1 class="content-title">CƠ SỞ VẬT CHẤT</h1>
         @if(!$infrastructures->isEmpty())
-        <div class="row">
+        <div class="row mb_0">
             @foreach($infrastructures as $item)
             <div class="col-sm-4">
                 <div class="post-item">
                     <div class="post-item-image">
-                        <?php $url = stripVN($item->title);
-                              $url = preg_replace("/\s+/", '-', $url);
-                              $url = URL::to("/co-so-vat-chat").'/'.$item->id.'/'.$url;
+                        <?php 
+                            $url = stripVN($item->title);
+                            $url = preg_replace("/\s+/", '-', $url);
+                            $url = URL::to("/co-so-vat-chat").'/'.$item->id.'/'.$url;
                         ?>
                         <a href="{{ $url }}" class="thumb-zoom" title="{{ $item->title}}">
                             <!-- <img class="card-img-top border-small-image img-responsive"

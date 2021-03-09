@@ -24,6 +24,7 @@ class CreateCatalogDepartmentsTable extends Migration
             $table->integer('status')->nullable()->default(0);
             $table->integer('sort')->nullable();
             $table->string('image_file_name', 300)->nullable();
+            $table->string('icon', 300)->nullable();
             $table->json('departments')->nullable();
             $table->timestamps();
         });

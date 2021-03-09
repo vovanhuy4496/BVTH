@@ -142,8 +142,8 @@ class MenusTableSeeder extends Seeder
             $this->insertLink('admin', 'Edit menu elements',      '/menu/element');
             $this->insertLink('admin', 'Edit roles',              '/roles');
             $this->insertLink('admin', 'Media',                   '/media');
-            $this->insertLink('admin', 'BREAD',                   '/bread');
-            $this->insertLink('admin', 'Email',                   '/mail');
+            // $this->insertLink('admin', 'BREAD',                   '/bread');
+            // $this->insertLink('admin', 'Email',                   '/mail');
         $this->endDropdown();
         $this->insertLink('guest', 'Login', '/login', 'cil-account-logout');
         // $this->insertLink('guest', 'Register', '/register', 'cil-account-logout');
@@ -201,12 +201,11 @@ class MenusTableSeeder extends Seeder
         $this->beginDropdown('admin', 'Banner', 'cil-swap-horizontal');
             $this->insertLink('admin', 'Trang chủ',         '/ad-banner-main');
             $this->insertLink('admin', 'Footer',         '/ad-banner-footer');
-            $this->insertLink('admin', 'Giới thiệu',         '/ad-banner-about');
-            $this->insertLink('admin', 'Chuyên khoa',         '/ad-banner-chuyenkhoa');
-            $this->insertLink('admin', 'Dịch vụ',         '/ad-banner-service');
-            $this->insertLink('admin', 'Bảng giá',         '/ad-banner-banggia');
-            $this->insertLink('admin', 'Tin tức',         '/ad-banner-news');
-            $this->insertLink('admin', 'Tuyển dụng',         '/ad-banner-tuyendung');
+            // $this->insertLink('admin', 'Giới thiệu',         '/ad-banner-about');
+            // $this->insertLink('admin', 'Chuyên khoa',         '/ad-banner-chuyenkhoa');
+            // $this->insertLink('admin', 'Dịch vụ',         '/ad-banner-service');
+            // $this->insertLink('admin', 'Tin tức',         '/ad-banner-news');
+            // $this->insertLink('admin', 'Tuyển dụng',         '/ad-banner-tuyendung');
         $this->endDropdown();
 
         $this->insertLink('admin', 'Thông báo', '/notifications', 'cil-bell');
@@ -219,11 +218,13 @@ class MenusTableSeeder extends Seeder
             $this->insertLink('admin', 'Album ảnh',         '/albumsBVTH');
             $this->insertLink('admin', 'Video',         '/videoBVTH');
             $this->insertLink('admin', 'Cơ sở vật chất',         '/infrastructureBVTH');
+            $this->insertLink('admin', 'Thông tin nhân sự',         '/personal-information');
         $this->endDropdown();
 
         $this->beginDropdown('admin', 'Dịch vụ', 'cil-star');
             $this->insertLink('admin', 'Khám chữa bệnh',         '/healthcare');
             $this->insertLink('admin', 'Gói khám chữa bệnh',         '/package-healthcare');
+            $this->insertLink('admin', 'Tư vấn khám bệnh',         '/consultation');
         $this->endDropdown();
 
         $this->insertLink('admin', 'Các khoa phòng', '/catalog-departments', 'cil-room');

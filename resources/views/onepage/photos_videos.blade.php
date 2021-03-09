@@ -10,7 +10,7 @@
 @include('frontEnd.banner')
 <section id="content">
     <div class="container">
-        <div class="row photos-videos">
+        <div class="row photos-videos mb_0">
             <h1 class="content-title">THƯ VIỆN ẢNH - VIDEO</h1>
             <div class="col-lg-12">
                 <ul class="portfolio-categ filter">
@@ -20,7 +20,8 @@
                 </ul>
                 <div class="clearfix">
                 </div>
-                <div class="row">
+                @if (!$photos->isEmpty() || !$videos->isEmpty())
+                <div class="row mb_0">
                     <section id="projects">
                         <ul id="thumbs">
                             @foreach($photos as $photo)
@@ -48,6 +49,7 @@
                         </ul>
                     </section>
                 </div>
+                @endif
             </div>
         </div>
     </div>

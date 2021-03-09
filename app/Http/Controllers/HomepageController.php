@@ -10,6 +10,10 @@ use App\Models\Department;
 use App\Models\WriteComment;
 use App\Models\AdBannerMain;
 use App\Models\AdBannerFooter;
+use App\Models\PersonalInformation;
+use App\Models\InfrastructureBvth;
+use App\Models\CatalogDepartments;
+use URL;
 
 class HomepageController extends Controller
 {
@@ -27,6 +31,24 @@ class HomepageController extends Controller
         $footerSlider = AdBannerFooter::where('status', 1)->orderBy('sort')->get();
         $doctors = DoctorBvth::where('status', 1)->orderBy('sort', 'DESC')->get();
         $departments = Department::where('status', 1)->orderBy('sort', 'DESC')->get();
+        $personalInformation = PersonalInformation::where('status', 1)->orderBy('sort', 'DESC')->get();
+        $infrastructures = InfrastructureBvth::where('status', 1)->orderBy('sort', 'DESC')->get();
+        $catalogDepartments = CatalogDepartments::where('status', 1)->orderBy('sort', 'DESC')->get();
+
+        foreach($infrastructures as $item) {
+            $url = stripVN($item->title);
+            $url = preg_replace("/\s+/", '-', $url);
+            $url = URL::to("/co-so-vat-chat").'/'.$item->id.'/'.$url;
+            $item->url = $url;
+        }
+
+        foreach($catalogDepartments as $item) {
+            $url = stripVN($item->title);
+            $url = preg_replace("/\s+/", '-', $url);
+            $url = preg_replace("/\/+/", '-', $url);
+            $url = URL::to("/khoa-phong").'/'.$item->id.'/'.$url;
+            $item->url = $url;
+        }
         
         return view('frontEnd.homepage', [
             'aboutBVTH' => $aboutBVTH,
@@ -35,8 +57,11 @@ class HomepageController extends Controller
             'departments' => $departments,
             'comments' => $comments,
             'mainSlider' => $mainSlider,
-            'footerSlider' => $footerSlider
-            ]);
+            'footerSlider' => $footerSlider,
+            'personalInformation' => $personalInformation,
+            'infrastructures' => $infrastructures,
+            'catalogDepartments' => $catalogDepartments,
+        ]);
     }
 
     /**

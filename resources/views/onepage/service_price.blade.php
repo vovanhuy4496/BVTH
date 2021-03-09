@@ -4,10 +4,10 @@
 @include('frontEnd.banner')
 <section id="content">
     <div class="container">
-        <div class="row">
+        <div class="row mb_0">
+            <h1 class="content-title">BẢNG GIÁ DỊCH VỤ KỸ THUẬT</h1>
             @if(!$lists->isEmpty())
             <div class="col-md-12">
-                <h1 class="content-title">BẢNG GIÁ DỊCH VỤ KỸ THUẬT</h1>
                 <div class="input-group search-group">
                     <input class="form-control" id="myInput" type="text" name="myInput" placeholder="Tìm kiếm...">
                 </div>

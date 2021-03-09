@@ -12,7 +12,7 @@
                         {{ __('Chỉnh sửa') }}{{ $item->name ? ': '.$item->name : '' }}
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="/medical-appointment/{{ $item->id }}" enctype="multipart/form-data">
+                        <form method="POST" action="/consultation/{{ $item->id }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="form-group row">
@@ -31,40 +31,6 @@
                                 <label>Email</label>
                                 <input class="form-control" type="text" placeholder="{{ __('Email') }}" name="email"
                                     value="{{ $item->email }}">
-                            </div>
-
-                            <div class="form-group row">
-                                <label>Triệu chứng</label>
-                                <textarea class="form-control" type="text" placeholder="{{ __('Triệu chứng') }}"
-                                    name="describe_symptoms">{{ $item->describe_symptoms }}</textarea>
-                            </div>
-
-                            <div class="form-group row">
-                                <label>Ngày sinh</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Ngày sinh') }}" name="birth"
-                                    value="{{ $item->birth }}">
-                            </div>
-
-                            <div class="form-group row">
-                                <label>Giới tinh</label>
-                                <select class="form-control" data-live-search="true" name="gender">
-                                    <option value="Nam" @if($item->gender == 'Nam')
-                                        selected="selected"
-                                        @endif
-                                        >Nam
-                                    </option>
-                                    <option value="Nữ" @if($item->gender == 'Nữ')
-                                        selected="selected"
-                                        @endif
-                                        >Nữ
-                                    </option>
-                                </select>
-                            </div>
-
-                            <div class="form-group row">
-                                <label>Ngày giờ đặt lịch</label>
-                                <input class="form-control" type="text" placeholder="{{ __('Ngày giờ đặt lịch') }}"
-                                    name="appointment_date" value="{{ $item->appointment_date }}">
                             </div>
 
                             <div class="form-group row">
@@ -94,22 +60,35 @@
                             </div>
 
                             <div class="form-group row">
+                                <label>Tiêu đề</label>
+                                <input class="form-control" type="text" placeholder="{{ __('Tiêu đề') }}" name="title"
+                                    value="{{ $item->title }}">
+                            </div>
+
+                            <div class="form-group row">
+                                <label>Nội dung</label>
+                                <textarea class="form-control" type="text" placeholder="{{ __('Nội dung') }}"
+                                    name="content">{{ $item->content }}</textarea>
+                            </div>
+
+                            <div class="form-group row">
+                                <label>Trả lời</label>
+                                <textarea class="form-control" type="text" placeholder="{{ __('Trả lời') }}"
+                                    name="reply">{{ $item->reply }}</textarea>
+                            </div>
+
+                            <div class="form-group row">
                                 <label>Trạng thái</label>
                                 <select class="form-control" data-live-search="true" name="status">
                                     <option value="0" @if($item->status == 0)
                                         selected="selected"
                                         @endif
-                                        >Đã đăng ký
+                                        >Chưa trả lời
                                     </option>
                                     <option value="1" @if($item->status == 1)
                                         selected="selected"
                                         @endif
-                                        >Đang khám
-                                    </option>
-                                    <option value="2" @if($item->status == 2)
-                                        selected="selected"
-                                        @endif
-                                        >Đã khám xong
+                                        >Đã trả lời
                                     </option>
                                 </select>
                             </div>
@@ -121,7 +100,7 @@
                             </div>
 
                             <button class="btn btn-block btn-success" type="submit">{{ __('Lưu') }}</button>
-                            <a href="{{ route('medical-appointment.index') }}"
+                            <a href="{{ route('consultation.index') }}"
                                 class="btn btn-block btn-primary">{{ __('Quay lại') }}</a>
                         </form>
                     </div>

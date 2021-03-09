@@ -19,6 +19,8 @@ return [
 
     'sizes' => [
         'thumbnail' => [150, 150],
+        'thumbnailIcon' => [100, 100],
+        'thumbnailDoctor' => [120, 120],
         'medium' => [400, 400],
         'larage' => [600, 600],
         'thumbnailBannerMain' => [400, 200],
@@ -29,10 +31,11 @@ return [
         'doctor' => [212, 277],
         'doctorMobile' => [150, 195],
         'doctorPopup' => [180, 235],
-        'logoMobile' => [300, 53],
+        'logoMobile' => [390, 70],
         'logoDesktop' => [474, 85],
         'photos-videos' => [260, 173],
         'infrastructure' => [360, 225],
+        'infrastructureHome' => [380, 215],
         'larageNews' => [750, 514],
         'thumbnailNews' => [145, 76],
         'mediumNews' => [249, 130],

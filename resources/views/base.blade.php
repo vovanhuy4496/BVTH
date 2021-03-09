@@ -137,6 +137,32 @@ $(document).ready(function() {
         itemsTablet: [768, 2],
         itemsMobile: [479, 1]
     });
+    $("#owl-thietbi").owlCarousel({
+        slideSpeed: 200,
+        paginationSpeed: 800,
+        autoPlay: 3000, //Set AutoPlay to 3 seconds
+        goToFirst: true,
+        goToFirstSpeed: 1000,
+        responsive: true,
+        items: 3,
+        itemsDesktop: [1199, 3],
+        itemsDesktopSmall: [980, 2],
+        itemsTablet: [768, 2],
+        itemsMobile: [479, 1]
+    });
+    $("#owl-chuyenkhoa").owlCarousel({
+        slideSpeed: 200,
+        paginationSpeed: 800,
+        autoPlay: 3000, //Set AutoPlay to 3 seconds
+        goToFirst: true,
+        goToFirstSpeed: 1000,
+        responsive: true,
+        items: 3,
+        itemsDesktop: [1199, 3],
+        itemsDesktopSmall: [980, 2],
+        itemsTablet: [768, 2],
+        itemsMobile: [479, 1]
+    });
 });
 </script>
 @yield('javascript')
