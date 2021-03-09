@@ -39,8 +39,7 @@
                               $url = preg_replace("/\/+/", '-', $url);
                               $url = URL::to("/khoa-phong").'/'.$item->id.'/'.$url;
                         ?>
-                        <li><a class="waves-effect waves-dark none-active"
-                                href="{{ $url }}">{{ $item->title }}</a></li>
+                        <li><a class="waves-effect waves-dark none-active" href="{{ $url }}">{{ $item->title }}</a></li>
                         @endforeach
                     </ul>
                 </li>
@@ -57,7 +56,9 @@
                 </li>
                 <li class="{{ Request::path() == 'bang-gia-dich-vu-ky-thuat' ? 'active' : '' }}"><a
                         href="{{ url('bang-gia-dich-vu-ky-thuat') }}">Bảng giá dịch vụ kỹ thuật</a></li>
-                <li class="{{ Request::path() == 'tin-tuc' ? 'active' : '' }}"><a href="{{ url('tin-tuc') }}">Tin
+                <li
+                    class="{{ Request::path() == 'tin-tuc' ? 'active' : '' }} {{ Request::is('tin-tuc/*') ? 'active' : ''}}">
+                    <a href="{{ url('tin-tuc') }}">Tin
                         tức</a></li>
                 <li class="{{ Request::path() == 'tuyen-dung' ? 'active' : '' }}"><a
                         href="{{ url('tuyen-dung') }}">Tuyển dụng</a></li>

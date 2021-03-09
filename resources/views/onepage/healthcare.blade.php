@@ -9,13 +9,13 @@
                 @if(!empty($healthcare->title))
                 <h1 class="content-title">{{ $healthcare->title }}</h1>
                 @else
-                <h1 class="content-title">GIỚI THIỆU VỀ CHÚNG TÔI</h1>
+                <h1 class="content-title">DỊCH VỤ KHÁM CHỮA BỆNH</h1>
                 @endif
 
                 @if(!empty($healthcare->content))
                 {!! html_entity_decode($healthcare->content) !!}
                 @else
-                <p>DỊCH VỤ KHÁM CHỮA BỆNH NGOẠI TRÚ</p>
+                <p>Hiện tại chúng tôi chưa cập nhập nội dung cho mục này.</p>
                 @endif
             </div>
         </div>

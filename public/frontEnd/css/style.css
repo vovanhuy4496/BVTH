@@ -16,6 +16,11 @@ body {
 	color: #656565;
 }
 
+.error-404 {
+	padding: 20px 0;
+	margin: 0;
+}
+
 /* menu */
 @media (max-width: 767px) {
 	.navbar-default .navbar-nav .open .dropdown-menu>li>a {

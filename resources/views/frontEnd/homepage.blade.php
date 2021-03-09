@@ -28,8 +28,7 @@
                                 src="{{ asset('frontEnd/img/i_tracuu.png') }}"><br>TRA CỨU KẾT
                             QUẢ</a></div>
                     <div class="service_item "><a href="{{ url('bang-gia-dich-vu-ky-thuat') }}" title="BẢNG GIÁ"><img
-                                class="mb_10" alt="BẢNG GIÁ"
-                                src="{{ asset('frontEnd/img/i_banggia.png') }}"><br>BẢNG
+                                class="mb_10" alt="BẢNG GIÁ" src="{{ asset('frontEnd/img/i_banggia.png') }}"><br>BẢNG
                             GIÁ</a></div>
                 </div>
             </div>
@@ -351,6 +350,7 @@
             nhận</button>
     </div>
 </div>
+
 <div class="modal fade" id="comments" tabindex="-1" role="dialog" aria-labelledby="commentsLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

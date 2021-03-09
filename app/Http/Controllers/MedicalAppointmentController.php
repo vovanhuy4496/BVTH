@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use App\Models\DoctorBvth;
 use App\Models\Department;
+use App\Models\EmailTemplate;
+
+use Mail;
 
 class MedicalAppointmentController extends Controller
 {
@@ -99,6 +102,22 @@ class MedicalAppointmentController extends Controller
         $medicalAppointment->status = 0;
         $medicalAppointment->sort = $sort;
         $medicalAppointment->save();
+
+        $template = EmailTemplate::find(2);
+        $content = $template->content;
+        $contentEmail = '<div class="thong-tin-benh-nhan">'.'<p>'.'Họ tên: '.$name.'</p>';
+        $contentEmail = $contentEmail.'<p>'.'Ngày sinh: '.$birth.'</p>';
+        $contentEmail = $contentEmail.'<p>'.'Giới tính: '.$gender.'</p>';
+        $contentEmail = $contentEmail.'<p>'.'Điện thoại: '.$phone.'</p>';
+        $contentEmail = $contentEmail.'<p>'.'Email: '.$email.'</p>';
+        $content = str_replace('<div class="thong-tin-benh-nhan">', $contentEmail, $content);
+
+        Mail::send([], [], function ($message) use ($template, $email, $content)
+        {
+            $message->to($email);
+            $message->subject($template->subject);
+            $message->setBody($content,'text/html');
+        });
 
         return response()->json('Bạn đã đăng ký khám tại bệnh viện Tân Hưng thành công !');
     }
