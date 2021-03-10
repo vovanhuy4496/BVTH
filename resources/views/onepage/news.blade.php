@@ -129,7 +129,7 @@
                                 $url = preg_replace("/\s+/", '-', $url);
                                 $url = URL::to("/tin-tuc").'/chi-tiet'.'/'.$new->new_id.'/'.$url;
                             ?>
-                            <div class="col-sm-4 img-grid grid-margin">
+                            <div class="col-sm-4 img-grid grid-margin pr_5">
                                 <div class="position-relative">
                                     <div class="rotate-img">
                                         <a href="{{ $url }}">
@@ -142,7 +142,7 @@
                                     </div> -->
                                 </div>
                             </div>
-                            <div class="col-sm-8 grid-margin">
+                            <div class="col-sm-8 grid-margin pl_5">
                                 <h5 class="mb-2">
                                     <a href="{{ $url }}">
                                         {{ $new->new_title }}

@@ -484,6 +484,9 @@ h3 {
     z-index: 99;
     position: relative;
 }
+.title-tuvan {
+	line-height: 25px;
+}
 .pr_15 {
     padding-right: 15px;
 }
@@ -628,7 +631,9 @@ h3 {
 /* close */
 
 .read-more {
-	text-align: end;
+    justify-content: flex-end;
+    width: 100%;
+    display: flex;
 }
 
 .read-more a {
@@ -789,7 +794,7 @@ a {
 
 .about-doctor .info-box {
     display: inline-block;
-    width: calc(100% - 200px);
+    width: calc(100% - 232px);
 }
 
 .about-doctor .info-box li {

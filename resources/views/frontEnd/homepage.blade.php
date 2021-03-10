@@ -36,51 +36,6 @@
     </div>
 </section>
 
-<!-- @if(!empty($aboutBVTH) || !empty($newspaper))
-<section id="content">
-    <div class="container">
-        <div class="row">
-            @if(!empty($aboutBVTH))
-            <div class="col-md-7">
-                <div class="block-heading-two">
-                    <h3><span>{{ $aboutBVTH->title }}</span></h3>
-                </div>
-                <p class="bvth-line line-4">{{ $aboutBVTH->describe }}
-                </p>
-                <span class="post-meta-bottom"><a href="{{ url('ve-chung-toi') }}">Xem thêm...</a></span>
-            </div>
-            @endif
-            @if(!empty($newspaper))
-            <div class="col-xs-12 col-sm-12 col-md-5">
-
-                <div class="latest-post-wrap pull-left">
-                    <h3><span>Tin tức mới nhất</span></h3>
-                    <div class="post-item-wrap pull-left col-sm-6 col-md-12 col-xs-12">
-                        <img class="img-responsive post-author-img"
-                            src="{{ URL::route('resizes', array('size' => 'thumbnail', 'imagePath' => 'BVTH/Newspaper/'.$newspaper->image_file_name)) }}" />
-
-                        <div class="post-content1 pull-left col-md-9 col-sm-9 col-xs-8">
-                            <div class="post-title pull-left"><a>{{ $newspaper->title }}</a>
-                            </div>
-                            <div class="post-meta-top pull-left">
-                                <ul>
-                                    <li><i class="fa fa-calendar"></i>{{ $newspaper->created_at }}</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="post-content2 pull-left">
-                            <p class="bvth-line line-4">{{ $newspaper->describe }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endif
-        </div>
-    </div>
-</section>
-@endif -->
-
 <section id="service">
     <div class="container">
         <div class="row">
@@ -333,7 +288,7 @@
                         <img class="img-responsive"
                             src="{{ URL::route('resizes', array('size' => 'larageNews', 'imagePath' => 'BVTH/Newspaper/'.$news->first()->image_file_name)) }}" />
                     </a>
-                    <div class="bg_white box_news_one pt_15 pb_15"> <a title="{{ $news->first()->title }}"
+                    <div class="bg_white box_news_one pt_15 pb_15 pl_15 pr_15"> <a title="{{ $news->first()->title }}"
                             href="{{ $news->first()->url }}">
                             <h3 class="mt_0 mb_10 sz_18 cl_33 line-2">{{ $news->first()->title }}</h3>
                         </a>

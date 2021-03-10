@@ -10,7 +10,7 @@
             @foreach($consultations as $key => $item)
             <div class="col-xs-12 col-sm-12 item_tuvan  mb_15 mt_10 ">
                 <div class="box_tuvan pl_15 pr_15 pt_15 pb_15 bg_white"> <a title="{{ $item->title }}">
-                        <h2 class="mt_10 mb_10 sz_18 cl_33">{{ $item->title }}</h2>
+                        <h2 class="mt_10 mb_10 sz_18 cl_33 title-tuvan">{{ $item->title }}</h2>
                     </a>
                     <ul class="div_tag">
                         <li><a rel="tag">{{ $item->department }}</a></li>
