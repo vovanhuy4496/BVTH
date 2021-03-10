@@ -4,7 +4,7 @@
 @include('frontEnd.banner')
 <section id="content">
     <div class="container">
-        <div class="row">
+        <div class="row mb_0">
             <div class="col-md-12">
                 @if(!empty($infrastructure->title))
                 <h1 class="content-title">{{ $infrastructure->title }}</h1>

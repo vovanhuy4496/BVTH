@@ -25,7 +25,7 @@ class HomepageController extends Controller
     public function index()
     {
         $aboutBVTH = AboutBVTH::where('status', 1)->orderBy('sort')->take(1)->first();
-        $newspaper = Newspaper::where('status', 1)->orderBy('sort')->take(1)->first();
+        $news = Newspaper::where('status', 1)->orderBy('created_at', 'DESC')->take(5)->get();
         $comments = WriteComment::where('status', 1)->orderBy('sort')->take(5)->get();
         $mainSlider = AdBannerMain::where('status', 1)->orderBy('sort')->get();
         $footerSlider = AdBannerFooter::where('status', 1)->orderBy('sort')->get();
@@ -49,10 +49,18 @@ class HomepageController extends Controller
             $url = URL::to("/khoa-phong").'/'.$item->id.'/'.$url;
             $item->url = $url;
         }
+
+        foreach($news as $item) {
+            $url = stripVN($item->title);
+            $url = preg_replace("/\s+/", '-', $url);
+            $url = preg_replace("/\/+/", '-', $url);
+            $url = URL::to("/tin-tuc").'/chi-tiet'.'/'.$item->id.'/'.$url;
+            $item->url = $url;
+        }
         
         return view('frontEnd.homepage', [
             'aboutBVTH' => $aboutBVTH,
-            'newspaper' => $newspaper,
+            'news' => $news,
             'doctors' => $doctors,
             'departments' => $departments,
             'comments' => $comments,

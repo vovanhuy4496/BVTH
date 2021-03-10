@@ -225,7 +225,7 @@
     <div class="container">
         <div class="row home_chuyengia pt_20 mb_0">
             <div class="col-sm-12 col-xs-12">
-                <h3 class="cl_head sz_24 font_hel text-uppercase_ sz_mb_18">
+                <h3 class="cl_head sz_24 font_hel text-uppercase_ sz_mb_18 mt_0">
                     <div class="div_head div_head_mobile pb_15">Chuyên gia đầu ngành - bác sĩ giỏi - <br
                             class="hidden-sm hidden-md hidden-lg"> chuyên viên giàu kinh nghiệm</div>
                 </h3>
@@ -317,6 +317,71 @@
                 </div>
             </div>
         </div>
+</section>
+@endif
+
+@if(!$news->isEmpty())
+<section id="t_tintuc">
+    <div class="container">
+        <div class="row mb_0">
+            <h3 class="cl_head sz_24 font_hel mt_0 text-center">
+                <div class="div_head div_head_mobile sz_mb_18 pb_15">Tin tức</div>
+            </h3>
+            <div class="col-xs-12 col-sm-{{ count($news) == 1 ? '12' : '5' }} ">
+                <div class="info_news_one">
+                    <a class="thumb_cgia" href="{{ $news->first()->url }}">
+                        <img class="img-responsive"
+                            src="{{ URL::route('resizes', array('size' => 'larageNews', 'imagePath' => 'BVTH/Newspaper/'.$news->first()->image_file_name)) }}" />
+                    </a>
+                    <div class="bg_white box_news_one pt_15 pb_15"> <a title="{{ $news->first()->title }}"
+                            href="{{ $news->first()->url }}">
+                            <h3 class="mt_0 mb_10 sz_18 cl_33 line-2">{{ $news->first()->title }}</h3>
+                        </a>
+                        <div class="mt_10 text-justify line-3">{{ $news->first()->describe }}</div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            @if(count($news) > 1)
+            <div class="col-sm-7 col-xs-12">
+                @foreach($news as $key => $item)
+                @if($key > 0)
+                <div class="row mb_0">
+                    <div class="col-xs-6 col-sm-4 col-md-4 mb_15 pr_5">
+                        <a class="thumb_cgia" href="{{ $item->url }}">
+                            <img class="img-responsive"
+                                src="{{ URL::route('resizes', array('size' => 'mediumNewsCatalogy', 'imagePath' => 'BVTH/Newspaper/'.$item->image_file_name)) }}" />
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-8 col-md-8 pl_5">
+                        <div class="info_chuyengia">
+                            <h3 class="sz_15 mt_0 mb_10"><a title="{{ $item->title }}" href="{{ $item->url }}">
+                                    <div class=" mb_5 cl_head mtr_5 line-2">{{ $item->title }}</div>
+                                </a></h3>
+                            <div class="mt_5 line-2">{{ $item->describe }}</div>
+                            <div class="text-right mt_0 mb_10">
+                                <!-- <a class="cl_33 font_hel text-uppercase" target="_blank"
+                                    href="http://www.facebook.com/sharer/sharer.php?u={{ $item->url }}">
+                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                </a> -->
+                                <!-- <a rel="nofollow" class="cl_33 text-uppercase" title="{{ $item->title }}"
+                                    href="{{ $item->url }}">
+                                    <u>Xem chi tiết</u>
+                                </a> -->
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </div>
+            @endif
+            <div class="col-sm-12 col-xs-12 more_tintuc  text-uppercase sz_18 div_more text-center mt_20"><a
+                    href="{{ url('tin-tuc') }}">XEM
+                    THÊM TẤT CẢ TIN TỨC</a></div>
+        </div>
+    </div>
 </section>
 @endif
 

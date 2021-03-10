@@ -104,20 +104,45 @@ class MedicalAppointmentController extends Controller
         $medicalAppointment->save();
 
         $template = EmailTemplate::find(2);
-        $content = $template->content;
-        $contentEmail = '<div class="thong-tin-benh-nhan">'.'<p>'.'Họ tên: '.$name.'</p>';
-        $contentEmail = $contentEmail.'<p>'.'Ngày sinh: '.$birth.'</p>';
-        $contentEmail = $contentEmail.'<p>'.'Giới tính: '.$gender.'</p>';
-        $contentEmail = $contentEmail.'<p>'.'Điện thoại: '.$phone.'</p>';
-        $contentEmail = $contentEmail.'<p>'.'Email: '.$email.'</p>';
-        $content = str_replace('<div class="thong-tin-benh-nhan">', $contentEmail, $content);
 
-        Mail::send([], [], function ($message) use ($template, $email, $content)
-        {
-            $message->to($email);
-            $message->subject($template->subject);
-            $message->setBody($content,'text/html');
-        });
+        if ($template) {
+            $content = $template->content;
+
+            // thong tin benh nha
+            $patient_information = '<div class="thong-tin-benh-nhan">'.'<p>'.'Họ tên: '.$name.'</p>';
+            $patient_information = $patient_information.'<p>'.'Ngày sinh: '.$birth.'</p>';
+            $patient_information = $patient_information.'<p>'.'Giới tính: '.$gender.'</p>';
+            $patient_information = $patient_information.'<p>'.'Điện thoại: '.$phone.'</p>';
+            $patient_information = $patient_information.'<p>'.'Email: '.$email.'</p>';
+    
+            $department = Department::find($department);
+            $doctor = DoctorBvth::find($doctor);
+    
+            // thong tin dat hen
+            $appointment_information = '<div class="thong-tin-dat-hen">'.'<p>'.'Họ tên: '.$name.'</p>';
+            $appointment_information = $appointment_information.'<p>'.'Chuyên khoa: '.$department->name.'</p>';
+            $appointment_information = $appointment_information.'<p>'.'Bác sĩ: '.$doctor->name.'</p>';
+            $appointment_information = $appointment_information.'<p>'.'Mô tả triệu chứng: '.$describe_symptoms.'</p>';
+            $appointment_information = $appointment_information.'<p>'.'Thời gian khám bệnh: '.$appointmentDate.'</p>';
+    
+            $content = str_replace('<div class="thong-tin-benh-nhan">', $patient_information, $content);
+            $content = str_replace('<div class="thong-tin-dat-hen">', $appointment_information, $content);
+    
+            Mail::send([], [], function ($message) use ($template, $email, $content, $appointmentDate)
+            {
+                $message->to($email);
+                $message->subject($template->subject. ' Ngày: '.$appointmentDate);
+                $message->setBody($content,'text/html');
+            });
+
+            $emailBVTH = 'huyhuyad4496@gmail.com';
+            Mail::send([], [], function ($message) use ($template, $emailBVTH, $content)
+            {
+                $message->to($emailBVTH);
+                $message->subject($template->subject);
+                $message->setBody($content,'text/html');
+            });
+        }
 
         return response()->json('Bạn đã đăng ký khám tại bệnh viện Tân Hưng thành công !');
     }

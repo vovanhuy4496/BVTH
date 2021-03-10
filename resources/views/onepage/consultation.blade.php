@@ -5,7 +5,7 @@
 <section id="content">
     <div class="container" id="consultation">
         <h1 class="content-title">ĐẶT CÂU HỎI VỚI CHUYÊN GIA NGAY</h1>
-        <div class="row">
+        <div class="row mb_0">
             @if(!$consultations->isEmpty())
             @foreach($consultations as $key => $item)
             <div class="col-xs-12 col-sm-12 item_tuvan  mb_15 mt_10 ">

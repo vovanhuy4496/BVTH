@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Bệnh Viện Đa Khoa Tân Hưng'),
 
     /*
     |--------------------------------------------------------------------------
