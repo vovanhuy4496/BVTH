@@ -29,14 +29,14 @@
                         <?php
                             $first = $news->first()->id;
                         ?>
-                        <h3 class="mb-0">
+                        <h4 class="mb-0">
                             <a href="{{ $url }}">
                                 {{ $news->first()->title }}
                             </a>
-                        </h3>
-                        <h4 class="mb-2">
-                            {{ $news->first()->describe }}
                         </h4>
+                        <h5 class="mb-2">
+                            {{ $news->first()->describe }}
+                        </h5>
                         <div class="fs-12 catalogues-news">
                             <?php 
                                 $catalogues_name = json_decode($news->first()->catalogues_name);
@@ -79,10 +79,11 @@
                                         <span class="time-news">{{ $item->created_at->format('d/m/Y') }}</span>
                                     </div>
                                 </div>
-                                <div class="rotate-img col-sm-6">
+                                <div class="rotate-img col-sm-6 pl_5">
                                     <a href="{{ $url }}">
                                         <img class="img-responsive img-fluid img-lg"
                                             src="{{ URL::route('resizes', array('size' => 'thumbnailNews', 'imagePath' => 'BVTH/Newspaper/'.$item->image_file_name)) }}" />
+                                    </a>
                                 </div>
                             </div>
                             @endif
@@ -93,7 +94,7 @@
             @endif
         </div>
         <div class="row aos-init aos-animate flex-content mb_0" data-aos="fade-up">
-            <div class="col-lg-3 stretch-card grid-margin menu-catelogy">
+            <div class="col-sm-3 col-md-3 col-lg-3 stretch-card grid-margin menu-catelogy">
                 <div class="card">
                     <div class="card-body">
                         <h3>Danh Mục</h3>
@@ -107,7 +108,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9 stretch-card grid-margin" id="new-follow-catelogy">
+            <div class="col-sm-9 col-md-9 col-lg-9 stretch-card grid-margin" id="new-follow-catelogy">
                 <div class="card">
                     <div class="card-body">
                         <!-- <div class="catelogy">
@@ -122,7 +123,7 @@
                             $news = json_decode($item->new);
                         ?>
                         @foreach($news as $new)
-                        <div class="row {{ $key == 0 ? 'active' : 'no-active' }} row-active row-{{ $item->id }}">
+                        <div class="row {{ $key == 0 ? 'active' : 'no-active' }} row-item row-{{ $item->id }}">
                             <?php
                                 $url = stripVN($new->new_title);
                                 $url = preg_replace("/\s+/", '-', $url);
@@ -130,10 +131,10 @@
                             ?>
                             <div class="col-sm-4 img-grid grid-margin">
                                 <div class="position-relative">
-                                    <div class="rotate-img w-100">
+                                    <div class="rotate-img">
                                         <a href="{{ $url }}">
-                                        <img class="img-responsive img-fluid"
-                                            src="{{ URL::route('resizes', array('size' => 'mediumNews', 'imagePath' => 'BVTH/Newspaper/'.$new->new_image_file_name)) }}" />
+                                            <img class="img-responsive img-fluid"
+                                                src="{{ URL::route('resizes', array('size' => 'mediumNews', 'imagePath' => 'BVTH/Newspaper/'.$new->new_image_file_name)) }}" />
                                         </a>
                                     </div>
                                     <!-- <div class="badge-positioned">
@@ -142,11 +143,11 @@
                                 </div>
                             </div>
                             <div class="col-sm-8 grid-margin">
-                                <h4 class="mb-2">
+                                <h5 class="mb-2">
                                     <a href="{{ $url }}">
                                         {{ $new->new_title }}
                                     </a>
-                                </h4>
+                                </h5>
                                 <div class="fs-13 mb-2">
                                     {{ $new->new_created_at }}
                                 </div>
@@ -156,14 +157,14 @@
                             </div>
                         </div>
                         @endforeach
-                        <div class="row {{ $key == 0 ? 'active' : 'no-active' }} row-active row-{{ $item->id }}">
+                        <div class="row {{ $key == 0 ? 'active' : 'no-active' }} row-item row-{{ $item->id }}">
                             <div class="col-sm-12 read-more">
                                 <?php
                                     $url = stripVN($item->name);
                                     $url = preg_replace("/\s+/", '-', $url);
                                     $url = URL::to("/tin-tuc").'/danh-muc'.'/'.$item->id.'/'.$url;
                                 ?>
-                                <a href="{{ $url }}">Xem thêm {{ $item->name }} >></a>
+                                <a href="{{ $url }}">Xem thêm {{ $item->name }}</a>
                             </div>
                         </div>
                         @endforeach
@@ -181,9 +182,14 @@
 @section('javascript')
 <script>
 $('.vertical-menu li').click(function() {
-    var id = $(this).attr('catelogy');
-    $('#new-follow-catelogy .row-active').hide();
-    $('#new-follow-catelogy .' + id).show();
+    var row_id = $(this).attr('catelogy');
+    $('#new-follow-catelogy .row-item').hide();
+    $('#new-follow-catelogy .row-item').removeClass('active');
+    $('#new-follow-catelogy .row-item').addClass('no-active');
+    $('#new-follow-catelogy .' + row_id).addClass('active');
+    $('#new-follow-catelogy .' + row_id).removeClass('no-active');
+    $('.vertical-menu li').removeClass('active');
+    $(this).addClass('active');
 });
 </script>
 @endsection
