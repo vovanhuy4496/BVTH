@@ -20,6 +20,10 @@ use App\Models\Newspaper;
 use App\Models\CatalogNewspaper;
 use Illuminate\Support\Facades\Log;
 use App\Models\Consultation;
+use App\Models\JobDescription;
+use App\Models\RecruitmentArticles;
+use App\Models\ContactDescription;
+
 use URL;
 
 class OnePageController extends Controller
@@ -285,6 +289,28 @@ class OnePageController extends Controller
         return view('onepage.consultation', [
             'consultations' => $consultations,
             'departments' => $departments
+        ]);
+    }
+
+    public function recruitment()
+    {
+        $description = JobDescription::where('status', 1)->orderBy('sort')->take(1)->first();
+        $lists = RecruitmentArticles::where('status', 1)->orderBy('sort', 'DESC')->get();
+
+        return view('onepage.recruitment', [
+            'lists' => $lists,
+            'description' => $description
+        ]);
+    }
+
+    public function contact()
+    {
+        $description = ContactDescription::where('status', 1)->orderBy('sort')->take(1)->first();
+        $lists = RecruitmentArticles::where('status', 1)->orderBy('sort', 'DESC')->get();
+
+        return view('onepage.contact', [
+            'lists' => $lists,
+            'description' => $description
         ]);
     }
 

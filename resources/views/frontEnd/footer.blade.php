@@ -9,7 +9,7 @@
                     </address>
                     <p>
                         <i class="fa fa-phone-square"></i>(+84) 28 3776 0648 <br>
-                        <i class="fa fa-envelope-o"></i>info@benhvientanhung.com
+                        <i class="fa fa-envelope"></i>info@benhvientanhung.com
                     </p>
                 </div>
             </div>

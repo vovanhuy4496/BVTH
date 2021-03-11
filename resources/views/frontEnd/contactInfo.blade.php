@@ -16,7 +16,7 @@
             <div class="contact-area-right">
                 <ul>
                     <li><i class="fa fa-phone-square"></i>09 01 34 69 34</li>
-                    <li><i class="fa fa-envelope-o"></i>info@benhvientanhung.com</li>
+                    <li><i class="fa fa-envelope"></i>info@benhvientanhung.com</li>
                 </ul>
             </div>
         </div>

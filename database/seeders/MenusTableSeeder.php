@@ -144,6 +144,7 @@ class MenusTableSeeder extends Seeder
             $this->insertLink('admin', 'Media',                   '/media');
             // $this->insertLink('admin', 'BREAD',                   '/bread');
             $this->insertLink('admin', 'Email',                   '/mail');
+            $this->insertLink('admin', 'Cấu hình',                   '/configuration');
         $this->endDropdown();
         $this->insertLink('guest', 'Login', '/login', 'cil-account-logout');
         // $this->insertLink('guest', 'Register', '/register', 'cil-account-logout');
@@ -212,11 +213,10 @@ class MenusTableSeeder extends Seeder
 
         $this->beginDropdown('admin', 'Giới thiệu', 'cil-pencil');
             $this->insertLink('admin', 'Về chúng tôi',         '/aboutBVTH');
-            $this->insertLink('admin', 'Phòng ban',         '/departmentBVTH');
             $this->insertLink('admin', 'Bác sĩ',         '/doctorBVTH');
             $this->insertLink('admin', 'Danh mục thư viện ảnh',         '/photoCatalogBVTH');
             $this->insertLink('admin', 'Album ảnh',         '/albumsBVTH');
-            $this->insertLink('admin', 'Video',         '/videoBVTH');
+            $this->insertLink('admin', 'Album video',         '/videoBVTH');
             $this->insertLink('admin', 'Cơ sở vật chất',         '/infrastructureBVTH');
             $this->insertLink('admin', 'Thông tin nhân sự',         '/personal-information');
         $this->endDropdown();
@@ -227,11 +227,26 @@ class MenusTableSeeder extends Seeder
             $this->insertLink('admin', 'Tư vấn khám bệnh',         '/consultation');
         $this->endDropdown();
 
-        $this->insertLink('admin', 'Các khoa phòng', '/catalog-departments', 'cil-room');
+        $this->beginDropdown('admin', 'Khoa phòng', 'cil-room');
+            $this->insertLink('admin', 'Danh mục khoa phòng', '/catalog-departments');
+            $this->insertLink('admin', 'Danh mục phòng ban',         '/departmentBVTH');
+        $this->endDropdown();
 
         $this->beginDropdown('admin', 'Tin tức', 'cil-newspaper');
             $this->insertLink('admin', 'Danh mục',         '/catalog-newspaper');
             $this->insertLink('admin', 'Bài viết',         '/newspaper');
+        $this->endDropdown();
+
+        $this->beginDropdown('admin', 'Tuyển dụng', 'cil-people');
+            $this->insertLink('admin', 'Mô tả',         '/job-description');
+            $this->insertLink('admin', 'Bài viết',         '/recruitment-articles');
+        $this->endDropdown();
+
+        $this->insertLink('admin', 'Mạng xã hội', '/social-network', 'cil-globe-alt');
+
+        $this->beginDropdown('admin', 'Liên hệ', 'cil-contact');
+            $this->insertLink('admin', 'Mô tả',         '/contact-description');
+            $this->insertLink('admin', 'Danh sách liên hệ',         '/contact-we');
         $this->endDropdown();
 
         $this->insertLink('admin', 'Đặt lịch khám', '/medical-appointment', 'cil-medical-cross');

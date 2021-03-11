@@ -31,6 +31,8 @@ Route::get('/tin-tuc', 'OnePageController@news');
 Route::get('/tin-tuc/danh-muc/{id}/{title?}', 'OnePageController@news_catology');
 Route::get('/tin-tuc/chi-tiet/{id}/{title?}', 'OnePageController@news_detail');
 Route::get('/chu-de-tu-van', 'OnePageController@consultation');
+Route::get('/tuyen-dung', 'OnePageController@recruitment');
+Route::get('/lien-he', 'OnePageController@contact');
 // Route::get('/thong-tin-nhan-su', 'OnePageController@personal_information');
 
 Route::get('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
@@ -114,6 +116,9 @@ Route::group(['middleware' => ['get.menu']], function () {
 
     Route::group(['middleware' => ['role:admin']], function () {
         Route::resources([
+            'job-description' => 'JobDescriptionController',
+            'recruitment-articles' => 'RecruitmentArticlesController',
+            'contact-description' => 'ContactDescriptionController',
             'personal-information' => 'PersonalInformationController',
             'medical-appointment' => 'MedicalAppointmentController',
             'write-comments' => 'WriteCommentController',
