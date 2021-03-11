@@ -57,7 +57,7 @@
             </div>
             @endforeach
             @endif
-            <div class="col-xs-12 col-sm-12 item_tuvan  mb_15 mt_10 ">
+            <div class="col-xs-12 col-sm-12 item_tuvan mt_10 ">
                 <div class="panel panel-default pd_30">
                     <div class="form-group"> <label class="font_helB">TÊN</label> <input
                             class="form-control bg_xam txtfullname required" id="txthoten" name="txthoten"

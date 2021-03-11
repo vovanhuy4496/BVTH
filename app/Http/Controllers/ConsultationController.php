@@ -62,7 +62,7 @@ class ConsultationController extends Controller
                                         ->where('phone', $phone)
                                         ->first();
         if ($checkStatus) {
-            return response()->json('Bạn đã thêm đặt câu hỏi này rồi. Vui lòng nhập đặt câu hỏi khác ! Xin cảm ơn !');
+            return response()->json('Bạn đã đặt câu hỏi này rồi ! Vui lòng đặt câu hỏi khác ! Xin cảm ơn !');
         }
 
         $sort = Consultation::max('sort');
@@ -120,17 +120,18 @@ class ConsultationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $medicalAppointment = Consultation::find($id);
-        $medicalAppointment->name = $request->name;
-        $medicalAppointment->email = $request->email;
-        $medicalAppointment->title = $request->title;
-        $medicalAppointment->phone = $request->phone;
-        $medicalAppointment->reply = $request->reply;
-        $medicalAppointment->doctor = $request->doctor;
-        $medicalAppointment->department = $request->department;
-        $medicalAppointment->status = $request->status;
-        $medicalAppointment->sort = $request->sort;
-        $medicalAppointment->save();
+        $item = Consultation::find($id);
+        $item->name = $request->name;
+        $item->email = $request->email;
+        $item->title = $request->title;
+        $item->phone = $request->phone;
+        $item->reply = $request->reply;
+        $item->doctor = $request->doctor;
+        $item->department = $request->department;
+        $item->content = $request->content;
+        $item->status = $request->status;
+        $item->sort = $request->sort;
+        $item->save();
 
         return redirect()->route('consultation.index');
     }
@@ -138,14 +139,14 @@ class ConsultationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Consultation  $medicalAppointment
+     * @param  \App\Models\Consultation  $item
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $medicalAppointment = Consultation::find($id);
-        if($medicalAppointment){
-            $medicalAppointment->delete();
+        $item = Consultation::find($id);
+        if($item){
+            $item->delete();
         }
         return redirect()->route('consultation.index');
     }

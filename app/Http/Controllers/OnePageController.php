@@ -23,6 +23,7 @@ use App\Models\Consultation;
 use App\Models\JobDescription;
 use App\Models\RecruitmentArticles;
 use App\Models\ContactDescription;
+use App\Models\ContactWe;
 
 use URL;
 
@@ -312,6 +313,44 @@ class OnePageController extends Controller
             'lists' => $lists,
             'description' => $description
         ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeContact(Request $request)
+    {
+        $name = $request->get('name');
+        $phone = $request->get('phone');
+        $email = $request->get('email');
+        $content = $request->get('content');
+
+        $checkStatus = ContactWe::where('status', 0)
+                                        ->where('content', $content)
+                                        ->where('name', $name)
+                                        ->where('phone', $phone)
+                                        ->first();
+        if ($checkStatus) {
+            return response()->json('Quý khách đã gửi Lời nhắn, yêu cầu này cho chúng tôi rồi. Vui lòng gửi Lời nhắn, yêu cầu khác ! Xin cảm ơn !');
+        }
+
+        $sort = ContactWe::max('sort');
+        $sort = !isset($sort) ? 1 : $sort + 1;
+
+        $item = new ContactWe();
+        $item->name = $name;
+        $item->phone = $phone;
+        $item->email = $email;
+        $item->content = $content;
+        $item->status = 0;
+        $item->sort = $sort;
+        $item->save();
+
+        return response()->json('Success');
+        // return response()->json('Cảm ơn Quý khách đã gửi thông tin liên hệ đến Bệnh viện đa khoa Tân Hưng. Xin cảm ơn !');
     }
 
     /**

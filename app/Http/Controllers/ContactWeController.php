@@ -14,7 +14,9 @@ class ContactWeController extends Controller
      */
     public function index()
     {
-        //
+        $lists = ContactWe::orderBy('created_at', 'DESC')->get();
+
+        return view('ad.contact-we.list', ['lists' => $lists]);
     }
 
     /**
@@ -28,58 +30,64 @@ class ContactWeController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ContactWe  $contactWe
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(ContactWe $contactWe)
+    public function show($id)
     {
-        //
+        $item = ContactWe::find($id);
+
+        return view('ad.contact-we.edit', [ 'item' => $item ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ContactWe  $contactWe
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(ContactWe $contactWe)
+    public function edit($id)
     {
-        //
+        $item = ContactWe::find($id);
+
+        return view('ad.contact-we.edit', [ 'item' => $item ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ContactWe  $contactWe
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ContactWe $contactWe)
+    public function update(Request $request, $id)
     {
-        //
+        $item = ContactWe::find($id);
+        $item->name = $request->name;
+        $item->email = $request->email;
+        $item->phone = $request->phone;
+        $item->content = $request->content;
+        $item->status = $request->status;
+        $item->sort = $request->sort;
+        $item->save();
+
+        return redirect()->route('contact-we.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ContactWe  $contactWe
+     * @param  \App\Models\ContactWe  $item
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ContactWe $contactWe)
+    public function destroy($id)
     {
-        //
+        $item = ContactWe::find($id);
+        if($item){
+            $item->delete();
+        }
+        return redirect()->route('contact-we.index');
     }
 }

@@ -44,6 +44,8 @@ Route::post('/write-comments-fe', 'WriteCommentController@storeFE');
 Route::post('/consultation-fe', 'ConsultationController@storeFE');
 Route::post('/consultation-fe', 'ConsultationController@storeFE');
 
+Route::post('/contact-we-fe', 'OnePageController@storeContact');
+Route::post('/contact-we-fe', 'OnePageController@storeContact');
 
 Route::get('/photos-videos', 'OnePageController@get_photos_videos');
 Route::post('/photos-videos', 'OnePageController@get_photos_videos');
@@ -119,6 +121,7 @@ Route::group(['middleware' => ['get.menu']], function () {
             'job-description' => 'JobDescriptionController',
             'recruitment-articles' => 'RecruitmentArticlesController',
             'contact-description' => 'ContactDescriptionController',
+            'contact-we' => 'ContactWeController',
             'personal-information' => 'PersonalInformationController',
             'medical-appointment' => 'MedicalAppointmentController',
             'write-comments' => 'WriteCommentController',
