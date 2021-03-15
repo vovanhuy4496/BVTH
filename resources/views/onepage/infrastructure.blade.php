@@ -1,5 +1,22 @@
 @extends('base')
 
+@section('title')
+<title>Cơ sở vật chất</title>
+<meta name="title" content="Cơ sở vật chất" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+@endsection
+
+@section('og:type')
+<meta property="og:type" content="Cơ sở vật chất">
+<meta property="og:title" content="Cơ sở vật chất">
+<meta property="og:url" content="">
+<meta property="og:description" content="" />
+<meta property="og:image" content="">
+<meta property="" content="">
+<meta property="" content="">
+@endsection
+
 @section('content')
 @include('frontEnd.banner')
 <section id="content">

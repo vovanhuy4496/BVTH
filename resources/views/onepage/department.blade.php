@@ -1,5 +1,24 @@
 @extends('base')
 
+@section('title')
+<title>{{ !empty($department->title) ? $department->title : 'Giới thiệu về chúng tôi' }}</title>
+<meta name="title"
+    content="{{ !empty($department->meta_title) ? $department->meta_title : 'Giới thiệu về chúng tôi' }}" />
+<meta name="description" content="{{ !empty($department->meta_description) ? $department->meta_description : '' }}" />
+<meta name="keywords" content="{{ !empty($department->keyword) ? $department->keyword : '' }}" />
+@endsection
+
+@section('og:type')
+<meta property="og:type" content="{{ !empty($department->title) ? $department->title : 'Giới thiệu về chúng tôi' }}">
+<meta property="og:title" content="{{ !empty($department->title) ? $department->title : 'Giới thiệu về chúng tôi' }}">
+<meta property="og:url" content="">
+<meta property="og:description"
+    content="{{ !empty($department->meta_description) ? $department->meta_description : '' }}" />
+<meta property="og:image" content="">
+<meta property="department:created_at"
+    content="{{ !empty($department->created_at) ? $department->created_at->format('d/M/Y') : '' }}">
+@endsection
+
 @section('content')
 @include('frontEnd.banner')
 <section id="content">

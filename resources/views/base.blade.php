@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="utf-8">
-    <title>Bệnh Viện Đa Khoa Tân Hưng - Tan Hung Hospital</title>
+    @yield('title')
+    <meta name="robots" content="INDEX,FOLLOW" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="" />
+    <!-- <meta name="description" content="" /> -->
     <meta name="author" content="http://daihuynhquang.com.vn/gioi-thieu.html" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" type="image/ico" href="{{ asset('frontEnd/img/favicon.ico') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('frontEnd/img/favicon.ico') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontEnd/img/favicon.ico') }}" />
+    @yield('og:type')
     <!-- css -->
     <link href="{{ asset('frontEnd/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('frontEnd/css/fancybox/fancybox.css') }}" rel="stylesheet">
@@ -78,63 +81,17 @@ $('.date').datepicker({
 $('#appointment-date').datetimepicker({
     format: 'd/m/Y H:i',
 });
-// $(document).ready(function() {
-//     var msg = "";
-//     var elements = document.getElementsByTagName("INPUT");
 
-//     for (var i = 0; i < elements.length; i++) {
-//         elements[i].oninvalid = function(e) {
-//             if (!e.target.validity.valid) {
-//                 switch (e.target.name) {
-//                     case 'cus_name':
-//                         e.target.setCustomValidity("Vui lòng nhập họ tên");
-//                         break;
-//                     case 'cus_phone':
-//                         e.target.setCustomValidity("Vui lòng nhập số điện thoại");
-//                         break;
-//                         // case 'cus_birth':
-//                         //     if (e.target.value.length == 0) {
-//                         //         console.log(e.target.value);
-//                         //         console.log(e.target.value.length);
-//                         //         e.target.setCustomValidity("Vui lòng nhập ngày/tháng/năm sinh");
-//                         //     }
-//                         //     break;
-//                         // case 'appointment-date':
-//                         //     if (!e.target.value.length == 0) {
-//                         //         e.target.setCustomValidity("Vui lòng nhập ngày giờ đặt lịch khám");
-//                         //     }
-//                         //     break;
-//                     default:
-//                         e.target.setCustomValidity("");
-//                         break;
-
-//                 }
-//             }
-//         };
-//         elements[i].oninput = function(e) {
-//             e.target.setCustomValidity(msg);
-//         };
-//     }
-// });
 $(document).ready(function() {
     $("#owl-footer").owlCarousel({
 
-        //Basic Speeds
         slideSpeed: 200,
         paginationSpeed: 800,
 
-        //Autoplay
         autoPlay: 3000, //Set AutoPlay to 3 seconds
         goToFirst: true,
         goToFirstSpeed: 1000,
 
-        // Navigation
-        // navigation: false,
-        // navigationText: ["prev", "next"],
-        // pagination: true,
-        // paginationNumbers: true,
-
-        // Responsive
         responsive: true,
         items: 4,
         itemsDesktop: [1199, 4],

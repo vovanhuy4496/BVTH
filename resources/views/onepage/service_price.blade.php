@@ -1,5 +1,9 @@
 @extends('base')
 
+@section('title')
+<title>Bảng giá dịch vụ kỹ thuật</title>
+@endsection
+
 @section('content')
 @include('frontEnd.banner')
 <section id="content">

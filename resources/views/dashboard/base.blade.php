@@ -3,22 +3,24 @@
 * CoreUI Free Laravel Bootstrap Admin Template
 * @version v2.0.1
 * @link https://coreui.io
-* Copyright (c) 2020 creativeLabs Łukasz Holeczek
+* Copyright (c) 2020 creativeLabs Võ Văn Huy
 * Licensed under MIT (https://coreui.io/license)
 -->
 
-<html lang="en">
+<html lang="vi">
 
 <head>
     <base href="./">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
-    <meta name="author" content="Łukasz Holeczek">
-    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>CoreUI Free Bootstrap Admin Template</title>
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
+    <meta name="description" content="Admin - Bệnh Viện Đa Khoa Tân Hưng - Tan Hung Hospital">
+    <meta name="author" content="Võ Văn Huy">
+    <meta name="keyword" content="">
+    <title>Admin - Bệnh Viện Đa Khoa Tân Hưng - Tan Hung Hospital</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('frontEnd/img/favicon.ico') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontEnd/img/favicon.ico') }}" />
+    <!-- <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
@@ -30,7 +32,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png"> -->
     <!-- <link rel="manifest" href="assets/favicon/manifest.json"> -->
 
     <!-- Image-Uploader -->

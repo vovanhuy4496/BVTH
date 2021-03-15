@@ -1,5 +1,9 @@
 @extends('base')
 
+@section('title')
+<title>Thư viện ảnh - video</title>
+@endsection
+
 @section('style')
 <link href="{{ asset('frontEnd/css/lc_lightbox.css') }}" rel="stylesheet">
 <link href="{{ asset('frontEnd/css/skins/minimal.css') }}" rel="stylesheet">

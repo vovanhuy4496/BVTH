@@ -1,5 +1,22 @@
 @extends('base')
 
+@section('title')
+<title>{{ !empty($catalog->name) ? $catalog->name : 'Tin tức' }}</title>
+<meta name="title" content="{{ !empty($catalog->meta_title) ? $catalog->meta_title : 'Tin tức' }}" />
+<meta name="description" content="{{ !empty($catalog->meta_description) ? $catalog->meta_description : '' }}" />
+<meta name="keywords" content="{{ !empty($catalog->keyword) ? $catalog->keyword : '' }}" />
+@endsection
+
+@section('og:type')
+<meta property="og:type" content="{{ !empty($catalog->title) ? $catalog->title : 'Tin tức' }}">
+<meta property="og:title" content="{{ !empty($catalog->title) ? $catalog->title : 'Tin tức' }}">
+<meta property="og:url" content="">
+<meta property="og:description" content="{{ !empty($catalog->meta_description) ? $catalog->meta_description : '' }}" />
+<meta property="og:image" content="">
+<meta property="catalog:created_at"
+    content="{{ !empty($catalog->created_at) ? $catalog->created_at->format('d/M/Y') : '' }}">
+@endsection
+
 @section('style')
 <link href="{{ asset('frontEnd/css/new-detail.css') }}" rel="stylesheet">
 @endsection
@@ -47,13 +64,6 @@
                                     ?>
                                 </ul>
                                 <p class="text-justify line-4">{{ $news->first()->describe }}</p>
-                                <div class="boxbs_dungten div_flex div_flex_mobile mb_10mb"><a class="item"
-                                        href="https://tamanhhospital.vn/chuyen-gia/gs-ts-bs-ngo-quy-chau/"
-                                        title="GS.TS.BS NGÔ QUÝ CHÂU"><img class="img-responsive img-circle "
-                                            src="https://tamanhhospital.vn/wp-content/uploads/2012/12/avt-bac-si-quy-chau-1-150x150.png"></a><a
-                                        class="item" href="https://tamanhhospital.vn/chuyen-gia/gs-ts-bs-ngo-quy-chau/"
-                                        title="GS.TS.BS NGÔ QUÝ CHÂU"><span class="cl_brand text-uppercase ">GS.TS.BS
-                                            NGÔ QUÝ CHÂU</span></a></div>
                             </div>
                         </div>
                     </div>
@@ -91,13 +101,6 @@
                                     }
                                 ?>
                         </ul>
-                        <div class="boxbs_dungten div_flex div_flex_mobile mid"><a class="item"
-                                href="https://tamanhhospital.vn/chuyen-gia/gs-ts-bs-ngo-quy-chau/"
-                                title="GS.TS.BS NGÔ QUÝ CHÂU"><img class="img-responsive img-circle "
-                                    src="https://tamanhhospital.vn/wp-content/uploads/2012/12/avt-bac-si-quy-chau-1-150x150.png"></a><a
-                                class="item" href="https://tamanhhospital.vn/chuyen-gia/gs-ts-bs-ngo-quy-chau/"
-                                title="GS.TS.BS NGÔ QUÝ CHÂU"><span class="cl_brand text-uppercase ">GS.TS.BS NGÔ
-                                    QUÝ CHÂU</span></a></div>
                     </div>
                 </div>
             </div>

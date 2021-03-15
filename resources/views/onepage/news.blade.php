@@ -1,5 +1,22 @@
 @extends('base')
 
+@section('title')
+<title>Tin tức</title>
+<meta name="title" content="Tin tức" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+@endsection
+
+@section('og:type')
+<meta property="og:type" content="Tin tức">
+<meta property="og:title" content="Tin tức">
+<meta property="og:url" content="">
+<meta property="og:description" content="" />
+<meta property="og:image" content="">
+<meta property="" content="">
+<meta property="" content="">
+@endsection
+
 @section('style')
 <link href="{{ asset('frontEnd/css/news.css') }}" rel="stylesheet">
 @endsection

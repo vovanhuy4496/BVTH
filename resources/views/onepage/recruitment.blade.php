@@ -1,5 +1,23 @@
 @extends('base')
 
+@section('title')
+<title>{{ !empty($description->title) ? $description->title : 'Tuyển dụng' }}</title>
+<meta name="title" content="{{ !empty($description->meta_title) ? $description->meta_title : 'Tuyển dụng' }}" />
+<meta name="description" content="{{ !empty($description->meta_description) ? $description->meta_description : '' }}" />
+<meta name="keywords" content="{{ !empty($description->keyword) ? $description->keyword : '' }}" />
+@endsection
+
+@section('og:type')
+<meta property="og:type" content="{{ !empty($description->title) ? $description->title : 'Tuyển dụng' }}">
+<meta property="og:title" content="{{ !empty($description->title) ? $description->title : 'Tuyển dụng' }}">
+<meta property="og:url" content="">
+<meta property="og:description"
+    content="{{ !empty($description->meta_description) ? $description->meta_description : '' }}" />
+<meta property="og:image" content="">
+<meta property="description:created_at"
+    content="{{ !empty($description->created_at) ? $description->created_at->format('d/M/Y') : '' }}">
+@endsection
+
 @section('style')
 <style>
 #recruitment .hiddenRow {

@@ -1,5 +1,21 @@
 @extends('base')
 
+@section('title')
+<title>{{ !empty($new->title) ? $new->title : 'Tin tức' }}</title>
+<meta name="title" content="{{ !empty($new->meta_title) ? $new->meta_title : 'Tin tức' }}" />
+<meta name="description" content="{{ !empty($new->meta_description) ? $new->meta_description : '' }}" />
+<meta name="keywords" content="{{ !empty($new->keyword) ? $new->keyword : '' }}" />
+@endsection
+
+@section('og:type')
+<meta property="og:type" content="{{ !empty($new->title) ? $new->title : 'Tin tức' }}">
+<meta property="og:title" content="{{ !empty($new->title) ? $new->title : 'Tin tức' }}">
+<meta property="og:url" content="">
+<meta property="og:description" content="{{ !empty($new->meta_description) ? $new->meta_description : '' }}" />
+<meta property="og:image" content="">
+<meta property="new:created_at" content="{{ !empty($new->created_at) ? $new->created_at->format('d/M/Y') : '' }}">
+@endsection
+
 @section('content')
 @include('frontEnd.banner')
 <section id="content">
@@ -79,7 +95,7 @@ $(document).ready(function() {
         itemsDesktopSmall: [980, 2],
         itemsTablet: [768, 2],
         itemsMobile: [479, 1],
-        margin:10,
+        margin: 10,
     });
 });
 </script>

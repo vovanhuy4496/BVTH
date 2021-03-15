@@ -1,5 +1,9 @@
 @extends('base')
 
+@section('title')
+<title>Bệnh Viện Đa Khoa Tân Hưng - Tan Hung Hospital</title>
+@endsection
+
 @section('content')
 
 @include('frontEnd.banner')
