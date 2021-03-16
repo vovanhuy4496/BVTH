@@ -19,8 +19,8 @@
                             </div>
                             
                             <div class="form-group row bvth-status">
-                                <label class="margin-0-10-0-0">Trạng thái: </label>
-                                <label style="width: 30px;" class="label-status margin-0-10-0-0">{{ $catalogNewspaper->status == 1 ? 'Hiện' : 'Ẩn' }}</label>
+                                <label class="mr_10">Trạng thái: </label>
+                                <label style="width: 30px;" class="label-status mr_10">{{ $catalogNewspaper->status == 1 ? 'Hiện' : 'Ẩn' }}</label>
                                 <input type="checkbox"
                                         @if($catalogNewspaper->status == 1)
                                             checked="checked"

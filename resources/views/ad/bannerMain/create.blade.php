@@ -22,15 +22,15 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="margin-0-10-0-0 label-image">Hình ảnh</label>
+                                <label class="mr_10 label-image">Hình ảnh</label>
                                 <input id="image" type="file" class="" name="image" required onchange="loadFile(event)">
                             </div>
 
                             <img style="display: none;" class="preview-img" id="output" width="200px"/>
 
                             <div class="form-group row bvth-status">
-                                <label class="margin-0-10-0-0">Trạng thái: </label>
-                                <label style="width: 30px;" class="label-status margin-0-10-0-0">Ẩn</label>
+                                <label class="mr_10">Trạng thái: </label>
+                                <label style="width: 30px;" class="label-status mr_10">Ẩn</label>
                                 <input type="checkbox" class="bvth-checkbox" name="status" value="0">
                             </div>
 

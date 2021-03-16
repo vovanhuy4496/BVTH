@@ -60,7 +60,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="margin-0-10-0-0 label-image">Hình ảnh hiện tại</label>
+                                <label class="mr_10 label-image">Hình ảnh hiện tại</label>
                                 <img src="{{ URL::route('resizes', array('size' => 'thumbnail', 'imagePath' => 'BVTH/DoctorBvth/'.$doctor->image_file_name)) }}" />
                             </div>
 
@@ -71,8 +71,8 @@
                             <img style="display: none;" class="preview-img" id="output" width="200px"/>
                             
                             <div class="form-group row bvth-status">
-                                <label class="margin-0-10-0-0">Trạng thái: </label>
-                                <label style="width: 30px;" class="label-status margin-0-10-0-0">{{ $doctor->status == 1 ? 'Hiện' : 'Ẩn' }}</label>
+                                <label class="mr_10">Trạng thái: </label>
+                                <label style="width: 30px;" class="label-status mr_10">{{ $doctor->status == 1 ? 'Hiện' : 'Ẩn' }}</label>
                                 <input type="checkbox"
                                         @if($doctor->status == 1)
                                             checked="checked"

@@ -17,23 +17,10 @@
     <meta name="description" content="Admin - Bệnh Viện Đa Khoa Tân Hưng - Tan Hung Hospital">
     <meta name="author" content="Võ Văn Huy">
     <meta name="keyword" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Admin - Bệnh Viện Đa Khoa Tân Hưng - Tan Hung Hospital</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('frontEnd/img/favicon.ico') }}" />
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontEnd/img/favicon.ico') }}" />
-    <!-- <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png"> -->
-    <!-- <link rel="manifest" href="assets/favicon/manifest.json"> -->
 
     <!-- Image-Uploader -->
     <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -50,23 +37,6 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     @yield('css')
-
-    <!-- Global site tag (gtag.js) - Google Analytics-->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    // Shared ID
-    gtag('config', 'UA-118965717-3');
-    // Bootstrap ID
-    gtag('config', 'UA-118965717-5');
-    </script>
-
-    <link href="{{ asset('css/coreui-chartjs.css') }}" rel="stylesheet">
 </head>
 
 <body class="c-app">
@@ -108,10 +78,13 @@
     <script src="http://cdn.ckeditor.com/4.14.0/full-all/ckeditor.js"></script>
 
     <script>
-    CKEDITOR.replace('summary-ckeditor', {
-        filebrowserUploadUrl: "{{route('upload-ckeditor', ['_token' => csrf_token() ])}}",
-        filebrowserUploadMethod: 'form'
-    });
+    window.onload = function() {
+        CKEDITOR.replace('summary-ckeditor', {
+            filebrowserUploadUrl: "{{ route('upload-ckeditor', ['csrf-token' => csrf_token() ])}}",
+            // filebrowserUploadUrl: "{{ route('upload-ckeditor', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+    };
     </script>
 
     @yield('javascript')

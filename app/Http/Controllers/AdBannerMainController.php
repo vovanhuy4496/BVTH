@@ -56,7 +56,10 @@ class AdBannerMainController extends Controller
     {
         $image = $request->file('image');
 
-        Storage::disk('public')->put('bannerMain'.'/'.$image->getClientOriginalName(), File::get($image));
+        // $filename = $image->storeAs('bannerMain'.'/', $image->getClientOriginalName() , ['disk' => 'public']);
+
+        Storage::disk('public')
+            ->put('bannerMain'.'/'.$image->getClientOriginalName(), File::get($image));
 
         // Log::info('---Log banner---');
         // Log::info($request->status);

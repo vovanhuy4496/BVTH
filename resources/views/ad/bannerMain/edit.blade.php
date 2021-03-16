@@ -23,7 +23,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="margin-0-10-0-0 label-image">Hình ảnh hiện tại</label>
+                                <label class="mr_10 label-image">Hình ảnh hiện tại</label>
                                 <img src="{{ URL::route('resizes', array('size' => 'thumbnailBannerMain', 'imagePath' => 'BVTH/bannerMain/'.$banner->image_file_name)) }}" />
                             </div>
 
@@ -34,8 +34,8 @@
                             <img style="display: none;" class="preview-img" id="output" width="200px"/>
                             
                             <div class="form-group row bvth-status">
-                                <label class="margin-0-10-0-0">Trạng thái: </label>
-                                <label style="width: 30px;" class="label-status margin-0-10-0-0">{{ $banner->status == 1 ? 'Hiện' : 'Ẩn' }}</label>
+                                <label class="mr_10">Trạng thái: </label>
+                                <label style="width: 30px;" class="label-status mr_10">{{ $banner->status == 1 ? 'Hiện' : 'Ẩn' }}</label>
                                 <input type="checkbox"
                                         @if($banner->status == 1)
                                             checked="checked"
