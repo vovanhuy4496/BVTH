@@ -1548,7 +1548,7 @@ select.selectmenu {
 .testimonial-area {
 	padding: 0 0 0 0;
 	margin: 0;
-	background: url(../img/low-poly01.jpg) fixed center center;
+	/* background: url(../img/low-poly01.jpg) fixed center center; */
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
