@@ -85,7 +85,7 @@
                                             {{ $item->title }}</a>
                                     </h5>
                                 </div>
-                                <div class="pr-3 col-sm-6">
+                                <div class="pr-3 col-sm-6 w_50">
                                     <div class="fs-12 catalogues-news">
                                         <h5 class="text-white title-mobile">
                                             <a href="{{ $url }}">
@@ -100,7 +100,7 @@
                                         <span class="time-news">{{ $item->created_at->format('d/m/Y') }}</span>
                                     </div>
                                 </div>
-                                <div class="rotate-img col-sm-6 pl_5">
+                                <div class="rotate-img col-sm-6 pl_5 w_50">
                                     <a href="{{ $url }}">
                                         <img class="img-responsive img-fluid img-lg"
                                             src="{{ URL::route('resizes', array('size' => 'thumbnailNews', 'imagePath' => 'BVTH/Newspaper/'.$item->image_file_name)) }}" />
@@ -150,7 +150,7 @@
                                 $url = preg_replace("/\s+/", '-', $url);
                                 $url = URL::to("/tin-tuc").'/chi-tiet'.'/'.$new->new_id.'/'.$url;
                             ?>
-                            <div class="col-sm-4 img-grid grid-margin pr_5 width_70">
+                            <div class="col-sm-4 img-grid grid-margin pr_5 w_50">
                                 <div class="position-relative">
                                     <div class="rotate-img">
                                         <a href="{{ $url }}">
@@ -163,7 +163,7 @@
                                     </div> -->
                                 </div>
                             </div>
-                            <div class="col-sm-8 grid-margin pl_5 width_100">
+                            <div class="col-sm-8 grid-margin pl_5 w_50">
                                 <h5 class="mb-2">
                                     <a href="{{ $url }}">
                                         {{ $new->new_title }}
