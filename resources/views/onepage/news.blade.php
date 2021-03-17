@@ -40,9 +40,6 @@
                             src="{{ URL::route('resizes', array('size' => 'larageNews', 'imagePath' => 'BVTH/Newspaper/'.$news->first()->image_file_name)) }}" />
                     </a>
                     <div class="banner-content">
-                        <!-- <div class="badge badge-danger fs-12 text-white-bold mb-3">
-                            tin tức mới nhất
-                        </div> -->
                         <?php
                             $first = $news->first()->id;
                         ?>
@@ -69,46 +66,56 @@
             @if(count($news) > 1)
             <div class="col-md-4 stretch-card grid-margin">
                 <div class="card text-white">
-                    <div class="card-body">
-                        <h3 class="text-white">Tin mới nhất</h2>
-                            @foreach($news as $item)
-                            @if($item->id != $first)
-                            <?php
+                    <div class="card-body cart-latest-news">
+                        <h3 class="text-white">Tin mới nhất</h3>
+                        @foreach($news as $item)
+                        @if($item->id != $first)
+                        <?php
                                 $url = stripVN($item->title);
                                 $url = preg_replace("/\s+/", '-', $url);
                                 $url = URL::to("/tin-tuc").'/chi-tiet'.'/'.$item->id.'/'.$url;
                             ?>
-                            <div class="row flex-content content-right">
-                                <div class="col-sm-12 title-desktop">
-                                    <h5 class="text-white">
+                        <div class="row flex-content content-right">
+                            <div class="col-sm-12 title-desktop">
+                                <h5 class="text-white">
+                                    <a href="{{ $url }}">
+                                        {{ $item->title }}</a>
+                                </h5>
+                            </div>
+                            <div class="pr-3 col-sm-6 w_50">
+                                <div class="fs-12 catalogues-news">
+                                    <h5 class="text-white title-mobile">
                                         <a href="{{ $url }}">
-                                            {{ $item->title }}</a>
+                                            {{ $item->title }}
+                                        </a>
                                     </h5>
-                                </div>
-                                <div class="pr-3 col-sm-6 w_50">
-                                    <div class="fs-12 catalogues-news">
-                                        <h5 class="text-white title-mobile">
-                                            <a href="{{ $url }}">
-                                                {{ $item->title }}</a>
-                                        </h5>
-                                        <?php 
+                                    <div class="describe line-3">
+                                        {{ $item->describe }}
+                                    </div>
+                                    <?php
                                             $catalogues_name = json_decode($item->catalogues_name);
+                                            if ($catalogues_name) {
+                                                echo '<ul class="div_tag mb_0">';
+                                            }
                                             foreach($catalogues_name as $name) {
-                                                echo '<span class="mr-2">'.$name.'</span>';
+                                                echo '<li><a>'.$name.'</li></a>';
+                                            }
+                                            if ($catalogues_name) {
+                                                echo '</ul>';
                                             }
                                         ?>
-                                        <span class="time-news">{{ $item->created_at->format('d/m/Y') }}</span>
-                                    </div>
-                                </div>
-                                <div class="rotate-img col-sm-6 pl_5 w_50">
-                                    <a href="{{ $url }}">
-                                        <img class="img-responsive img-fluid img-lg"
-                                            src="{{ URL::route('resizes', array('size' => 'thumbnailNews', 'imagePath' => 'BVTH/Newspaper/'.$item->image_file_name)) }}" />
-                                    </a>
+                                    <span class="time-news">{{ $item->created_at->format('d/m/Y') }}</span>
                                 </div>
                             </div>
-                            @endif
-                            @endforeach
+                            <div class="rotate-img col-sm-6 pl_5 w_50">
+                                <a href="{{ $url }}">
+                                    <img class="img-responsive img-fluid img-lg"
+                                        src="{{ URL::route('resizes', array('size' => 'thumbnailNews', 'imagePath' => 'BVTH/Newspaper/'.$item->image_file_name)) }}" />
+                                </a>
+                            </div>
+                        </div>
+                        @endif
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -132,13 +139,6 @@
             <div class="col-sm-9 col-md-9 col-lg-9 stretch-card grid-margin" id="new-follow-catelogy">
                 <div class="card">
                     <div class="card-body">
-                        <!-- <div class="catelogy">
-                            <select name="" id="">
-                                @foreach($categories as $key => $item)
-                                <option value="row-{{ $item->id }}">{{ $item->name }}</option>
-                                @endforeach
-                            </select>
-                        </div> -->
                         @foreach($categories as $key => $item)
                         <?php 
                             $news = json_decode($item->new);
@@ -158,9 +158,6 @@
                                                 src="{{ URL::route('resizes', array('size' => 'mediumNews', 'imagePath' => 'BVTH/Newspaper/'.$new->new_image_file_name)) }}" />
                                         </a>
                                     </div>
-                                    <!-- <div class="badge-positioned">
-                                        <span class="badge badge-danger font-weight-bold">Flash news</span>
-                                    </div> -->
                                 </div>
                             </div>
                             <div class="col-sm-8 grid-margin pl_5 w_50">

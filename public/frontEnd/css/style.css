@@ -1212,7 +1212,7 @@ header .nav li.active a,
 header .nav li.active a:hover {
 	background: #1691e2 !important;
 	border-radius: 80%;
-	display: inline-block
+	display: inline-block;
 }
 
 header .navbar-default .navbar-nav>.open>a,
