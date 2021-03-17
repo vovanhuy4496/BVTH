@@ -213,6 +213,9 @@
   #content-news .banner-content {
     position: relative;
   }
+  #content-news .content-right h5 {
+    margin: 0 0 10px 0;
+  }
 }
 
 @media (max-width: 999px) {
