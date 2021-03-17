@@ -1,0 +1,48 @@
+.mr_10 {
+	margin-right: 10px;
+}
+
+.bvth-checkbox {
+	height: 21px;
+}
+
+.label-image {
+	line-height: 25px;
+}
+
+.preview-img {
+	margin: 10px 0;
+}
+
+.summary-ckeditor {
+	display: block !important;
+}
+
+.selectpicker {
+	margin-left: 15px;
+	border-color: #d8dbe0;
+	min-width: 200px;
+	min-height: 200px;
+	padding: 5px;
+}
+
+.input-field {
+	margin-bottom: 1em;
+	margin-right: -15px;
+	margin-left: -15px;
+}
+
+.search-group {
+	margin: 0.5rem;
+}
+
+.btn-search {
+	height: 35px;
+}
+
+.uploaded-video {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+}
