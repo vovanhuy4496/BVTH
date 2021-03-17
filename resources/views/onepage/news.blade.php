@@ -93,17 +93,17 @@
                                         {{ $item->describe }}
                                     </div>
                                     <?php
-                                            $catalogues_name = json_decode($item->catalogues_name);
-                                            if ($catalogues_name) {
-                                                echo '<ul class="div_tag mb_0">';
-                                            }
-                                            foreach($catalogues_name as $name) {
-                                                echo '<li><a>'.$name.'</li></a>';
-                                            }
-                                            if ($catalogues_name) {
-                                                echo '</ul>';
-                                            }
-                                        ?>
+                                        // $catalogues_name = json_decode($item->catalogues_name);
+                                        // if ($catalogues_name) {
+                                        //     echo '<ul class="div_tag mb_0">';
+                                        // }
+                                        // foreach($catalogues_name as $name) {
+                                        //     echo '<li><a>'.$name.'</li></a>';
+                                        // }
+                                        // if ($catalogues_name) {
+                                        //     echo '</ul>';
+                                        // }
+                                    ?>
                                     <span class="time-news">{{ $item->created_at->format('d/m/Y') }}</span>
                                 </div>
                             </div>
