@@ -47,6 +47,7 @@
 #content-news-catology .title_post h2 {
   margin: 0 0 15px 0;
   line-height: 25px;
+  text-align: left;
 }
 
 #content-news-catology .item .row {

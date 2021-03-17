@@ -167,14 +167,14 @@
 }
 
 #content-news .vertical-menu li a {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.31;
   letter-spacing: normal;
   color: #ababac;
-  padding: 10px 0;
+  padding: 6px 0;
   display: block;
   cursor: pointer;
 }
@@ -184,6 +184,9 @@
 }
 
 @media (max-width: 767px) {
+  .img-large {
+    border-radius: 6px 6px 0 0 !important;
+  }
   .title-mobile {
     display: block;
   }
@@ -201,6 +204,12 @@
   }
   .w_50 {
     width: 50%;
+  }
+  .w_100 {
+    width: 100%;
+  }
+  #content-news .row.flex-content.content-right {
+    margin-bottom: 20px;
   }
 }
 

@@ -1212,6 +1212,7 @@ header .nav li.active a,
 header .nav li.active a:hover {
 	background: #1691e2 !important;
 	border-radius: 80%;
+	display: inline-block
 }
 
 header .navbar-default .navbar-nav>.open>a,
@@ -1301,7 +1302,8 @@ header .navigation {
 header ul.nav li {
 	border: none;
 	margin: 0;
-	cursor: pointer
+	cursor: pointer;
+	text-align: center;
 }
 
 header ul.nav li a {

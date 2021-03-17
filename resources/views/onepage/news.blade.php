@@ -28,7 +28,7 @@
         <h1 class="content-title">TIN TỨC</h1>
         @if(!$news->isEmpty())
         <div class="row aos-init aos-animate flex-content mb_0" data-aos="fade-up">
-            <div class="col-sm-{{ count($news) == 1 ? '12' : '8' }} stretch-card grid-margin">
+            <div class="col-md-{{ count($news) == 1 ? '12' : '8' }} stretch-card grid-margin">
                 <div class="position-relative">
                     <?php
                         $url = stripVN($news->first()->title);
@@ -36,7 +36,7 @@
                         $url = URL::to("/tin-tuc").'/chi-tiet'.'/'.$news->first()->id.'/'.$url;
                     ?>
                     <a href="{{ $url }}">
-                        <img class="img-responsive img-fluid"
+                        <img class="img-responsive img-fluid img-large"
                             src="{{ URL::route('resizes', array('size' => 'larageNews', 'imagePath' => 'BVTH/Newspaper/'.$news->first()->image_file_name)) }}" />
                     </a>
                     <div class="banner-content">
@@ -67,7 +67,7 @@
                 </div>
             </div>
             @if(count($news) > 1)
-            <div class="col-sm-4 stretch-card grid-margin">
+            <div class="col-md-4 stretch-card grid-margin">
                 <div class="card text-white">
                     <div class="card-body">
                         <h3 class="text-white">Tin mới nhất</h2>
@@ -115,7 +115,7 @@
             @endif
         </div>
         <div class="row aos-init aos-animate flex-content mb_0" data-aos="fade-up">
-            <div class="col-sm-3 col-md-3 col-lg-3 stretch-card grid-margin menu-catelogy">
+            <div class="col-sm-3 col-md-3 col-lg-3 stretch-card grid-margin menu-catelogy w_100">
                 <div class="card">
                     <div class="card-body">
                         <h3>Danh Mục</h3>
