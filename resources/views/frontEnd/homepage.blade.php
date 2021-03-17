@@ -43,7 +43,7 @@
 <section id="service">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 hidden-xs lich-left">
+            <div class="col-md-6 lich-left">
                 <img src="frontEnd/img/dat-lich-kham.png" alt="">
                 <div class="content">
                     <span>đặt lịch hẹn</span>

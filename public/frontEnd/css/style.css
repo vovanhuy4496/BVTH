@@ -990,13 +990,13 @@ section {
 	position: absolute;
     bottom: -130px;
     width: 380px;
-    left: 115px;
+    left: 100px;
 }
 
 .lich-left .content {
 	position: absolute;
     top: 200px;
-    left: 30%;
+    left: 28%;
     width: 250px;
 }
 
@@ -3178,17 +3178,22 @@ span.post-meta-bottom a {
 		display: none;
 	}
 	.lich-left .content {
-		left: 2%;
+		position: relative;
+		width: unset;
+		text-align: center;
+		top: unset;
+		left: unset;
+		margin-bottom: 15px;
 	}
 }
 
 @media (max-width: 768px) {
-	.lich-left {
+	/* .lich-left {
 		display: none;
-	}
-	.lich-right #medical-appointment {
+	} */
+	/* .lich-right #medical-appointment {
 		width: 70%;
-	}
+	} */
 	.lich-right #medical-appointment::before {
 		display: none;
 	}

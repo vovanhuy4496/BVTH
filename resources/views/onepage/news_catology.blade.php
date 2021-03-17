@@ -59,7 +59,8 @@
                                     <?php 
                                         $catalogues_name = json_decode($news->first()->catalogues_name);
                                         foreach($catalogues_name as $name) {
-                                            echo '<li><a href="#" rel="tag">'.$name.'</a></li>';
+                                            echo '<li><a>'.$name.'</a></li>';
+                                            // echo '<li><a href="" rel="tag">'.$name.'</a></li>';
                                         }
                                     ?>
                                 </ul>
@@ -97,7 +98,8 @@
                             <?php 
                                     $catalogues_name = json_decode($new->catalogues_name);
                                     foreach($catalogues_name as $name) {
-                                        echo '<li><a href="#" rel="tag">'.$name.'</a></li>';
+                                        echo '<li><a>'.$name.'</a></li>';
+                                        // echo '<li><a href="" rel="tag">'.$name.'</a></li>';
                                     }
                                 ?>
                         </ul>

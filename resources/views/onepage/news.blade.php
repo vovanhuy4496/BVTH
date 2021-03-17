@@ -79,7 +79,7 @@
                                 $url = URL::to("/tin-tuc").'/chi-tiet'.'/'.$item->id.'/'.$url;
                             ?>
                             <div class="row flex-content content-right">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12 title-desktop">
                                     <h5 class="text-white">
                                         <a href="{{ $url }}">
                                             {{ $item->title }}</a>
@@ -87,12 +87,16 @@
                                 </div>
                                 <div class="pr-3 col-sm-6">
                                     <div class="fs-12 catalogues-news">
+                                        <h5 class="text-white title-mobile">
+                                            <a href="{{ $url }}">
+                                                {{ $item->title }}</a>
+                                        </h5>
                                         <?php 
-                                        $catalogues_name = json_decode($item->catalogues_name);
-                                        foreach($catalogues_name as $name) {
-                                            echo '<span class="mr-2">'.$name.'</span>';
-                                        }
-                                    ?>
+                                            $catalogues_name = json_decode($item->catalogues_name);
+                                            foreach($catalogues_name as $name) {
+                                                echo '<span class="mr-2">'.$name.'</span>';
+                                            }
+                                        ?>
                                         <span class="time-news">{{ $item->created_at->format('d/m/Y') }}</span>
                                     </div>
                                 </div>
@@ -146,7 +150,7 @@
                                 $url = preg_replace("/\s+/", '-', $url);
                                 $url = URL::to("/tin-tuc").'/chi-tiet'.'/'.$new->new_id.'/'.$url;
                             ?>
-                            <div class="col-sm-4 img-grid grid-margin pr_5">
+                            <div class="col-sm-4 img-grid grid-margin pr_5 width_70">
                                 <div class="position-relative">
                                     <div class="rotate-img">
                                         <a href="{{ $url }}">
@@ -159,7 +163,7 @@
                                     </div> -->
                                 </div>
                             </div>
-                            <div class="col-sm-8 grid-margin pl_5">
+                            <div class="col-sm-8 grid-margin pl_5 width_100">
                                 <h5 class="mb-2">
                                     <a href="{{ $url }}">
                                         {{ $new->new_title }}
