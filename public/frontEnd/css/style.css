@@ -3173,6 +3173,9 @@ span.post-meta-bottom a {
 }
 
 @media (max-width: 992px) {
+	.footer-slider {
+		margin-top: 40px;
+	}
 	.lich-left img {
 		display: none;
 	}

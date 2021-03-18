@@ -95,9 +95,9 @@ $(document).ready(function() {
         responsive: true,
         items: 4,
         itemsDesktop: [1199, 4],
-        itemsDesktopSmall: [980, 3],
-        itemsTablet: [768, 2],
-        itemsMobile: [479, 1]
+        itemsDesktopSmall: [980, 4],
+        itemsTablet: [768, 4],
+        itemsMobile: [479, 2]
     });
     $("#owl-thietbi").owlCarousel({
         slideSpeed: 200,

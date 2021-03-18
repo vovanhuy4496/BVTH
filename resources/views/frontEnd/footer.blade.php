@@ -18,7 +18,7 @@
                 $footerSlider = AdBannerFooter::where('status', 1)->orderBy('sort')->get();
             ?>
             @if (!$footerSlider->isEmpty())
-            <div class="col-md-6">
+            <div class="col-md-6 footer-slider">
                 <div class="widget">
                     <h5 class="widgetheading">LIÊN KẾT HỢP TÁC</h5>
                     <div id="owl-footer" class="owl-carousel owl-theme">
