@@ -237,7 +237,7 @@
                                         <div class="content">
                                             <a href="{{ $item->url }}">
                                                 <div class="wrap-content">
-                                                    <img class="img-responsive"
+                                                    <img class="img-responsive img-icon"
                                                         src="{{ URL::route('resizes', array('size' => 'thumbnailIcon', 'imagePath' => 'BVTH/CatalogDepartments/'.$item->icon)) }}"
                                                         title="{{ $item->title }}" alt="{{ $item->title }}">
                                                     <p>{{ $item->title }}</p>
@@ -250,7 +250,7 @@
                                         <div class="content">
                                             <a href="{{ $item->url }}">
                                                 <div class="wrap-content">
-                                                    <img class="img-responsive"
+                                                    <img class="img-responsive img-icon"
                                                         src="{{ URL::route('resizes', array('size' => 'thumbnailIcon', 'imagePath' => 'BVTH/CatalogDepartments/'.$item->icon)) }}"
                                                         title="{{ $item->title }}" alt="{{ $item->title }}">
                                                     <p>{{ $item->title }}</p>
@@ -289,13 +289,14 @@
             <div class="col-xs-12 col-sm-{{ count($news) == 1 ? '12' : '5' }} ">
                 <div class="info_news_one">
                     <a class="thumb_cgia" href="{{ $news->first()->url }}">
-                        <img class="img-responsive"
+                        <img class="img-responsive border-img"
                             src="{{ URL::route('resizes', array('size' => 'larageNews', 'imagePath' => 'BVTH/Newspaper/'.$news->first()->image_file_name)) }}" />
                     </a>
                     <div class="bg_white box_news_one pt_15 pb_15 pl_15 pr_15"> <a title="{{ $news->first()->title }}"
                             href="{{ $news->first()->url }}">
                             <h3 class="mt_0 mb_10 sz_18 cl_33 line-2">{{ $news->first()->title }}</h3>
                         </a>
+                        <div class="text-justify">{{ $news->first()->created_at->format('d/m/Y') }}</div>
                         <div class="mt_10 text-justify line-3">{{ $news->first()->describe }}</div>
                         <div class="clear"></div>
                     </div>
@@ -308,25 +309,20 @@
                 <div class="row mb_0">
                     <div class="col-xs-6 col-sm-4 col-md-4 mb_15 pr_5">
                         <a class="thumb_cgia" href="{{ $item->url }}">
-                            <img class="img-responsive"
+                            <img class="img-responsive border-img"
                                 src="{{ URL::route('resizes', array('size' => 'mediumNewsCatalogy', 'imagePath' => 'BVTH/Newspaper/'.$item->image_file_name)) }}" />
                         </a>
                     </div>
                     <div class="col-xs-6 col-sm-8 col-md-8 pl_5">
                         <div class="info_chuyengia">
-                            <h3 class="sz_15 mt_0 mb_10"><a title="{{ $item->title }}" href="{{ $item->url }}">
-                                    <div class=" mb_5 cl_head mtr_5 line-2">{{ $item->title }}</div>
-                                </a></h3>
+                            <h3 class="sz_15 mt_0 mb_10">
+                                <a title="{{ $item->title }}" href="{{ $item->url }}">
+                                    <div class="cl_head mtr_5 line-2">{{ $item->title }}</div>
+                                </a>
+                            </h3>
+                            <div>{{ $item->created_at->format('d/m/Y') }}</div>
                             <div class="mt_5 line-2">{{ $item->describe }}</div>
                             <div class="text-right mt_0 mb_10">
-                                <!-- <a class="cl_33 font_hel text-uppercase" target="_blank"
-                                    href="http://www.facebook.com/sharer/sharer.php?u={{ $item->url }}">
-                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
-                                </a> -->
-                                <!-- <a rel="nofollow" class="cl_33 text-uppercase" title="{{ $item->title }}"
-                                    href="{{ $item->url }}">
-                                    <u>Xem chi tiết</u>
-                                </a> -->
                             </div>
                             <div class="clear"></div>
                         </div>
