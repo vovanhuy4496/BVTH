@@ -16,7 +16,7 @@
     <link href="{{ asset('frontEnd/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('frontEnd/css/fancybox/fancybox.css') }}" rel="stylesheet">
     <link href="{{ asset('frontEnd/css/flexslider.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontEnd/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontEnd/css/style.css?t=[timestamp]') }}" rel="stylesheet">
     <link href="{{ asset('frontEnd/css/bootstrap-datepicker.css') }}" rel="stylesheet">
     <link href="{{ asset('frontEnd/css/datetimepicker.css') }}" rel="stylesheet">
     @yield('style')
