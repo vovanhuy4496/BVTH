@@ -36,7 +36,7 @@
                             GIÁ</a></div>
                 </div>
             </div>
-            <div class="home_service_mb lh_12 text-center bg_white mb_30 pl_15 pr_15 pt_15 pb_15">
+            <div class="home_service_mb lh_12 text-center bg_white mb_30 pl_15 pr_15">
                 <div class="item "><a href="{{ url('chu-de-tu-van') }}"
                         title="TƯ VẤN KHÁM BỆNH"><span class="icon_img"><img class="" alt="TƯ VẤN KHÁM BỆNH"
                                 src="{{ asset('frontEnd/img/i_tuvan.png') }}"></span>
@@ -50,12 +50,12 @@
                 <div class="item "><a href="http://his.benhvientanhung.com:84/KetQua/Login"
                         title="TRA CỨU KẾT QUẢ"><span class="icon_img"><img class="" alt="TRA CỨU KẾT QUẢ"
                                 src="{{ asset('frontEnd/img/i_tracuu.png') }}"></span>
-                        <div class="cl_33 mb_15  text-uppercase  sz_10">TRA CỨU KẾT QUẢ</div>
+                        <div class="cl_33  text-uppercase  sz_10">TRA CỨU KẾT QUẢ</div>
                     </a></div>
                 <div class="item "><a href="{{ url('bang-gia-dich-vu-ky-thuat') }}"
                         title="BẢNG GIÁ"><span class="icon_img"><img class="" alt="BẢNG GIÁ"
                                 src="{{ asset('frontEnd/img/i_banggia.png') }}"></span>
-                        <div class="cl_33 mb_15  text-uppercase  sz_10">BẢNG GIÁ</div>
+                        <div class="cl_33  text-uppercase  sz_10">BẢNG GIÁ</div>
                     </a>
                 </div>
             </div>

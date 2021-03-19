@@ -1396,7 +1396,7 @@ header ul.nav li ul li ul {
 
 ul.nav li.dropdown a {
 	z-index: 1000;
-	display: block;
+	display: inline-block;
 }
 
 select.selectmenu {
@@ -3222,7 +3222,7 @@ span.post-meta-bottom a {
 		justify-items: stretch;
 		gap: 1px;
 		border-radius: 10px;
-		box-shadow: 0 1px 3px #ccc;
+		/* box-shadow: 0 1px 3px #ccc; */
 		width: 100%;
 	}
 	
