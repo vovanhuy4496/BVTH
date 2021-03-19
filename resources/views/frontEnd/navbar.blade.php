@@ -52,6 +52,7 @@
                                 bệnh</a></li>
                         <li><a class="waves-effect waves-dark none-active" href="{{ url('goi-kham-suc-khoe') }}">Gói
                                 khám sức khoẻ</a></li>
+                        <li><a class="waves-effect waves-dark none-active" href="{{ url('chu-de-tu-van') }}">Tư vấn khám bệnh</a></li>
                     </ul>
                 </li>
                 <li class="{{ Request::path() == 'bang-gia-dich-vu-ky-thuat' ? 'active' : '' }}"><a
@@ -59,7 +60,8 @@
                 <li
                     class="{{ Request::path() == 'tin-tuc' ? 'active' : '' }} {{ Request::is('tin-tuc/*') ? 'active' : ''}}">
                     <a href="{{ url('tin-tuc') }}">Tin
-                        tức</a></li>
+                        tức</a>
+                </li>
                 <li class="{{ Request::path() == 'tuyen-dung' ? 'active' : '' }}"><a
                         href="{{ url('tuyen-dung') }}">Tuyển dụng</a></li>
                 <li class="{{ Request::path() == 'lien-he' ? 'active' : '' }}"><a href="{{ url('lien-he') }}">Liên

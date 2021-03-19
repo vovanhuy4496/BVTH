@@ -49,6 +49,9 @@
                 if ($path == 'goi-kham-suc-khoe') {
                     return 'active';
                 }
+                if ($path == 'chu-de-tu-van') {
+                    return 'active';
+                }
             break;
         }
     }

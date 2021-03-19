@@ -25,6 +25,10 @@ h3 {
 	line-height: 25px !important;
 }
 
+.sz_10 {
+    font-size: 10px!important;
+}
+
 #t_tintuc {
 	background: #f0f2f1;
 }
@@ -3204,13 +3208,39 @@ span.post-meta-bottom a {
 	}
 }
 
+.home_service_mb {
+	display: none;
+}
+
 @media (max-width: 768px) {
-	/* .lich-left {
+	.home_service_dk {
 		display: none;
-	} */
-	/* .lich-right #medical-appointment {
-		width: 70%;
-	} */
+	}
+	.home_service_mb {
+		display: grid;
+		grid-template-columns: 50% 50%;
+		justify-items: stretch;
+		gap: 1px;
+		border-radius: 10px;
+		box-shadow: 0 1px 3px #ccc;
+		width: 100%;
+	}
+	
+	.home_service_mb .icon_img {
+		background: #0342a7;
+		display: inline-block;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		overflow: hidden;
+		margin-bottom: 5px;
+	}
+	
+	.home_service_mb .icon_img img {
+		height: 50%;
+		width: auto;
+		margin-top: 25%;
+	}
 	.lich-right #medical-appointment::before {
 		display: none;
 	}

@@ -11,7 +11,7 @@
 <section id="home_service">
     <div class="container">
         <div class="row mb_0">
-            <div class="col-md-7 col-sm-12 col-xs-12 mt_45 mt_10mb hbox_icon">
+            <div class="col-md-7 col-sm-12 col-xs-12 mt_45 mt_10mb hbox_icon home_service_dk">
                 <div class="bvta_name">
                     <h3 class=" mt_0 sz_24 font_hel cl_brand3 lt_sp2">BỆNH VIỆN ĐA KHOA TÂN HƯNG</h3>
                     <div class="bvta_desc mt_0 font_hel cl_brand3 mb_45  lt_sp2">Khám, tư vấn và điều trị
@@ -34,6 +34,29 @@
                     <div class="service_item "><a href="{{ url('bang-gia-dich-vu-ky-thuat') }}" title="BẢNG GIÁ"><img
                                 class="mb_10" alt="BẢNG GIÁ" src="{{ asset('frontEnd/img/i_banggia.png') }}"><br>BẢNG
                             GIÁ</a></div>
+                </div>
+            </div>
+            <div class="home_service_mb lh_12 text-center bg_white mb_30 pl_15 pr_15 pt_15 pb_15">
+                <div class="item "><a href="{{ url('chu-de-tu-van') }}"
+                        title="TƯ VẤN KHÁM BỆNH"><span class="icon_img"><img class="" alt="TƯ VẤN KHÁM BỆNH"
+                                src="{{ asset('frontEnd/img/i_tuvan.png') }}"></span>
+                        <div class="cl_33 mb_15  text-uppercase  sz_10">TƯ VẤN KHÁM BỆNH</div>
+                    </a></div>
+                <div class="item "><a href="{{ url('doi-ngu-bac-si') }}"
+                        title="CHUYÊN GIA - BÁC SĨ"><span class="icon_img"><img class="" alt="CHUYÊN GIA - BÁC SĨ"
+                                src="{{ asset('frontEnd/img/i_bacsi.png') }}"></span>
+                        <div class="cl_33 mb_15  text-uppercase  sz_10">CHUYÊN GIA - BÁC SĨ</div>
+                    </a></div>
+                <div class="item "><a href="http://his.benhvientanhung.com:84/KetQua/Login"
+                        title="TRA CỨU KẾT QUẢ"><span class="icon_img"><img class="" alt="TRA CỨU KẾT QUẢ"
+                                src="{{ asset('frontEnd/img/i_tracuu.png') }}"></span>
+                        <div class="cl_33 mb_15  text-uppercase  sz_10">TRA CỨU KẾT QUẢ</div>
+                    </a></div>
+                <div class="item "><a href="{{ url('bang-gia-dich-vu-ky-thuat') }}"
+                        title="BẢNG GIÁ"><span class="icon_img"><img class="" alt="BẢNG GIÁ"
+                                src="{{ asset('frontEnd/img/i_banggia.png') }}"></span>
+                        <div class="cl_33 mb_15  text-uppercase  sz_10">BẢNG GIÁ</div>
+                    </a>
                 </div>
             </div>
         </div>
