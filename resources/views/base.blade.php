@@ -43,6 +43,27 @@
 
 <body>
     <div id="wrapper">
+        <?php
+            use App\Models\Notify;
+            $notify = Notify::where('status', 1)->orderBy('sort', 'DESC')->take(1)->first();
+        ?>
+        @if ($notify)
+        <div class="container-fluid">
+            <div class="row mb_0">
+                <div class="alert alert-danger alert-danger alert-dismissible mb_0" role="alert">
+                    <button type="button" onclick="this.parentNode.parentNode.removeChild(this.parentNode);"
+                        class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span
+                            class="sr-only">Close</span></button>
+                    <strong><i class="fa fa-warning"></i> {{ $notify->title }}!</strong>
+                    <marquee>
+                        <p style="font-family: Impact; font-size: 14pt" class="mb_0">
+                            {!! html_entity_decode($notify->content) !!}
+                        </p>
+                    </marquee>
+                </div>
+            </div>
+        </div>
+        @endif
         <!-- start header -->
         <header>
             <section class="contactInfo">
