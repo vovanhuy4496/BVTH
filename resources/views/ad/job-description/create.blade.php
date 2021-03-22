@@ -27,7 +27,7 @@
                             <div class="form-group row bvth-status">
                                 <label class="mr_10">Trạng thái: </label>
                                 <label style="width: 30px;" class="label-status mr_10">Hiện</label>
-                                <input type="checkbox" class="bvth-checkbox" name="status" value="1">
+                                <input type="checkbox" checked class="bvth-checkbox" name="status" value="1">
                             </div>
 
                             <div class="form-group row">
