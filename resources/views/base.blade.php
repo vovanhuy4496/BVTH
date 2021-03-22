@@ -48,7 +48,7 @@
             $notify = Notify::where('status', 1)->orderBy('sort', 'DESC')->take(1)->first();
         ?>
         @if ($notify)
-        <div class="container-fluid">
+        <div class="container-fluid notifyFixed" data-toggle="modal" data-target="#notifyFixed">
             <div class="row mb_0">
                 <div class="alert alert-danger alert-danger alert-dismissible mb_0" role="alert">
                     <button type="button" onclick="this.parentNode.parentNode.removeChild(this.parentNode);"
@@ -60,6 +60,58 @@
                             {!! html_entity_decode($notify->content) !!}
                         </p>
                     </marquee>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="notifyFixed" tabindex="-1" role="dialog" aria-labelledby="notifyFixedLabel"
+            aria-hidden="true">
+            <div class="modal-dialog notify-fixed" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="notifyFixedLabel">Thông báo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <?php
+                            $notifies = Notify::where('status', 1)->orderBy('sort', 'DESC')->get();
+                        ?>
+                        @foreach($notifies as $item)
+                        <div class="conntent-notifies">
+                            <h4>{{ $item->title }}</h4>
+                            <p style="font-family: Impact; font-size: 14pt" class="mb_0">
+                                @if (strlen($item->content) > 500)
+                                <?php
+                                    $string = $item->content;
+
+                                    $stringCut = substr($string, 0, 500);
+                                    $endPoint = strrpos($stringCut, ' ');
+
+                                    $string = $endPoint ? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                                    $string .= '<a class="read-more-notify" item="'.$item->id.'" href="#"><span>...</span> Xem thêm</a>';
+                                ?>
+                            <div class="content-notify">
+                                <div class="notify-show" id="hide-notify-{{ $item->id }}">
+                                    {!! html_entity_decode($string) !!}
+                                </div>
+                                <div class="notify-hide" id="show-notify-{{ $item->id }}">
+                                    {!! html_entity_decode($item->content) !!}
+                                    <a class="read-less-notify" item="{{ $item->id }}" href="#">Rút gọn</a>
+                                </div>
+                            </div>
+                            @else
+                            {!! html_entity_decode($item->content) !!}
+                            @endif
+                            </p>
+                        </div>
+                        @endforeach
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -146,6 +198,20 @@ $(document).ready(function() {
         itemsTablet: [768, 2],
         itemsMobile: [479, 1]
     });
+});
+</script>
+<script>
+$('.read-more-notify').click(function() {
+    var id = $(this).attr('item');
+    $('#hide-notify-' + id).hide();
+    $('#show-notify-' + id).hide();
+    $('#show-notify-' + id).show();
+});
+$('.read-less-notify').click(function() {
+    var id = $(this).attr('item');
+    $('#hide-notify-' + id).hide();
+    $('#show-notify-' + id).hide();
+    $('#hide-notify-' + id).show();
 });
 </script>
 @yield('javascript')

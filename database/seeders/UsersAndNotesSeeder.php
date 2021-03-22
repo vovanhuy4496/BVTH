@@ -126,7 +126,7 @@ class UsersAndNotesSeeder extends Seeder
 
         $paragraphs = $faker->paragraphs(rand(10, 30));
         $title = $faker->sentence(5,true);
-        $content = "<h1>".$title."</h1>";
+        $content = "<h4>".$title."</h4>";
         foreach ($paragraphs as $para) {
             $content .= "<p>".$para."</p>";
         }
@@ -135,7 +135,7 @@ class UsersAndNotesSeeder extends Seeder
         for($i = 0; $i<$numberOfNew; $i++){
             $paragraphs = $faker->paragraphs(rand(10, 30));
             $title = $faker->sentence(5,true);
-            $content = "<h1>".$title."</h1>";
+            $content = "<h4>".$title."</h4>";
             foreach ($paragraphs as $para) {
                 $content .= "<p>".$para."</p>";
             }
@@ -159,7 +159,7 @@ class UsersAndNotesSeeder extends Seeder
         for($i = 0; $i<$numberOfDoctor; $i++){
             $paragraphs = $faker->paragraphs(rand(10, 30));
             $title = $faker->sentence(4,true);
-            $content = "<h1>".$title."</h1>";
+            $content = "<h4>".$title."</h4>";
             foreach ($paragraphs as $para) {
                 $content .= "<p>".$para."</p>";
             }
@@ -182,7 +182,8 @@ class UsersAndNotesSeeder extends Seeder
         for($i = 0; $i<$numberOfNotifies; $i++){
             $paragraphs = $faker->paragraphs(rand(10, 30));
             $title = $faker->sentence(4,true);
-            $content = "<h1>".$title."</h1>";
+            $content = "";
+            // $content = "<h4>".$title."</h4>";
             foreach ($paragraphs as $para) {
                 $content .= "<p>".$para."</p>";
             }
@@ -222,7 +223,7 @@ class UsersAndNotesSeeder extends Seeder
         for($i = 0; $i<$numberOfInfrastructure; $i++){
             $paragraphs = $faker->paragraphs(rand(10, 30));
             $title = $faker->sentence(5,true);
-            $content = "<h1>".$title."</h1>";
+            $content = "<h4>".$title."</h4>";
             foreach ($paragraphs as $para) {
                 $content .= "<p>".$para."</p>";
             }
@@ -284,7 +285,7 @@ class UsersAndNotesSeeder extends Seeder
         for($i = 0; $i<15; $i++){
             $paragraphs = $faker->paragraphs(rand(10, 30));
             $title = $faker->sentence(5,true);
-            $content = "<h1>".$title."</h1>";
+            $content = "<h4>".$title."</h4>";
             foreach ($paragraphs as $para) {
                 $content .= "<p>".$para."</p>";
             }
@@ -317,7 +318,7 @@ class UsersAndNotesSeeder extends Seeder
         for($i = 0; $i<30; $i++){
             $paragraphs = $faker->paragraphs(rand(10, 30));
             $title = $faker->sentence(5,true);
-            $content = "<h1>".$title."</h1>";
+            $content = "<h4>".$title."</h4>";
             foreach ($paragraphs as $para) {
                 $content .= "<p>".$para."</p>";
             }
@@ -345,7 +346,7 @@ class UsersAndNotesSeeder extends Seeder
         for($i = 0; $i<10; $i++){
             $paragraphs = $faker->paragraphs(rand(10, 30));
             $title = $faker->sentence(5,true);
-            $content = "<h1>".$title."</h1>";
+            $content = "<h4>".$title."</h4>";
             foreach ($paragraphs as $para) {
                 $content .= "<p>".$para."</p>";
             }

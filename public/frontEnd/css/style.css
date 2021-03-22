@@ -15,6 +15,34 @@ body {
 	line-height: 1.6em;
 	color: #656565;
 }
+.notifyFixed {
+	cursor: pointer;
+}
+@media (min-width: 768px) {
+	.notify-fixed {
+		width: 700px;
+	}
+}
+.notify-fixed .modal-body {
+	padding: 0 20px 20px;
+}
+.notify-fixed .modal-body .conntent-notifies:last-child {
+	border-bottom: 0;
+	padding-bottom: 0;
+}
+.conntent-notifies {
+	padding-bottom: 10px;
+    border-bottom: 2px solid #1691e2;
+}
+.conntent-notifies p {
+	margin-bottom: 0;
+}
+.read-more-notify span {
+	color: #656565;
+}
+.notify-hide {
+	display: none;
+}
 img {
 	object-fit: fill;
 }
