@@ -37,13 +37,13 @@
                 </div>
             </div>
             <div class="home_service_mb lh_12 text-center bg_white mb_30 pl_15 pr_15">
-                <div class="item "><a href="{{ url('chu-de-tu-van') }}"
-                        title="TƯ VẤN KHÁM BỆNH"><span class="icon_img"><img class="" alt="TƯ VẤN KHÁM BỆNH"
+                <div class="item "><a href="{{ url('chu-de-tu-van') }}" title="TƯ VẤN KHÁM BỆNH"><span
+                            class="icon_img"><img class="" alt="TƯ VẤN KHÁM BỆNH"
                                 src="{{ asset('frontEnd/img/i_tuvan.png') }}"></span>
                         <div class="cl_33 mb_15  text-uppercase  sz_10">TƯ VẤN KHÁM BỆNH</div>
                     </a></div>
-                <div class="item "><a href="{{ url('doi-ngu-bac-si') }}"
-                        title="CHUYÊN GIA - BÁC SĨ"><span class="icon_img"><img class="" alt="CHUYÊN GIA - BÁC SĨ"
+                <div class="item "><a href="{{ url('doi-ngu-bac-si') }}" title="CHUYÊN GIA - BÁC SĨ"><span
+                            class="icon_img"><img class="" alt="CHUYÊN GIA - BÁC SĨ"
                                 src="{{ asset('frontEnd/img/i_bacsi.png') }}"></span>
                         <div class="cl_33 mb_15  text-uppercase  sz_10">CHUYÊN GIA - BÁC SĨ</div>
                     </a></div>
@@ -52,8 +52,8 @@
                                 src="{{ asset('frontEnd/img/i_tracuu.png') }}"></span>
                         <div class="cl_33  text-uppercase  sz_10">TRA CỨU KẾT QUẢ</div>
                     </a></div>
-                <div class="item "><a href="{{ url('bang-gia-dich-vu-ky-thuat') }}"
-                        title="BẢNG GIÁ"><span class="icon_img"><img class="" alt="BẢNG GIÁ"
+                <div class="item "><a href="{{ url('bang-gia-dich-vu-ky-thuat') }}" title="BẢNG GIÁ"><span
+                            class="icon_img"><img class="" alt="BẢNG GIÁ"
                                 src="{{ asset('frontEnd/img/i_banggia.png') }}"></span>
                         <div class="cl_33  text-uppercase  sz_10">BẢNG GIÁ</div>
                     </a>
@@ -494,12 +494,39 @@ $(document).ready(function() {
                     'appointment-date': $('.appointment-date').val(),
                 },
                 success: function(data, status) {
-                    console.log(data);
-                    console.log(status);
+                    // console.log(data);
+                    // console.log(status);
                     $('.notifySubmit').click();
-                    $('#notifySubmit .modal-body').html('<p>' +
-                        data +
-                        '</p>');
+                    if (data == 'Success') {
+                        var html =
+                            '<div class="pl_15 pr_15"><div class="cl_brand text-center sz_20 font_helB text-center">GỬI THÔNG TIN THÀNH CÔNG</div><div class="mt_10 ">Kính gửi Quý khách<p>Cảm ơn Quý khách đã gửi yêu cầu đặt lịch hẹn khám tại Bệnh viện đa khoa Tân Hưng</br>Chúng tôi đã nhận được yêu cầu từ Quý khách và <span class="strong">sẽ liên hệ với Quý khách theo số điện thoại ' +
+                            $('.cus_phone').val() +
+                            ' để xác nhận lịch hẹn trong ngày</span>.</p></div> <div class="cl_brand cl_33 text-center mt_10 sz_20 font_helB text-center">THÔNG TIN ĐẶT HẸN CỦA QUÝ KHÁCH</div> </div>';
+                        html = html + '<div class="pt_15 pl_15 pr_15">';
+                        html = html + '<p>Họ tên: ' + $('.cus_name').val() + '</p>';
+                        html = html + '<p>Giới tính: ' + $('.cus_gender').val() + '</p>';
+                        html = html + '<p>Số điện thoại: ' + $('.cus_phone').val() + '</p>';
+                        html = html + '<p>Địa chỉ email: ' + $('.cus_email').val() + '</p>';
+                        html = html + '<p>Ngày sinh: ' + $('.cus_birth').val() + '</p>';
+                        html = html + '<p>Khoa phòng: ' + $('select.department :selected')
+                            .text() + '</p>';
+                        html = html + '<p>Bác sĩ: ' + $('select.doctor :selected').text() +
+                            '</p>';
+                        html = html + '<p>Triệu chứng: ' + $('.describe_symptoms').val() +
+                            '</p>';
+                        html = html + '<p>Thời gian hẹn khám: ' + $('.appointment-date')
+                            .val() +
+                            '</p></br>';
+                        html = html +
+                            '<p>Lịch hẹn này có thể thay đổi tuỳ theo lịch làm việc còn trống của Bác sĩ.</p>'
+                        html = html +
+                            '<p>Cảm ơn Quý khách đã tin tưởng chọn Bệnh viện Đa khoa Tân Hưng là nơi cung cấp dịch vụ chăm sóc sức khỏe của mình!</p>'
+                        html = html + '<p>Trân trọng.</p>'
+                        html = html + '</div>';
+                        $('#notifySubmit .modal-body').html(html);
+                    } else {
+                        $('#notifySubmit .modal-body').html('<p>' + data + '</p>');
+                    }
                 },
                 error: function(xhr, desc, err) {
                     console.log("error");

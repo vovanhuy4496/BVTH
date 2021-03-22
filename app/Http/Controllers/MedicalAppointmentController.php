@@ -73,17 +73,18 @@ class MedicalAppointmentController extends Controller
                                             ->where('appointment_date', $appointmentDate)
                                             ->first();
             if ($checkStatus) {
-                return response()->json('Bác sĩ "'.$doctor.'" đã có lịch khám vào lúc "'.$checkStatus->appointment_date.'".Bạn vui lòng chọn khung giờ khác ! Xin cảm ơn !');
+                $doctor = DoctorBvth::find($doctor);
+
+                return response()->json('Bác sĩ "'.$doctor->name.'" đã có lịch khám vào lúc "'.$appointmentDate.'". Bạn vui lòng chọn khung giờ khác ! Xin cảm ơn !');
             }
-        } else {
-            $checkStatus = MedicalAppointment::where('status', 0)
-                                            ->where('phone', $phone)
-                                            ->where('name', $name)
-                                            ->where('appointment_date', $appointmentDate)
-                                            ->first();
-            if ($checkStatus) {
-            return response()->json('Bạn đã có lịch khám vào lúc "'.$checkStatus->appointment_date.'".Vui lòng chọn khung giờ khác ! Xin cảm ơn !');
-            }
+        }
+        $checkStatus = MedicalAppointment::where('status', 0)
+                                        ->where('phone', $phone)
+                                        ->where('name', $name)
+                                        ->where('appointment_date', $appointmentDate)
+                                        ->first();
+        if ($checkStatus) {
+            return response()->json('Bạn đã có lịch khám vào lúc "'.$appointmentDate.'". Vui lòng chọn khung giờ khác ! Xin cảm ơn !');
         }
 
         $sort = MedicalAppointment::max('sort');
@@ -143,8 +144,8 @@ class MedicalAppointmentController extends Controller
                 $message->setBody($content,'text/html');
             });
         }
-
-        return response()->json('Bạn đã đăng ký khám tại bệnh viện Tân Hưng thành công !');
+        return response()->json('Success');
+        // return response()->json('Bạn đã đăng ký khám tại bệnh viện Tân Hưng thành công !');
     }
 
     /**
