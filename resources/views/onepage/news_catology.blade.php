@@ -54,6 +54,7 @@
                                     <h2 class="mt_10 mb_15 sz_18 cl_33 line-2">
                                         {{ $news->first()->title }}
                                     </h2>
+                                    <p class="time-news">{{ $news->first()->created_at->format('d/m/Y') }}</p>
                                 </a>
                                 <ul class="div_tag">
                                     <?php 
@@ -93,6 +94,7 @@
                     <div class="col-sm-12 col-xs-6 item noleft_mb text-justify">
                         <a class="title_post" title="{{ $new->title }}" href="{{ $url }}">
                             <h2 class="mtr_5 mb_15 mb_5mb sz_16 cl_33 line-2">{{ $new->title }}</h2>
+                            <p class="time-news">{{ $new->created_at->format('d/m/Y') }}</p>
                         </a>
                         <ul class="div_tag">
                             <?php 

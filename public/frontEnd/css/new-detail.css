@@ -50,6 +50,11 @@
   text-align: left;
 }
 
+#content-news-catology .title_post .time-news {
+  color: #656565;
+  margin-bottom: 0;
+}
+
 #content-news-catology .item .row {
   margin-bottom: 0;
 }

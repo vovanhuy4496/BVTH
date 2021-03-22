@@ -322,10 +322,10 @@
   transition: 0.6s ease-in-out;
 }
 
-#content-news .rotate-img:hover img {
+/* #content-news .rotate-img:hover img {
   -webkit-transform: rotate(15deg) scale(1.4);
   transform: rotate(15deg) scale(1.4);
-}
+} */
 
 #content-news .text-white a {
   color: #fff;
