@@ -24,7 +24,11 @@ use App\Models\JobDescription;
 use App\Models\RecruitmentArticles;
 use App\Models\ContactDescription;
 use App\Models\ContactWe;
+use App\Models\WriteComment;
+use App\Models\EmailTemplate;
+use App\Models\MedicalAppointment;
 
+use Mail;
 use URL;
 
 class OnePageController extends Controller
@@ -351,6 +355,178 @@ class OnePageController extends Controller
 
         return response()->json('Success');
         // return response()->json('Cảm ơn Quý khách đã gửi thông tin liên hệ đến Bệnh viện đa khoa Tân Hưng. Xin cảm ơn !');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeAppointment(Request $request)
+    {
+        $name = $request->get('cus_name');
+        $email = $request->get('cus_email');
+        $describe_symptoms = $request->get('describe_symptoms');
+        $phone = $request->get('cus_phone');
+        $birth = $request->get('cus_birth');
+        $gender = $request->get('cus_gender');
+        $doctor = $request->get('doctor');
+        $department = $request->get('department');
+        $appointmentDate = $request->get('appointment-date');
+
+        // status: 0 da dang ky, 1 dang kham, 2 da kham xong
+        if (!empty($doctor) || !empty($department)) {
+            $checkStatus = MedicalAppointment::where('status', 0)
+                                            ->where('doctor', $doctor)
+                                            ->where('department', $department)
+                                            ->where('appointment_date', $appointmentDate)
+                                            ->first();
+            if ($checkStatus) {
+                $doctor = DoctorBvth::find($doctor);
+
+                return response()->json('Bác sĩ "'.$doctor->name.'" đã có lịch khám vào lúc "'.$appointmentDate.'". Bạn vui lòng chọn khung giờ khác ! Xin cảm ơn !');
+            }
+        }
+        $checkStatus = MedicalAppointment::where('status', 0)
+                                        ->where('phone', $phone)
+                                        ->where('name', $name)
+                                        ->where('appointment_date', $appointmentDate)
+                                        ->first();
+        if ($checkStatus) {
+            return response()->json('Bạn đã có lịch khám vào lúc "'.$appointmentDate.'". Vui lòng chọn khung giờ khác ! Xin cảm ơn !');
+        }
+
+        $sort = MedicalAppointment::max('sort');
+        $sort = !isset($sort) ? 1 : $sort + 1;
+
+        $medicalAppointment = new MedicalAppointment();
+        $medicalAppointment->name = $name;
+        $medicalAppointment->email = $email;
+        $medicalAppointment->describe_symptoms = $describe_symptoms;
+        $medicalAppointment->phone = $phone;
+        $medicalAppointment->birth = $birth;
+        $medicalAppointment->gender = $gender;
+        $medicalAppointment->doctor = $doctor;
+        $medicalAppointment->department = $department;
+        $medicalAppointment->appointment_date = $appointmentDate;
+        $medicalAppointment->status = 0;
+        $medicalAppointment->sort = $sort;
+        $medicalAppointment->save();
+
+        $template = EmailTemplate::find(2);
+
+        if ($template) {
+            $content = $template->content;
+
+            // thong tin benh nha
+            $patient_information = '<div class="thong-tin-benh-nhan">'.'<p>'.'Họ tên: '.$name.'</p>';
+            $patient_information = $patient_information.'<p>'.'Ngày sinh: '.$birth.'</p>';
+            $patient_information = $patient_information.'<p>'.'Giới tính: '.$gender.'</p>';
+            $patient_information = $patient_information.'<p>'.'Điện thoại: '.$phone.'</p>';
+            $patient_information = $patient_information.'<p>'.'Email: '.$email.'</p>';
+    
+            $department = Department::find($department);
+            $doctor = DoctorBvth::find($doctor);
+    
+            // thong tin dat hen
+            $appointment_information = '<div class="thong-tin-dat-hen">'.'<p>'.'Họ tên: '.$name.'</p>';
+            $appointment_information = $appointment_information.'<p>'.'Chuyên khoa: '.$department->name.'</p>';
+            $appointment_information = $appointment_information.'<p>'.'Bác sĩ: '.$doctor->name.'</p>';
+            $appointment_information = $appointment_information.'<p>'.'Mô tả triệu chứng: '.$describe_symptoms.'</p>';
+            $appointment_information = $appointment_information.'<p>'.'Thời gian khám bệnh: '.$appointmentDate.'</p>';
+    
+            $content = str_replace('<div class="thong-tin-benh-nhan">', $patient_information, $content);
+            $content = str_replace('<div class="thong-tin-dat-hen">', $appointment_information, $content);
+    
+            Mail::send([], [], function ($message) use ($template, $email, $content, $appointmentDate)
+            {
+                $message->to($email);
+                $message->subject($template->subject. ' Ngày: '.$appointmentDate);
+                $message->setBody($content,'text/html');
+            });
+
+            $emailBVTH = 'huyhuyad4496@gmail.com';
+            Mail::send([], [], function ($message) use ($template, $emailBVTH, $content)
+            {
+                $message->to($emailBVTH);
+                $message->subject($template->subject);
+                $message->setBody($content,'text/html');
+            });
+        }
+        return response()->json('Success');
+        // return response()->json('Bạn đã đăng ký khám tại bệnh viện Tân Hưng thành công !');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeComments(Request $request)
+    {
+        $name = $request->get('name');
+        $content = $request->get('content');
+
+        $checkStatus = WriteComment::where('status', 0)
+                                        ->where('content', $content)
+                                        ->where('name', $name)
+                                        ->first();
+        if ($checkStatus) {
+            return response()->json('Bạn đã thêm bình luận này rồi.Vui lòng nhập bình luận khác ! Xin cảm ơn !');
+        }
+
+        $sort = WriteComment::max('sort');
+        $sort = !isset($sort) ? 1 : $sort + 1;
+
+        $writeComment = new WriteComment();
+        $writeComment->name = $name;
+        $writeComment->content = $content;
+        $writeComment->status = 0;
+        $writeComment->sort = $sort;
+        $writeComment->save();
+
+        return response()->json('Bình luận của bạn đã được ghi nhận ! Xin cảm ơn !');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeConsultation(Request $request)
+    {
+        $name = $request->get('name');
+        $phone = $request->get('phone');
+        $email = $request->get('email');
+        $content = $request->get('content');
+        $department = $request->get('department');
+
+        $checkStatus = Consultation::where('status', 0)
+                                        ->where('content', $content)
+                                        ->where('name', $name)
+                                        ->where('phone', $phone)
+                                        ->first();
+        if ($checkStatus) {
+            return response()->json('Bạn đã đặt câu hỏi này rồi ! Vui lòng đặt câu hỏi khác ! Xin cảm ơn !');
+        }
+
+        $sort = Consultation::max('sort');
+        $sort = !isset($sort) ? 1 : $sort + 1;
+
+        $consultation = new Consultation();
+        $consultation->name = $name;
+        $consultation->phone = $phone;
+        $consultation->email = $email;
+        $consultation->content = $content;
+        $consultation->department = $department;
+        $consultation->status = 0;
+        $consultation->sort = $sort;
+        $consultation->save();
+
+        return response()->json('Câu hỏi của bạn đã được ghi nhận ! Xin cảm ơn !');
     }
 
     /**

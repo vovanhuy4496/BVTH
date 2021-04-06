@@ -35,16 +35,25 @@ Route::get('/tuyen-dung', 'OnePageController@recruitment');
 Route::get('/lien-he', 'OnePageController@contact');
 // Route::get('/thong-tin-nhan-su', 'OnePageController@personal_information');
 
-Route::get('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
-Route::post('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
+// Route::get('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
+// Route::post('/medical-appointment-fe', 'MedicalAppointmentController@storeFE');
 
-Route::get('/write-comments-fe', 'WriteCommentController@storeFE');
-Route::post('/write-comments-fe', 'WriteCommentController@storeFE');
+// Route::get('/write-comments-fe', 'WriteCommentController@storeFE');
+// Route::post('/write-comments-fe', 'WriteCommentController@storeFE');
 
-Route::post('/consultation-fe', 'ConsultationController@storeFE');
-Route::post('/consultation-fe', 'ConsultationController@storeFE');
+// Route::get('/consultation-fe', 'ConsultationController@storeFE');
+// Route::post('/consultation-fe', 'ConsultationController@storeFE');
 
-Route::post('/contact-we-fe', 'OnePageController@storeContact');
+Route::get('/medical-appointment-fe', 'OnePageController@storeAppointment');
+Route::post('/medical-appointment-fe', 'OnePageController@storeAppointment');
+
+Route::get('/write-comments-fe', 'OnePageController@storeComments');
+Route::post('/write-comments-fe', 'OnePageController@storeComments');
+
+Route::get('/consultation-fe', 'OnePageController@storeConsultation');
+Route::post('/consultation-fe', 'OnePageController@storeConsultation');
+
+Route::get('/contact-we-fe', 'OnePageController@storeContact');
 Route::post('/contact-we-fe', 'OnePageController@storeContact');
 
 Route::get('/photos-videos', 'OnePageController@get_photos_videos');

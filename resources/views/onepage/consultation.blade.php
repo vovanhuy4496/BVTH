@@ -73,6 +73,9 @@
                 </div>
             </div>
             @endforeach
+            <div class="col-12">
+                <?php echo $consultations->render(); ?>
+            </div>
             @endif
             <div class="col-xs-12 col-sm-12 item_tuvan mt_10 ">
                 <div class="panel panel-default pd_30">
