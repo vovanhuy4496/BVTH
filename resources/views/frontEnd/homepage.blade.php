@@ -294,8 +294,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="more_chuyenkhoa text-center text-uppercase sz_18 div_more mt_20"><a
-                            href="{{ url('danh-sach-chuyen-khoa') }}" rel="nofollow">XEM CÁC CHUYÊN KHOA</a></div>
+                    <!-- <div class="more_chuyenkhoa text-center text-uppercase sz_18 div_more mt_20"><a
+                            href="{{ url('danh-sach-chuyen-khoa') }}" rel="nofollow">XEM CÁC CHUYÊN KHOA</a></div> -->
                 </div>
             </div>
         </div>
